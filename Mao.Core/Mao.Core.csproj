@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\packages\Castle.Core.4.2.1\lib\net45\Castle.Core.dll</HintPath>
     </Reference>
@@ -166,16 +169,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppFolders.cs" />
+    <Compile Include="IAppFolders.cs" />
     <Compile Include="MaoConsts.cs" />
     <Compile Include="MaoCoreModule.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Web\IWebUrlService.cs" />
+    <Compile Include="Web\WebUrlService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Kum.AutoMapper\Kum.AutoMapper.csproj">
+      <Project>{09e13f4c-3385-4248-bdd8-de3bf0fd9a72}</Project>
+      <Name>Kum.AutoMapper</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Kum\Kum.csproj">
       <Project>{a0f296fe-d903-4100-b584-196d73516784}</Project>
       <Name>Kum</Name>

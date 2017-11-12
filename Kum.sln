@@ -35,7 +35,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mao.WebApi", "Mao.WebApi\Ma
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kum.Web.Mvc", "Kum.Web.Mvc\Kum.Web.Mvc.csproj", "{B399010B-8BC7-43AF-BA67-94AF348F9463}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kum.FluentMigrator", "Kum.FluentMigrator\Kum.FluentMigrator.csproj", "{081D9563-FC36-4C3E-80BD-06E9045E0DCF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kum.FluentMigrator", "Kum.FluentMigrator\Kum.FluentMigrator.csproj", "{081D9563-FC36-4C3E-80BD-06E9045E0DCF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kum.Owin", "Kum.Owin\Kum.Owin.csproj", "{41E384EA-4ED6-40C0-ADB9-F641B0B1D0B5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -103,6 +105,10 @@ Global
 		{081D9563-FC36-4C3E-80BD-06E9045E0DCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{081D9563-FC36-4C3E-80BD-06E9045E0DCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{081D9563-FC36-4C3E-80BD-06E9045E0DCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41E384EA-4ED6-40C0-ADB9-F641B0B1D0B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41E384EA-4ED6-40C0-ADB9-F641B0B1D0B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41E384EA-4ED6-40C0-ADB9-F641B0B1D0B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41E384EA-4ED6-40C0-ADB9-F641B0B1D0B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -123,6 +129,7 @@ Global
 		{5EB52D3D-09FD-463A-B02A-8D9856BD3724} = {9DEFC645-A62D-4D6C-89BA-49F33366B118}
 		{B399010B-8BC7-43AF-BA67-94AF348F9463} = {76F2E03D-59E6-413F-90E6-DF48B202E3DA}
 		{081D9563-FC36-4C3E-80BD-06E9045E0DCF} = {76F2E03D-59E6-413F-90E6-DF48B202E3DA}
+		{41E384EA-4ED6-40C0-ADB9-F641B0B1D0B5} = {76F2E03D-59E6-413F-90E6-DF48B202E3DA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7D11CABE-E643-4C40-87F7-9470C9E60B9D}

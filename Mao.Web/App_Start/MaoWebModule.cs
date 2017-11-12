@@ -8,6 +8,11 @@ using Abp.Localization.Dictionaries;
 using Abp.Localization.Dictionaries.Xml;
 using Abp.Modules;
 using Abp.Web.Mvc;
+using Mao.WebApi;
+using Mao.Core;
+using Abp.IO;
+using Abp.Configuration.Startup;
+using Mao.Core.Web;
 
 namespace Mao.Web
 {
@@ -38,15 +43,36 @@ namespace Mao.Web
 
             //Configure navigation/menu
             Configuration.Navigation.Providers.Add<MaoNavigationProvider>();
+
+            //Configuration.Modules.AbpWebCommon();
+                //.MultiTenancy.DomainFormat = WebUrlService.WebSiteRootAddress;
+
+
+            //Configuration.Modules.AbpWebCommon();
+                //.MultiTenancy.DomainFormat = WebUrlService.WebSiteRootAddress;
+
         }
 
         public override void Initialize()
         {
             IocManager.RegisterAssemblyByConvention(Assembly.GetExecutingAssembly());
 
-            AreaRegistration.RegisterAllAreas();
+            //AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+
+        }
+        public override void PostInitialize()
+        {
+            var server = HttpContext.Current.Server;
+            var appFolders = IocManager.Resolve<AppFolders>();
+
+            appFolders.SampleProfileImagesFolder = server.MapPath("~/Common/Images/SampleProfilePics");
+            appFolders.TempFileDownloadFolder = server.MapPath("~/Temp/Downloads");
+            appFolders.WebLogsFolder = server.MapPath("~/App_Data/Logs");
+
+            try { DirectoryHelper.CreateIfNotExists(appFolders.TempFileDownloadFolder); } catch { }
         }
     }
 }

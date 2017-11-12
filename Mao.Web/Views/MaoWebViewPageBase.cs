@@ -11,7 +11,7 @@ namespace Mao.Web.Views
     {
         protected MaoWebViewPageBase()
         {
-            LocalizationSourceName = MaoConsts.LocalizationSourceName;
+            //LocalizationSourceName = MaoConsts.LocalizationSourceName;
         }
     }
 }

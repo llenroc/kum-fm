@@ -198,6 +198,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Kum.AutoMapper\Kum.AutoMapper.csproj">
+      <Project>{09e13f4c-3385-4248-bdd8-de3bf0fd9a72}</Project>
+      <Name>Kum.AutoMapper</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Kum.EntityFramework.Common\Kum.EntityFramework.Common.csproj">
       <Project>{f2435d93-295f-4420-8f2b-d079950bb3b0}</Project>
       <Name>Kum.EntityFramework.Common</Name>
@@ -207,7 +211,7 @@
       <Name>Kum.EntityFramework</Name>
     </ProjectReference>
     <ProjectReference Include="..\Kum\Kum.csproj">
-      <Project>{a0f296fe-d903-4100-b584-196d73516784}</Project>
+      <Project>{A0F296FE-D903-4100-B584-196D73516784}</Project>
       <Name>Kum</Name>
     </ProjectReference>
     <ProjectReference Include="..\Mao.Core\Mao.Core.csproj">
