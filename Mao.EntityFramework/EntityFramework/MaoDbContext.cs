@@ -17,7 +17,7 @@ namespace Mao.EntityFramework
          *   But it may cause problems when working Migrate.exe of EF. If you will apply migrations on command line, do not
          *   pass connection string name to base classes. ABP works either way.
          */
-        public IDbSet<Person> Persons { get; set; }
+        public IDbSet<Persons.Person> Persons { get; set; }
 
         public MaoDbContext()
             : base("Default")

@@ -40,7 +40,7 @@ namespace Mao.WebApi
                 })
                 .EnableSwaggerUi(c =>
                 {
-                    c.InjectJavaScript(Assembly.GetAssembly(typeof(MaoWebApiModule)), "Mao.Webapi.Scripts.Swagger-Custom.js");
+                    c.InjectJavaScript(Assembly.GetAssembly(typeof(MaoWebApiModule)), "Mao.Webapi.Scripts.SwaggerCustom.js");
                 });
         }
     }

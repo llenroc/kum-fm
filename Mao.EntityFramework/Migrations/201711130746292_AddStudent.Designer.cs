@@ -13,7 +13,7 @@ namespace Mao.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201711111007474_AddStudent"; }
+            get { return "201711130746292_AddStudent"; }
         }
         
         string IMigrationMetadata.Source

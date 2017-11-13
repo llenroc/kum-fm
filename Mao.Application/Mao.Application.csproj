@@ -185,6 +185,15 @@
     <Compile Include="MaoApplicationModule.cs" />
     <Compile Include="MaoAppServiceBase.cs" />
     <Compile Include="Net\MimeTypes\MimeTypeNames.cs" />
+    <Compile Include="PagedAndSortedInputDto.cs" />
+    <Compile Include="Person\Dtos\CreateOrUpdatePersonInput.cs" />
+    <Compile Include="Person\Dtos\GetPersonForEditOutput.cs" />
+    <Compile Include="Person\Dtos\GetPersonInput.cs" />
+    <Compile Include="Person\Dtos\PersonEditDto.cs" />
+    <Compile Include="Person\Dtos\PersonListDto.cs" />
+    <Compile Include="Person\IPersonAppService.cs" />
+    <Compile Include="Person\Mappers\PersonDtoMapper.cs" />
+    <Compile Include="Person\PersonAppService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

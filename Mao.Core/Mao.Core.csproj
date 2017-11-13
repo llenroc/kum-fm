@@ -173,7 +173,7 @@
     <Compile Include="IAppFolders.cs" />
     <Compile Include="MaoConsts.cs" />
     <Compile Include="MaoCoreModule.cs" />
-    <Compile Include="Person.cs" />
+    <Compile Include="Persons\Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Web\IWebUrlService.cs" />
     <Compile Include="Web\WebUrlService.cs" />
