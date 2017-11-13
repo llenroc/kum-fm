@@ -45,11 +45,14 @@ namespace Mao.Web
             Configuration.Navigation.Providers.Add<MaoNavigationProvider>();
 
             //Configuration.Modules.AbpWebCommon();
-                //.MultiTenancy.DomainFormat = WebUrlService.WebSiteRootAddress;
+            //.MultiTenancy.DomainFormat = WebUrlService.WebSiteRootAddress;
 
 
             //Configuration.Modules.AbpWebCommon();
-                //.MultiTenancy.DomainFormat = WebUrlService.WebSiteRootAddress;
+            //.MultiTenancy.DomainFormat = WebUrlService.WebSiteRootAddress;
+
+            //不做ajax防伪
+            Configuration.Modules.AbpWeb().AntiForgery.IsEnabled = false;
 
         }
 

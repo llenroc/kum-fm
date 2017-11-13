@@ -1,10 +1,4 @@
-﻿
-
-
-
-
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Dynamic;
@@ -21,6 +15,7 @@ using Abp.Linq.Extensions;
 using System.Linq.Dynamic.Core;
 using Mao.Application.Person.Dtos;
 using Mao.Persons;
+using System.Data.Entity;
 
 
 
@@ -61,11 +56,27 @@ namespace Mao.Application.Person
             _personRepository = personRepository;
 
         }
-
-        public  IQueryable<Persons.Person> GetAll(GetPersonInput input)
+        public async Task<PagedResultDto<PersonListDto>> GetAllAsync(GetPersonInput input)
         {
-            return  _personRepository.GetAll();
+            var query = _personRepository.GetAll();
+            //TODO:根据传入的参数添加过滤条件
+
+            var personCount = await query.CountAsync();
+
+            var persons = await query
+            .OrderBy(input.Sorting)
+            .PageBy(input)
+            .ToListAsync();
+
+            var personListDtos = persons.MapTo<List<PersonListDto>>();
+
+
+            return new PagedResultDto<PersonListDto>(
+            personCount,
+            personListDtos
+            );
         }
+
 
 
         public Task<PersonEditDto> BatchDeletePersonAsync(List<int> input)
@@ -120,11 +131,13 @@ namespace Mao.Application.Person
             throw new NotImplementedException();
         }
 
-       
+
 
         Task IPersonAppService.BatchDeletePersonAsync(List<int> input)
         {
             throw new NotImplementedException();
         }
+
+
     }
 }

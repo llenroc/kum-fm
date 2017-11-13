@@ -29,7 +29,13 @@ namespace Mao.Application.Person.Dtos
     public class PersonEditDto
     {
 
-       
+        public string name { get; set; }
+        public int age { get; set; }
+
+        public bool sex { get; set; }
+
+        public DateTime time { get; set; }
+
 
     }
 }

@@ -32,48 +32,48 @@ namespace Mao.Web
     {
         public void Configuration(IAppBuilder app)
         {
-            app.UseAbp();
+            //app.UseAbp();
 
             //app.RegisterDataProtectionProvider();
 
-            app.UseOAuthBearerAuthentication(AccountController.OAuthBearerOptions);
+            //app.UseOAuthBearerAuthentication(AccountController.OAuthBearerOptions);
 
-            app.UseCookieAuthentication(new CookieAuthenticationOptions
-            {
-                AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-                LoginPath = new PathString("/Account/Login")
-            });
+            //app.UseCookieAuthentication(new CookieAuthenticationOptions
+            //{
+            //    AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
+            //    LoginPath = new PathString("/Account/Login")
+            //});
 
-            app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
+            //app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
 
-            //You can remove these lines if you don't like to use two factor auth (while it has no problem if you don't remove)
-            app.UseTwoFactorSignInCookie(DefaultAuthenticationTypes.TwoFactorCookie, TimeSpan.FromMinutes(5));
-            app.UseTwoFactorRememberBrowserCookie(DefaultAuthenticationTypes.TwoFactorRememberBrowserCookie);
+            ////You can remove these lines if you don't like to use two factor auth (while it has no problem if you don't remove)
+            //app.UseTwoFactorSignInCookie(DefaultAuthenticationTypes.TwoFactorCookie, TimeSpan.FromMinutes(5));
+            //app.UseTwoFactorRememberBrowserCookie(DefaultAuthenticationTypes.TwoFactorRememberBrowserCookie);
 
-            if (IsTrue("ExternalAuth.Facebook.IsEnabled"))
-            {
-                app.UseFacebookAuthentication(CreateFacebookAuthOptions());
-            }
+            //if (IsTrue("ExternalAuth.Facebook.IsEnabled"))
+            //{
+            //    app.UseFacebookAuthentication(CreateFacebookAuthOptions());
+            //}
 
-            if (IsTrue("ExternalAuth.Twitter.IsEnabled"))
-            {
-                app.UseTwitterAuthentication(CreateTwitterAuthOptions());
-            }
+            //if (IsTrue("ExternalAuth.Twitter.IsEnabled"))
+            //{
+            //    app.UseTwitterAuthentication(CreateTwitterAuthOptions());
+            //}
 
-            if (IsTrue("ExternalAuth.Google.IsEnabled"))
-            {
-                app.UseGoogleAuthentication(CreateGoogleAuthOptions());
-            }
+            //if (IsTrue("ExternalAuth.Google.IsEnabled"))
+            //{
+            //    app.UseGoogleAuthentication(CreateGoogleAuthOptions());
+            //}
 
-            if (IsTrue("ExternalAuth.WsFederation.IsEnabled"))
-            {
-                app.UseWsFederationAuthentication(CreateWsFederationAuthOptions());
-            }
+            //if (IsTrue("ExternalAuth.WsFederation.IsEnabled"))
+            //{
+            //    app.UseWsFederationAuthentication(CreateWsFederationAuthOptions());
+            //}
 
-            if (IsTrue("ExternalAuth.OpenId.IsEnabled"))
-            {
-                app.UseOpenIdConnectAuthentication(CreateOpenIdOptions());
-            }
+            //if (IsTrue("ExternalAuth.OpenId.IsEnabled"))
+            //{
+            //    app.UseOpenIdConnectAuthentication(CreateOpenIdOptions());
+            //}
 
             //app.MapSignalR();
 

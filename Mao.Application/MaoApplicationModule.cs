@@ -1,9 +1,10 @@
 ﻿using System.Reflection;
 using Abp.Modules;
+using Abp.AutoMapper;
 
 namespace Mao
 {
-    [DependsOn(typeof(MaoCoreModule))]
+    [DependsOn(typeof(MaoCoreModule), typeof(AbpAutoMapperModule))]
     public class MaoApplicationModule : AbpModule
     {
         //public override void PreInitialize()

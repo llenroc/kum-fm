@@ -31,7 +31,7 @@ namespace Mao.Application.Person
     {
 
 
-        IQueryable<Persons.Person> GetAll(GetPersonInput input);
+        Task<PagedResultDto<PersonListDto>> GetAllAsync(GetPersonInput input);
 
         #region add by clt
 
