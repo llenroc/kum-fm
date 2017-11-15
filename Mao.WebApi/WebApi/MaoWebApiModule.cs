@@ -6,6 +6,7 @@ using Abp.Configuration.Startup;
 using Abp.Modules;
 using Abp.WebApi;
 using Swashbuckle.Application;
+using Abp.Timing;
 
 namespace Mao.WebApi
 {
@@ -18,6 +19,7 @@ namespace Mao.WebApi
     {
         public override void Initialize()
         {
+            
             IocManager.RegisterAssemblyByConvention(Assembly.GetExecutingAssembly());
 
             //Automatically creates Web API controllers for all application services of the application
@@ -28,6 +30,8 @@ namespace Mao.WebApi
             Configuration.Modules.AbpWebApi().HttpConfiguration.Filters.Add(new HostAuthenticationFilter("Bearer"));
 
             ConfigureSwaggerUi(); //Remove this line to disable swagger UI.
+
+           
         }
 
         private void ConfigureSwaggerUi()
