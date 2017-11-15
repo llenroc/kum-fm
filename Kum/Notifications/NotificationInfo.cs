@@ -148,7 +148,7 @@ namespace Abp.Notifications
         /// </summary>
         public NotificationInfo(Guid id)
         {
-            Id = id;
+            this.id = id;
             Severity = NotificationSeverity.Info;
         }
     }

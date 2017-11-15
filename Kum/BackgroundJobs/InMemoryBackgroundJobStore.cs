@@ -31,8 +31,8 @@ namespace Abp.BackgroundJobs
 
         public Task InsertAsync(BackgroundJobInfo jobInfo)
         {
-            jobInfo.Id = Interlocked.Increment(ref _lastId);
-            _jobs[jobInfo.Id] = jobInfo;
+            jobInfo.id = Interlocked.Increment(ref _lastId);
+            _jobs[jobInfo.id] = jobInfo;
 
             return Task.FromResult(0);
         }
@@ -52,12 +52,12 @@ namespace Abp.BackgroundJobs
 
         public Task DeleteAsync(BackgroundJobInfo jobInfo)
         {
-            if (!_jobs.ContainsKey(jobInfo.Id))
+            if (!_jobs.ContainsKey(jobInfo.id))
             {
                 return Task.FromResult(0);
             }
 
-            _jobs.Remove(jobInfo.Id);
+            _jobs.Remove(jobInfo.id);
 
             return Task.FromResult(0);
         }

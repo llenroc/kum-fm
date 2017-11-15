@@ -136,7 +136,7 @@ namespace Abp.Domain.Repositories
 
         public virtual TPrimaryKey InsertAndGetId(TEntity entity)
         {
-            return Insert(entity).Id;
+            return Insert(entity).id;
         }
 
         public virtual Task<TPrimaryKey> InsertAndGetIdAsync(TEntity entity)
@@ -160,7 +160,7 @@ namespace Abp.Domain.Repositories
 
         public virtual TPrimaryKey InsertOrUpdateAndGetId(TEntity entity)
         {
-            return InsertOrUpdate(entity).Id;
+            return InsertOrUpdate(entity).id;
         }
 
         public virtual Task<TPrimaryKey> InsertOrUpdateAndGetIdAsync(TEntity entity)
@@ -264,7 +264,7 @@ namespace Abp.Domain.Repositories
             var lambdaParam = Expression.Parameter(typeof(TEntity));
 
             var lambdaBody = Expression.Equal(
-                Expression.PropertyOrField(lambdaParam, "Id"),
+                Expression.PropertyOrField(lambdaParam, "id"),
                 Expression.Constant(id, typeof(TPrimaryKey))
                 );
 

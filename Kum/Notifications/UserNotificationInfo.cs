@@ -48,7 +48,7 @@ namespace Abp.Notifications
         /// <param name="create"></param>
         public UserNotificationInfo(Guid id)
         {
-            Id = id;
+            this.id = id;
             State = UserNotificationState.Unread;
             CreationTime = Clock.Now;
         }

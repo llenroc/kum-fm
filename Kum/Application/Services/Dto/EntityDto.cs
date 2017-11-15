@@ -36,7 +36,7 @@ namespace Abp.Application.Services.Dto
         /// <summary>
         /// Id of the entity.
         /// </summary>
-        public TPrimaryKey Id { get; set; }
+        public TPrimaryKey id { get; set; }
 
         /// <summary>
         /// Creates a new <see cref="EntityDto{TPrimaryKey}"/> object.
@@ -52,7 +52,7 @@ namespace Abp.Application.Services.Dto
         /// <param name="id">Id of the entity</param>
         public EntityDto(TPrimaryKey id)
         {
-            Id = id;
+            this.id = id;
         }
     }
 }

@@ -102,7 +102,7 @@ namespace Abp.Application.Services
         {
             CheckGetPermission();
 
-            var entity = GetEntityById(input.Id);
+            var entity = GetEntityById(input.id);
             return MapToEntityDto(entity);
         }
 
@@ -141,7 +141,7 @@ namespace Abp.Application.Services
         {
             CheckUpdatePermission();
 
-            var entity = GetEntityById(input.Id);
+            var entity = GetEntityById(input.id);
 
             MapToEntity(input, entity);
             CurrentUnitOfWork.SaveChanges();
@@ -153,7 +153,7 @@ namespace Abp.Application.Services
         {
             CheckDeletePermission();
 
-            Repository.Delete(input.Id);
+            Repository.Delete(input.id);
         }
 
         protected virtual TEntity GetEntityById(TPrimaryKey id)

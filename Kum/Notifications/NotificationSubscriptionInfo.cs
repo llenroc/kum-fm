@@ -60,7 +60,7 @@ namespace Abp.Notifications
         /// </summary>
         public NotificationSubscriptionInfo(Guid id, int? tenantId, long userId, string notificationName, EntityIdentifier entityIdentifier = null)
         {
-            Id = id;
+            this.id = id;
             TenantId = tenantId;
             NotificationName = notificationName;
             UserId = userId;

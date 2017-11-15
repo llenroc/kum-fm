@@ -139,7 +139,7 @@ namespace Abp.EntityFramework.Repositories
                 Context.SaveChanges();
             }
 
-            return entity.Id;
+            return entity.id;
         }
 
         public override async Task<TPrimaryKey> InsertAndGetIdAsync(TEntity entity)
@@ -151,7 +151,7 @@ namespace Abp.EntityFramework.Repositories
                 await Context.SaveChangesAsync();
             }
 
-            return entity.Id;
+            return entity.id;
         }
 
         public override TPrimaryKey InsertOrUpdateAndGetId(TEntity entity)
@@ -163,7 +163,7 @@ namespace Abp.EntityFramework.Repositories
                 Context.SaveChanges();
             }
 
-            return entity.Id;
+            return entity.id;
         }
 
         public override async Task<TPrimaryKey> InsertOrUpdateAndGetIdAsync(TEntity entity)
@@ -175,7 +175,7 @@ namespace Abp.EntityFramework.Repositories
                 await Context.SaveChangesAsync();
             }
 
-            return entity.Id;
+            return entity.id;
         }
 
         public override TEntity Update(TEntity entity)
@@ -200,7 +200,7 @@ namespace Abp.EntityFramework.Repositories
 
         public override void Delete(TPrimaryKey id)
         {
-            var entity = Table.Local.FirstOrDefault(ent => EqualityComparer<TPrimaryKey>.Default.Equals(ent.Id, id));
+            var entity = Table.Local.FirstOrDefault(ent => EqualityComparer<TPrimaryKey>.Default.Equals(ent.id, id));
             if (entity == null)
             {
                 entity = FirstOrDefault(id);

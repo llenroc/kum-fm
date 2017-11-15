@@ -4,7 +4,7 @@ namespace Abp.Domain.Entities
 {
     /// <summary>
     /// Used to identify an entity.
-    /// Can be used to store an entity <see cref="Type"/> and <see cref="Id"/>.
+    /// Can be used to store an entity <see cref="Type"/> and <see cref="id"/>.
     /// </summary>
     [Serializable]
     public class EntityIdentifier

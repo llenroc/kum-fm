@@ -68,7 +68,7 @@ namespace Abp.BackgroundJobs
 
             await _store.InsertAsync(jobInfo);
 
-            return jobInfo.Id.ToString();
+            return jobInfo.id.ToString();
         }
 
         public async Task<bool> DeleteAsync(string jobId)

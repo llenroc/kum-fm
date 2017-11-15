@@ -17,6 +17,6 @@
         /// <summary>
         /// Id of the entity.
         /// </summary>
-        TPrimaryKey Id { get; set; }
+        TPrimaryKey id { get; set; }
     }
 }

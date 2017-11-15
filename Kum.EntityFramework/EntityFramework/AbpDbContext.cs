@@ -321,15 +321,15 @@ namespace Abp.EntityFramework
         {
             //Set GUID Ids
             var entity = entityAsObj as IEntity<Guid>;
-            if (entity != null && entity.Id == Guid.Empty)
+            if (entity != null && entity.id == Guid.Empty)
             {
                 var entityType = ObjectContext.GetObjectType(entityAsObj.GetType());
-                var idProperty = entityType.GetProperty("Id");
+                var idProperty = entityType.GetProperty("id");
                 var dbGeneratedAttr =
                     ReflectionHelper.GetSingleAttributeOrDefault<DatabaseGeneratedAttribute>(idProperty);
                 if (dbGeneratedAttr == null || dbGeneratedAttr.DatabaseGeneratedOption == DatabaseGeneratedOption.None)
                 {
-                    entity.Id = GuidGenerator.Create();
+                    entity.id = GuidGenerator.Create();
                 }
             }
         }
