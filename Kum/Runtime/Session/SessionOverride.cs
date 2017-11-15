@@ -2,11 +2,11 @@
 {
     public class SessionOverride
     {
-        public long? UserId { get; }
+        public string UserId { get; }
 
         public int? TenantId { get; }
 
-        public SessionOverride(int? tenantId, long? userId)
+        public SessionOverride(int? tenantId, string userId)
         {
             TenantId = tenantId;
             UserId = userId;

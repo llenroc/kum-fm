@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using Abp.Application.Services.Dto;
 
-namespace Mao.Dto
+namespace Mao.Application.Dto
 {
     public class FileDto
     {

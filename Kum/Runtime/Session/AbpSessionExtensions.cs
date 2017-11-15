@@ -11,14 +11,14 @@
         /// </summary>
         /// <param name="session">Session object.</param>
         /// <returns>Current User's Id.</returns>
-        public static long GetUserId(this IAbpSession session)
+        public static string GetUserId(this IAbpSession session)
         {
-            if (!session.UserId.HasValue)
+            if (!string.IsNullOrEmpty(session.UserId))
             {
                 throw new AbpException("Session.UserId is null! Probably, user is not logged in.");
             }
 
-            return session.UserId.Value;
+            return session.UserId;
         }
 
         /// <summary>

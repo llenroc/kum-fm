@@ -1,6 +1,8 @@
 ﻿using System.Data.Common;
 using Abp.EntityFramework;
 using System.Data.Entity;
+using Mao.Core.Base;
+using Mao.Core.Authorize;
 
 namespace Mao.EntityFramework
 {
@@ -17,7 +19,25 @@ namespace Mao.EntityFramework
          *   But it may cause problems when working Migrate.exe of EF. If you will apply migrations on command line, do not
          *   pass connection string name to base classes. ABP works either way.
          */
-        public IDbSet<Persons.Person> Persons { get; set; }
+        public virtual IDbSet<Persons.Person> Persons { get; set; }
+        public virtual IDbSet<DepartmentEntity> DepartmentEntity { get; set; }
+        public virtual IDbSet<OrganizeEntity> OrganizeEntity { get; set; }
+        public virtual IDbSet<RoleEntity> RoleEntity { get; set; }
+       
+        public virtual IDbSet<UserEntity> UserEntity { get; set; }
+
+        public virtual IDbSet<UserRelationEntity> UserRelationEntity { get; set; }
+        public virtual IDbSet<AuthorizeDataEntity> AuthorizeDataEntity { get; set; }
+        public virtual IDbSet<FilterIPEntity> FilterIPEntity { get; set; }
+        public virtual IDbSet<FilterTimeEntity> FilterTimeEntity { get; set; }
+        public virtual IDbSet<ModuleButtonEntity> ModuleButtonEntity { get; set; }
+        public virtual IDbSet<ModuleColumnEntity> ModuleColumnEntity { get; set; }
+        public virtual IDbSet<ModuleEntity> ModuleEntity { get; set; }
+        public virtual IDbSet<ModuleFormEntity> ModuleFormEntity { get; set; }
+        public virtual IDbSet<ModuleFormInstanceEntity> ModuleFormInstanceEntity { get; set; }
+      
+
+
 
         public MaoDbContext()
             : base("Default")

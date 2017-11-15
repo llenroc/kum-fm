@@ -57,7 +57,7 @@ namespace Abp.Web.Localization
             culture = GetCultureFromHeader(httpContext) ?? GetCultureFromCookie(httpContext);
             if (culture != null)
             {
-                if (_abpSession.UserId.HasValue)
+                if (!string.IsNullOrEmpty(_abpSession.UserId))
                 {
                     SetCultureToUserSetting(_abpSession.ToUserIdentifier(), culture);
                 }
@@ -94,7 +94,7 @@ namespace Abp.Web.Localization
             var culture = _settingManager.GetSettingValueForUser(
                 LocalizationSettingNames.DefaultLanguage,
                 _abpSession.TenantId,
-                _abpSession.UserId.Value,
+                _abpSession.UserId,
                 fallbackToDefault: false
             );
 

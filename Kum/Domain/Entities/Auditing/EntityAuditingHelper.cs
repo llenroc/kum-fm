@@ -12,7 +12,7 @@ namespace Abp.Domain.Entities.Auditing
             IMultiTenancyConfig multiTenancyConfig, 
             object entityAsObj, 
             int? tenantId,
-            long? userId)
+            string userId)
         {
             var entityWithCreationTime = entityAsObj as IHasCreationTime;
             if (entityWithCreationTime == null)
@@ -32,7 +32,7 @@ namespace Abp.Domain.Entities.Auditing
                 return;
             }
 
-            if (!userId.HasValue)
+            if (!userId.IsNullOrEmpty())
             {
                 //Unknown user
                 return;
@@ -69,7 +69,7 @@ namespace Abp.Domain.Entities.Auditing
             IMultiTenancyConfig multiTenancyConfig,
             object entityAsObj,
             int? tenantId,
-            long? userId)
+            string userId)
         {
             if (entityAsObj is IHasModificationTime)
             {

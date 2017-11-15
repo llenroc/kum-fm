@@ -13,6 +13,6 @@
         /// <summary>
         /// Id of the user.
         /// </summary>
-        long UserId { get; }
+        string UserId { get; }
     }
 }

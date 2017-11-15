@@ -4,7 +4,7 @@ namespace Abp.Web.Models.AbpUserConfiguration
 {
     public class AbpUserSessionConfigDto
     {
-        public long? UserId { get; set; }
+        public string UserId { get; set; }
 
         public int? TenantId { get; set; }
 

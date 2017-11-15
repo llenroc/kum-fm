@@ -19,10 +19,10 @@ namespace Abp.Runtime.Security
                 return null;
             }
 
-            return new UserIdentifier(identity.GetTenantId(), userId.Value);
+            return new UserIdentifier(identity.GetTenantId(), userId);
         }
 
-        public static long? GetUserId([NotNull] this IIdentity identity)
+        public static string GetUserId([NotNull] this IIdentity identity)
         {
             Check.NotNull(identity, nameof(identity));
 
@@ -34,7 +34,7 @@ namespace Abp.Runtime.Security
                 return null;
             }
 
-            return Convert.ToInt64(userIdOrNull.Value);
+            return userIdOrNull.Value;
         }
 
         public static int? GetTenantId(this IIdentity identity)

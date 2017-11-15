@@ -170,6 +170,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppFolders.cs" />
+    <Compile Include="Authorize\AuthorizeDataEntity.cs" />
+    <Compile Include="Authorize\AuthorizeEntity.cs" />
+    <Compile Include="Authorize\FilterIPEntity.cs" />
+    <Compile Include="Authorize\FilterTimeEntity.cs" />
+    <Compile Include="Authorize\ModuleButtonEntity.cs" />
+    <Compile Include="Authorize\ModuleColumnEntity.cs" />
+    <Compile Include="Authorize\ModuleEntity.cs" />
+    <Compile Include="Authorize\ModuleFormEntity.cs" />
+    <Compile Include="Authorize\ModuleFormInstanceEntity.cs" />
+    <Compile Include="Base\DepartmentEntity.cs" />
+    <Compile Include="Base\OrganizeEntity.cs" />
+    <Compile Include="Base\RoleEntity.cs" />
+    <Compile Include="Base\UserRelationEntity.cs" />
+    <Compile Include="Base\UserEntity.cs" />
+    <Compile Include="Debugging\DebugHelper.cs" />
+    <Compile Include="Extensions\AbpSessionExtension.cs" />
+    <Compile Include="Extensions\IAbpSessionExtension.cs" />
     <Compile Include="IAppFolders.cs" />
     <Compile Include="MaoConsts.cs" />
     <Compile Include="MaoCoreModule.cs" />

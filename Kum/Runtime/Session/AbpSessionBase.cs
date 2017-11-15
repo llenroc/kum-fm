@@ -10,7 +10,7 @@ namespace Abp.Runtime.Session
 
         public IMultiTenancyConfig MultiTenancy { get; }
 
-        public abstract long? UserId { get; }
+        public abstract string UserId { get; }
 
         public abstract int? TenantId { get; }
 
@@ -37,7 +37,7 @@ namespace Abp.Runtime.Session
             SessionOverrideScopeProvider = sessionOverrideScopeProvider;
         }
 
-        public IDisposable Use(int? tenantId, long? userId)
+        public IDisposable Use(int? tenantId, string userId)
         {
             return SessionOverrideScopeProvider.BeginScope(SessionOverrideContextKey, new SessionOverride(tenantId, userId));
         }

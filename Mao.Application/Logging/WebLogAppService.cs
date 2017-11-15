@@ -6,13 +6,13 @@ using Abp.Authorization;
 using Abp.IO;
 using ICSharpCode.SharpZipLib.Core;
 using ICSharpCode.SharpZipLib.Zip;
-//using MyCompanyName.AbpZeroTemplate.Authorization;
-//using MyCompanyName.AbpZeroTemplate.Dto;
+//using Mao.Application.Authorization;
+//using Mao.Application.Dto;
 using Mao.Application.IO;
 
-//using MyCompanyName.AbpZeroTemplate.Net.MimeTypes;
+//using Mao.Application.Net.MimeTypes;
 using Mao.Core;
-using Mao.Dto;
+using Mao.Application.Dto;
 using Mao.Application.Net.MimeTypes;
 using Mao.Application.Logging.Dto;
 

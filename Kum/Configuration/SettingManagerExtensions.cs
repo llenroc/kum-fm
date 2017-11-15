@@ -58,7 +58,7 @@ namespace Abp.Configuration
         /// <param name="tenantId">Tenant id</param>
         /// <param name="userId">User id</param>
         /// <returns>Current value of the setting for the user</returns>
-        public static async Task<T> GetSettingValueForUserAsync<T>(this ISettingManager settingManager, string name, int? tenantId, long userId)
+        public static async Task<T> GetSettingValueForUserAsync<T>(this ISettingManager settingManager, string name, int? tenantId, string userId)
            where T : struct
         {
             return (await settingManager.GetSettingValueForUserAsync(name, tenantId, userId)).To<T>();
@@ -123,7 +123,7 @@ namespace Abp.Configuration
         /// <param name="tenantId">Tenant id</param>
         /// <param name="userId">User id</param>
         /// <returns>Current value of the setting for the user</returns>
-        public static string GetSettingValueForUser(this ISettingManager settingManager, string name, int? tenantId, long userId)
+        public static string GetSettingValueForUser(this ISettingManager settingManager, string name, int? tenantId, string userId)
         {
             return AsyncHelper.RunSync(() => settingManager.GetSettingValueForUserAsync(name, tenantId, userId));
         }
@@ -138,7 +138,7 @@ namespace Abp.Configuration
         /// <param name="userId">User id</param>
         /// <param name="fallbackToDefault"></param>
         /// <returns>Current value of the setting for the user</returns>
-        public static string GetSettingValueForUser(this ISettingManager settingManager, string name, int? tenantId, long userId, bool fallbackToDefault)
+        public static string GetSettingValueForUser(this ISettingManager settingManager, string name, int? tenantId, string userId, bool fallbackToDefault)
         {
             return AsyncHelper.RunSync(() => settingManager.GetSettingValueForUserAsync(name, tenantId, userId, fallbackToDefault));
         }
@@ -194,7 +194,7 @@ namespace Abp.Configuration
         /// <param name="tenantId">Tenant id</param>
         /// <param name="userId">User id</param>
         /// <returns>Current value of the setting for the user</returns>
-        public static T GetSettingValueForUser<T>(this ISettingManager settingManager, string name, int? tenantId, long userId)
+        public static T GetSettingValueForUser<T>(this ISettingManager settingManager, string name, int? tenantId, string userId)
             where T : struct
         {
             return AsyncHelper.RunSync(() => settingManager.GetSettingValueForUserAsync<T>(name, tenantId, userId));

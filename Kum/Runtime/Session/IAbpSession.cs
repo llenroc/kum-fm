@@ -12,7 +12,7 @@ namespace Abp.Runtime.Session
         /// Gets current UserId or null.
         /// It can be null if no user logged in.
         /// </summary>
-        long? UserId { get; }
+        string UserId { get; }
 
         /// <summary>
         /// Gets current TenantId or null.
@@ -44,6 +44,6 @@ namespace Abp.Runtime.Session
         /// <param name="tenantId"></param>
         /// <param name="userId"></param>
         /// <returns></returns>
-        IDisposable Use(int? tenantId, long? userId);
+        IDisposable Use(int? tenantId, string userId);
     }
 }

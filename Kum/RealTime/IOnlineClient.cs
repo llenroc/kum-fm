@@ -26,7 +26,7 @@ namespace Abp.RealTime
         /// <summary>
         /// User Id.
         /// </summary>
-        long? UserId { get; }
+        string UserId { get; }
 
         /// <summary>
         /// Connection establishment time for this client.

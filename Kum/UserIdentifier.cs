@@ -19,7 +19,7 @@ namespace Abp
         /// <summary>
         /// Id of the user.
         /// </summary>
-        public long UserId { get; protected set; }
+        public string UserId { get; protected set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="UserIdentifier"/> class.
@@ -34,7 +34,7 @@ namespace Abp
         /// </summary>
         /// <param name="tenantId">Tenant Id of the user.</param>
         /// <param name="userId">Id of the user.</param>
-        public UserIdentifier(int? tenantId, long userId)
+        public UserIdentifier(int? tenantId, string userId)
         {
             TenantId = tenantId;
             UserId = userId;
@@ -59,13 +59,13 @@ namespace Abp
             var splitted = userIdentifierString.Split('@');
             if (splitted.Length == 1)
             {
-                return new UserIdentifier(null, splitted[0].To<long>());
+                return new UserIdentifier(null, string.IsNullOrEmpty(splitted[0])?"": splitted[0]);
 
             }
 
             if (splitted.Length == 2)
             {
-                return new UserIdentifier(splitted[1].To<int>(), splitted[0].To<long>());
+                return new UserIdentifier(splitted[1].To<int>(), string.IsNullOrEmpty(splitted[0]) ? "" : splitted[0]);
             }
 
             throw new ArgumentException("userAtTenant is not properly formatted", nameof(userIdentifierString));
@@ -120,7 +120,10 @@ namespace Abp
         /// <inheritdoc/>
         public override int GetHashCode()
         {
-            return TenantId == null ? (int)UserId : (int)(TenantId.Value ^ UserId);
+#warning 这里灭有计算
+
+            return 0;
+            //TenantId == null? (int)UserId : (int)(TenantId.Value ^ UserId);
         }
 
         /// <inheritdoc/>
