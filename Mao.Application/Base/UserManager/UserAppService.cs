@@ -16,6 +16,7 @@ using System.Data.Entity;
 using System.Linq.Dynamic.Core;
 using System;
 using System.Linq.Expressions;
+using Abp.Dependency;
 
 namespace Mao.Application.Base.UserManager
 {
@@ -24,12 +25,18 @@ namespace Mao.Application.Base.UserManager
     {
         //private readonly UserService _userRepository;
         private readonly IRepository<User, int> _userRepository;
-
+        private readonly ISqlExecuter _sqlExecuter;
+        
         public UserAppService(
             IRepository<User, int> userRepository
+            //ISqlExecuter sqlExecuter
             )
         {
             _userRepository = userRepository;
+            //值得注意的是，调用代码需要工作单元的支持，Application中已默认支持，可直接使用。但如果在Controller中使用就需要将Action设置为UnitOfWork(不知道从哪个版本开始，Controller也默认支持工作单元了)
+            
+            var sqlExecuter = IocManager.Instance.Resolve<ISqlExecuter>();
+            _sqlExecuter = sqlExecuter;
         }
         /// <summary>
         /// 根据查询条件获取分页列表
@@ -134,9 +141,31 @@ namespace Mao.Application.Base.UserManager
             await _userRepository.DeleteAsync(s => input.Contains(s.UserId));
         }
 
-        
 
-      
+//        public async Task<IEnumerable<User>> TestSql(string UserId)
+//        {
+//            string whereClause = string.Empty;
+//            //if (operatorId > 0)
+//            //{
+//            //    whereClause += string.Format(" where Id={0} ", operatorId);
+//            //}
+//            string sql = string.Format(@"
+//SELECT ROW_NUMBER() OVER(ORDER BY Id )AS RowId,Id,Name,AllocateRatio,
+//(SELECT SUM(PayFee) FROM dbo.Orders WHERE Status NOT IN(0,3,4) AND OperatorID=dbo.Operators.Id AND YEAR(OrderDate)=@Year3) AS TotalScanCode,
+//(SELECT SUM(TheDayMoney) FROM dbo.DeviceCoinsRecords WHERE dbo.DeviceCoinsRecords.OperatorID=dbo.Operators.Id AND Year=@Year4) AS TotalCoinsCast
+// FROM dbo.Operators {0}", whereClause);
+
+//            return await Context.Database.SqlQuery<OperatorYearOrMonthReport>(sql,
+//                new SqlParameter("@Year3", year),
+//                new SqlParameter("@Year4", year)).ToListAsync();
+
+//        }
+        public async Task<List<UserListDto>> TestSqlAsync()
+        {
+            const string sql = "select * from users";
+            var user =await _sqlExecuter.SqlQueryAsync<UserListDto>(sql);
+            return user;
+        }
     }
 
 

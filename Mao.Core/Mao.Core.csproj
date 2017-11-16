@@ -184,6 +184,7 @@
     <Compile Include="Base\Role.cs" />
     <Compile Include="Base\UserRelation.cs" />
     <Compile Include="Base\User.cs" />
+    <Compile Include="ISqlExecuter.cs" />
     <Compile Include="Debugging\DebugHelper.cs" />
     <Compile Include="Extensions\AbpSessionExtension.cs" />
     <Compile Include="Extensions\IAbpSessionExtension.cs" />

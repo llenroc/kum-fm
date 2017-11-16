@@ -161,3 +161,143 @@ WARN  2017-11-17 00:27:27,941 [5    ] Abp.Logging.LogHelper                    -
 WARN  2017-11-17 00:27:27,945 [5    ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
 WARN  2017-11-17 00:27:35,343 [5    ] naries.DictionaryBasedLocalizationSource - Can not find 'MainMenu' in localization source 'Abp'!
 WARN  2017-11-17 00:27:38,407 [12   ] naries.DictionaryBasedLocalizationSource - Can not find 'MainMenu' in localization source 'Abp'!
+DEBUG 2017-11-17 00:55:33,647 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-11-17 00:55:33,661 [1    ] Abp.Modules.AbpModuleManager             - Found 13 ABP modules in total.
+DEBUG 2017-11-17 00:55:33,666 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Mao.Web.MaoWebModule, Mao.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 00:55:33,667 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Kum.Web.Mvc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 00:55:33,667 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Kum.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 00:55:33,667 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Kum.Web.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 00:55:33,667 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 00:55:33,668 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Mao.MaoDataModule, Mao.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 00:55:33,668 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Kum.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 00:55:33,668 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Kum.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 00:55:33,668 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Mao.MaoCoreModule, Mao.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 00:55:33,668 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Mao.MaoApplicationModule, Mao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 00:55:33,668 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Kum.AutoMapper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 00:55:33,668 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Mao.WebApi.MaoWebApiModule, Mao.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 00:55:33,669 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Kum.Web.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 00:55:33,671 [1    ] Abp.Modules.AbpModuleManager             - 13 modules loaded.
+DEBUG 2017-11-17 00:55:33,900 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: Mao.EntityFramework.MaoDbContext, Mao.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 00:55:34,257 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2017-11-17 00:55:34,258 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-11-17 00:55:34,258 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-11-17 00:55:34,281 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Mao
+DEBUG 2017-11-17 00:55:34,435 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-11-17 00:55:34,518 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 4 classes define auto mapping attributes
+DEBUG 2017-11-17 00:55:34,518 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Authorize.UserManager.Dtos.UserEditDto
+DEBUG 2017-11-17 00:55:34,523 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Authorize.UserManager.Dtos.UserListDto
+DEBUG 2017-11-17 00:55:34,523 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Person.Dtos.PersonEditDto
+DEBUG 2017-11-17 00:55:34,523 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Person.Dtos.PersonListDto
+DEBUG 2017-11-17 00:55:34,734 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Person.IPersonAppService' with service name 'app/person'.
+DEBUG 2017-11-17 00:55:34,735 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Logging.IWebLogAppService' with service name 'app/webLog'.
+DEBUG 2017-11-17 00:55:34,737 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Base.UserManager.IUserAppService' with service name 'app/user'.
+WARN  2017-11-17 00:55:36,732 [5    ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
+WARN  2017-11-17 00:55:36,764 [5    ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
+WARN  2017-11-17 00:55:36,766 [5    ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
+WARN  2017-11-17 00:55:41,860 [5    ] naries.DictionaryBasedLocalizationSource - Can not find 'MainMenu' in localization source 'Abp'!
+WARN  2017-11-17 00:55:43,873 [5    ] naries.DictionaryBasedLocalizationSource - Can not find 'MainMenu' in localization source 'Abp'!
+DEBUG 2017-11-17 00:56:36,504 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-11-17 00:56:36,519 [1    ] Abp.Modules.AbpModuleManager             - Found 13 ABP modules in total.
+DEBUG 2017-11-17 00:56:36,526 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Mao.Web.MaoWebModule, Mao.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 00:56:36,527 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Kum.Web.Mvc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 00:56:36,527 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Kum.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 00:56:36,528 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Kum.Web.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 00:56:36,528 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 00:56:36,528 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Mao.MaoDataModule, Mao.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 00:56:36,528 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Kum.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 00:56:36,528 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Kum.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 00:56:36,528 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Mao.MaoCoreModule, Mao.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 00:56:36,528 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Mao.MaoApplicationModule, Mao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 00:56:36,529 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Kum.AutoMapper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 00:56:36,529 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Mao.WebApi.MaoWebApiModule, Mao.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 00:56:36,529 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Kum.Web.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 00:56:36,531 [1    ] Abp.Modules.AbpModuleManager             - 13 modules loaded.
+DEBUG 2017-11-17 00:56:36,764 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: Mao.EntityFramework.MaoDbContext, Mao.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 00:56:37,108 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2017-11-17 00:56:37,109 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-11-17 00:56:37,109 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-11-17 00:56:37,132 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Mao
+DEBUG 2017-11-17 00:56:37,282 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-11-17 00:56:37,356 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 4 classes define auto mapping attributes
+DEBUG 2017-11-17 00:56:37,356 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Authorize.UserManager.Dtos.UserEditDto
+DEBUG 2017-11-17 00:56:37,359 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Authorize.UserManager.Dtos.UserListDto
+DEBUG 2017-11-17 00:56:37,360 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Person.Dtos.PersonEditDto
+DEBUG 2017-11-17 00:56:37,360 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Person.Dtos.PersonListDto
+DEBUG 2017-11-17 00:56:37,590 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Person.IPersonAppService' with service name 'app/person'.
+DEBUG 2017-11-17 00:56:37,590 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Logging.IWebLogAppService' with service name 'app/webLog'.
+DEBUG 2017-11-17 00:56:37,591 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Base.UserManager.IUserAppService' with service name 'app/user'.
+WARN  2017-11-17 00:56:39,396 [5    ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
+WARN  2017-11-17 00:56:39,426 [5    ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
+WARN  2017-11-17 00:56:39,428 [5    ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
+WARN  2017-11-17 00:56:43,924 [5    ] naries.DictionaryBasedLocalizationSource - Can not find 'MainMenu' in localization source 'Abp'!
+WARN  2017-11-17 00:56:45,747 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'MainMenu' in localization source 'Abp'!
+DEBUG 2017-11-17 00:58:33,817 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-11-17 00:58:33,829 [1    ] Abp.Modules.AbpModuleManager             - Found 13 ABP modules in total.
+DEBUG 2017-11-17 00:58:33,837 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Mao.Web.MaoWebModule, Mao.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 00:58:33,840 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Kum.Web.Mvc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 00:58:33,840 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Kum.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 00:58:33,841 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Kum.Web.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 00:58:33,841 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 00:58:33,841 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Mao.MaoDataModule, Mao.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 00:58:33,842 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Kum.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 00:58:33,842 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Kum.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 00:58:33,842 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Mao.MaoCoreModule, Mao.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 00:58:33,842 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Mao.MaoApplicationModule, Mao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 00:58:33,842 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Kum.AutoMapper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 00:58:33,843 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Mao.WebApi.MaoWebApiModule, Mao.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 00:58:33,843 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Kum.Web.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 00:58:33,847 [1    ] Abp.Modules.AbpModuleManager             - 13 modules loaded.
+DEBUG 2017-11-17 00:58:34,145 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: Mao.EntityFramework.MaoDbContext, Mao.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 00:58:34,597 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2017-11-17 00:58:34,600 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-11-17 00:58:34,600 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-11-17 00:58:34,626 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Mao
+DEBUG 2017-11-17 00:58:34,807 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-11-17 00:58:34,894 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 4 classes define auto mapping attributes
+DEBUG 2017-11-17 00:58:34,894 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Authorize.UserManager.Dtos.UserEditDto
+DEBUG 2017-11-17 00:58:34,899 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Authorize.UserManager.Dtos.UserListDto
+DEBUG 2017-11-17 00:58:34,899 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Person.Dtos.PersonEditDto
+DEBUG 2017-11-17 00:58:34,899 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Person.Dtos.PersonListDto
+DEBUG 2017-11-17 00:58:35,118 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Person.IPersonAppService' with service name 'app/person'.
+DEBUG 2017-11-17 00:58:35,119 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Logging.IWebLogAppService' with service name 'app/webLog'.
+DEBUG 2017-11-17 00:58:35,120 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Base.UserManager.IUserAppService' with service name 'app/user'.
+WARN  2017-11-17 00:58:37,003 [5    ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
+WARN  2017-11-17 00:58:37,030 [5    ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
+WARN  2017-11-17 00:58:37,033 [5    ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
+WARN  2017-11-17 00:58:41,612 [5    ] naries.DictionaryBasedLocalizationSource - Can not find 'MainMenu' in localization source 'Abp'!
+WARN  2017-11-17 00:58:43,539 [9    ] naries.DictionaryBasedLocalizationSource - Can not find 'MainMenu' in localization source 'Abp'!
+DEBUG 2017-11-17 01:07:26,952 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-11-17 01:07:26,966 [1    ] Abp.Modules.AbpModuleManager             - Found 13 ABP modules in total.
+DEBUG 2017-11-17 01:07:26,972 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Mao.Web.MaoWebModule, Mao.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 01:07:26,973 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Kum.Web.Mvc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 01:07:26,974 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Kum.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 01:07:26,974 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Kum.Web.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 01:07:26,974 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 01:07:26,974 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Mao.MaoDataModule, Mao.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 01:07:26,974 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Kum.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 01:07:26,974 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Kum.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 01:07:26,975 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Mao.MaoCoreModule, Mao.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 01:07:26,975 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Mao.MaoApplicationModule, Mao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 01:07:26,975 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Kum.AutoMapper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 01:07:26,975 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Mao.WebApi.MaoWebApiModule, Mao.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 01:07:26,975 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Kum.Web.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 01:07:26,977 [1    ] Abp.Modules.AbpModuleManager             - 13 modules loaded.
+DEBUG 2017-11-17 01:07:27,218 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: Mao.EntityFramework.MaoDbContext, Mao.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-17 01:07:27,664 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2017-11-17 01:07:27,665 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-11-17 01:07:27,665 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-11-17 01:07:27,687 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Mao
+DEBUG 2017-11-17 01:07:27,837 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-11-17 01:07:27,918 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 4 classes define auto mapping attributes
+DEBUG 2017-11-17 01:07:27,918 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Authorize.UserManager.Dtos.UserEditDto
+DEBUG 2017-11-17 01:07:27,922 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Authorize.UserManager.Dtos.UserListDto
+DEBUG 2017-11-17 01:07:27,922 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Person.Dtos.PersonEditDto
+DEBUG 2017-11-17 01:07:27,922 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Person.Dtos.PersonListDto
+DEBUG 2017-11-17 01:07:28,147 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Person.IPersonAppService' with service name 'app/person'.
+DEBUG 2017-11-17 01:07:28,148 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Logging.IWebLogAppService' with service name 'app/webLog'.
+DEBUG 2017-11-17 01:07:28,149 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Base.UserManager.IUserAppService' with service name 'app/user'.
+WARN  2017-11-17 01:07:30,073 [5    ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
+WARN  2017-11-17 01:07:30,099 [5    ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
+WARN  2017-11-17 01:07:30,101 [5    ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
+WARN  2017-11-17 01:07:34,604 [5    ] naries.DictionaryBasedLocalizationSource - Can not find 'MainMenu' in localization source 'Abp'!
+WARN  2017-11-17 01:07:36,479 [5    ] naries.DictionaryBasedLocalizationSource - Can not find 'MainMenu' in localization source 'Abp'!
