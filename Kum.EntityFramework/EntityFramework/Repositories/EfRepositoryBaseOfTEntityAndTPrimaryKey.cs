@@ -109,7 +109,10 @@ namespace Abp.EntityFramework.Repositories
         {
             return await GetAll().SingleAsync(predicate);
         }
-
+        public override TEntity FirstOrDefault(Expression<Func<TEntity, bool>> predicate)
+        {
+            return GetAll().FirstOrDefault(predicate);
+        }
         public override async Task<TEntity> FirstOrDefaultAsync(TPrimaryKey id)
         {
             return await GetAll().FirstOrDefaultAsync(CreateEqualityExpressionForId(id));

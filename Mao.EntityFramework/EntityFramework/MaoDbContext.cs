@@ -4,6 +4,9 @@ using System.Data.Entity;
 using Mao.Core.Base;
 using Mao.Core.Authorize;
 
+
+
+
 namespace Mao.EntityFramework
 {
     [DbConfigurationType(typeof(MySql.Data.Entity.MySqlEFConfiguration))]
@@ -35,13 +38,15 @@ namespace Mao.EntityFramework
         public virtual IDbSet<Module> Module { get; set; }
         public virtual IDbSet<ModuleForm> ModuleForm { get; set; }
         public virtual IDbSet<ModuleFormInstance> ModuleFormInstance { get; set; }
-      
 
 
+        
 
         public MaoDbContext()
             : base("Default")
         {
+
+            
 
         }
 
@@ -68,4 +73,6 @@ namespace Mao.EntityFramework
 
         }
     }
+
+  
 }

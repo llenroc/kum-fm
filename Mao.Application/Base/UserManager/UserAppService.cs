@@ -15,6 +15,7 @@ using Abp.AutoMapper;
 using System.Data.Entity;
 using System.Linq.Dynamic.Core;
 using System;
+using System.Linq.Expressions;
 
 namespace Mao.Application.Base.UserManager
 {
@@ -33,7 +34,7 @@ namespace Mao.Application.Base.UserManager
         /// <summary>
         /// 根据查询条件获取分页列表
         /// </summary>
-        public async Task<PagedResultDto<UserListDto>> GetPagedUsersAsync(GetUserInput input)
+        public async Task<PagedResultDto<UserListDto>> GetPagedUsersAsync(GetPageUserInput input)
         {
             var userList = new List<User>();
             var query = _userRepository.GetAll();
@@ -61,9 +62,10 @@ namespace Mao.Application.Base.UserManager
         /// <summary>
         /// 通过指定id获取ListDto信息
         /// </summary>
-        public async Task<User> GetUser(GetUserInput input)
+        public async Task<User> GetUsersAsync(GetUserInput input)
         {
-            var entity = await _userRepository.GetAsync(a => a.UserId == input.UserId);
+
+            var entity =await _userRepository.FirstOrDefaultAsync(a => a.UserId == input.UserId);
 
             return entity.MapTo<User>();
         }
@@ -132,6 +134,12 @@ namespace Mao.Application.Base.UserManager
             await _userRepository.DeleteAsync(s => input.Contains(s.UserId));
         }
 
+        
 
+      
     }
+
+
+
+   
 }

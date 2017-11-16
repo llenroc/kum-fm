@@ -187,6 +187,7 @@
     <Compile Include="Authorize\AuthorizeManager\IAuthorizeService.cs" />
     <Compile Include="Base\UserManager\Dtos\CreateOrUpdateUserInput.cs" />
     <Compile Include="Base\UserManager\Dtos\GetUserForEditOutput.cs" />
+    <Compile Include="Base\UserManager\Dtos\GetPageUserInput.cs" />
     <Compile Include="Base\UserManager\Dtos\GetUserInput.cs" />
     <Compile Include="Base\UserManager\Dtos\UserEditDto.cs" />
     <Compile Include="Base\UserManager\Dtos\UserListDto.cs" />
