@@ -5,11 +5,10 @@ using System.ComponentModel.DataAnnotations;
 namespace Mao.Core.Base
 {
 
-    public partial class OrganizeEntity : FullAuditedEntity
+    public partial class Organize : FullAuditedEntity
     {
-        [MaxLength(50)]
-        [Required]
         #region 实体成员
+        [MaxLength(50)]
         /// <summary>
         /// 机构主键
         /// </summary>	

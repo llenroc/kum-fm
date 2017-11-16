@@ -1,36 +1,42 @@
 ﻿using Abp.Domain.Entities.Auditing;
 using System;
+using System.ComponentModel.DataAnnotations;
 
-namespace Mao.Core.Authorize
+namespace Mao.Core.Base
 {
 
-    public partial class FilterIPEntity : FullAuditedEntity
+    public partial class Role : FullAuditedEntity
     {
+        [MaxLength(50)]
         #region 实体成员
         /// <summary>
-        /// 过滤IP主键
+        /// 角色主键
         /// </summary>		
-        public string FilterIPId { get; set; }
+        public string RoleId { get; set; }
         /// <summary>
-        /// 对象类型
+        /// 机构主键
         /// </summary>		
-        public string ObjectType { get; set; }
+        public string OrganizeId { get; set; }
         /// <summary>
-        /// 对象Id
+        /// 分类1-角色2-岗位3-职位4-工作组
         /// </summary>		
-        public string ObjectId { get; set; }
+        public int? Category { get; set; }
         /// <summary>
-        /// 访问
+        /// 角色编码
         /// </summary>		
-        public int? VisitType { get; set; }
+        public string EnCode { get; set; }
         /// <summary>
-        /// 类型
+        /// 角色名称
         /// </summary>		
-        public int? Type { get; set; }
+        public string FullName { get; set; }
         /// <summary>
-        /// IP访问
+        /// 公共角色
         /// </summary>		
-        public string IPLimit { get; set; }
+        public int? IsPublic { get; set; }
+        /// <summary>
+        /// 过期时间
+        /// </summary>		
+        public DateTime? OverdueTime { get; set; }
         /// <summary>
         /// 排序码
         /// </summary>		
@@ -46,8 +52,7 @@ namespace Mao.Core.Authorize
         /// <summary>
         /// 备注
         /// </summary>		
-        public string Description { get; set; }
-       
+      
         #endregion
 
         

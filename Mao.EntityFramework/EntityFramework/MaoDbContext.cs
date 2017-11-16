@@ -9,7 +9,7 @@ namespace Mao.EntityFramework
     [DbConfigurationType(typeof(MySql.Data.Entity.MySqlEFConfiguration))]
     public class MaoDbContext : AbpDbContext
     {
-        //TODO: Define an IDbSet for each Entity...
+        //TODO: Define an IDbSet for each ...
 
         //Example:
         //public virtual IDbSet<User> Users { get; set; }
@@ -20,21 +20,21 @@ namespace Mao.EntityFramework
          *   pass connection string name to base classes. ABP works either way.
          */
         public virtual IDbSet<Persons.Person> Persons { get; set; }
-        public virtual IDbSet<DepartmentEntity> DepartmentEntity { get; set; }
-        public virtual IDbSet<OrganizeEntity> OrganizeEntity { get; set; }
-        public virtual IDbSet<RoleEntity> RoleEntity { get; set; }
+        public virtual IDbSet<Department> Department { get; set; }
+        public virtual IDbSet<Organize> Organize { get; set; }
+        public virtual IDbSet<Role> Role { get; set; }
        
-        public virtual IDbSet<UserEntity> UserEntity { get; set; }
+        public virtual IDbSet<User> User { get; set; }
 
-        public virtual IDbSet<UserRelationEntity> UserRelationEntity { get; set; }
-        public virtual IDbSet<AuthorizeDataEntity> AuthorizeDataEntity { get; set; }
-        public virtual IDbSet<FilterIPEntity> FilterIPEntity { get; set; }
-        public virtual IDbSet<FilterTimeEntity> FilterTimeEntity { get; set; }
-        public virtual IDbSet<ModuleButtonEntity> ModuleButtonEntity { get; set; }
-        public virtual IDbSet<ModuleColumnEntity> ModuleColumnEntity { get; set; }
-        public virtual IDbSet<ModuleEntity> ModuleEntity { get; set; }
-        public virtual IDbSet<ModuleFormEntity> ModuleFormEntity { get; set; }
-        public virtual IDbSet<ModuleFormInstanceEntity> ModuleFormInstanceEntity { get; set; }
+        public virtual IDbSet<UserRelation> UserRelation { get; set; }
+        public virtual IDbSet<AuthorizeData> AuthorizeData { get; set; }
+        public virtual IDbSet<FilterIP> FilterIP { get; set; }
+        public virtual IDbSet<FilterTime> FilterTime { get; set; }
+        public virtual IDbSet<ModuleButton> ModuleButton { get; set; }
+        public virtual IDbSet<ModuleColumn> ModuleColumn { get; set; }
+        public virtual IDbSet<Module> Module { get; set; }
+        public virtual IDbSet<ModuleForm> ModuleForm { get; set; }
+        public virtual IDbSet<ModuleFormInstance> ModuleFormInstance { get; set; }
       
 
 

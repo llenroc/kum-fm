@@ -4,15 +4,18 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Mao.Core.Base
 {
-    public partial class UserEntity : FullAuditedEntity
+    public partial class User : FullAuditedEntity
     {
         [MaxLength(50)]
-        [Required]
         #region 实体成员
         /// <summary>
         /// 用户主键
         /// </summary>		
         public string UserId { get; set; }
+        /// <summary>
+        /// 租户id
+        /// </summary>
+        public int? TenantId { get; set; }
         /// <summary>
         /// 用户编码
         /// </summary>		
@@ -193,8 +196,8 @@ namespace Mao.Core.Base
         /// 备注
         /// </summary>		
         public string Description { get; set; }
-       
+
         #endregion
-        
+
     }
 }

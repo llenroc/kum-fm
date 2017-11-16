@@ -5,11 +5,12 @@ using System.ComponentModel.DataAnnotations;
 namespace Mao.Core.Base
 {
 
-    public partial class DepartmentEntity : FullAuditedEntity
+    public partial class Department : FullAuditedEntity
     {
-        [MaxLength(50)]
-        [Required]
+
+
         #region 实体成员
+        [MaxLength(50)]
         /// <summary>
         /// 部门主键
         /// </summary>	

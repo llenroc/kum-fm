@@ -1,9 +1,9 @@
 ﻿using Abp.Domain.Entities.Auditing;
-using System;
+using Mao.Core.Base;
 
 namespace Mao.Core.Authorize
 {
-    public partial class ModuleFormEntity: FullAuditedEntity
+    public partial class ModuleForm: FullAuditedEntity
     {
         #region 实体成员
         /// <summary>

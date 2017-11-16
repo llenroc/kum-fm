@@ -91,7 +91,17 @@ namespace Abp.Domain.Repositories
 
             return entity;
         }
-        
+        public virtual async Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> predicate)
+        {
+            var entity = await FirstOrDefaultAsync(predicate);
+            if (entity == null)
+            {
+                throw new EntityNotFoundException(typeof(TEntity), predicate.Name);
+            }
+
+            return entity;
+        }
+
         public virtual TEntity Single(Expression<Func<TEntity, bool>> predicate)
         {
             return GetAll().Single(predicate);

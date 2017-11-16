@@ -1,18 +1,17 @@
 ﻿using Abp.Domain.Entities.Auditing;
-using System;
+using Mao.Core.Base;
 using System.ComponentModel.DataAnnotations;
 
 namespace Mao.Core.Authorize
 {
 
-    public partial class AuthorizeEntity : FullAuditedEntity
+    public partial class Authorize : FullAuditedEntity
     {
         #region 实体成员
         /// <summary>
         /// 授权功能主键
         /// </summary>		
         [MaxLength(50)]
-        [Required]
         public string AuthorizeId { get; set; }
         /// <summary>
         /// 对象分类:1-部门2-角色3-岗位4-职位5-工作组

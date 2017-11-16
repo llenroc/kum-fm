@@ -1,9 +1,8 @@
 ﻿using Abp.Domain.Entities;
-using System;
 
 namespace Mao.Core.Authorize
 { 
-    public partial class ModuleColumnEntity : Entity
+    public partial class ModuleColumn : Entity
     {
         #region 实体成员
         /// <summary>

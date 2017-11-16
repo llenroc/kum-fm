@@ -1,10 +1,10 @@
 ﻿using Abp.Domain.Entities.Auditing;
-using System;
+using Mao.Core.Base;
 
 namespace Mao.Core.Authorize
 {
 
-    public partial class FilterTimeEntity : FullAuditedEntity
+    public partial class FilterTime : FullAuditedEntity
     {
         #region 实体成员
         /// <summary>

@@ -4,10 +4,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Mao.Core.Base
 {
-    public partial class UserRelationEntity : FullAuditedEntity
+    public partial class UserRelation : FullAuditedEntity
     {
         [MaxLength(50)]
-        [Required]
         #region 实体成员
         /// <summary>
         /// 用户关系主键
