@@ -28,7 +28,7 @@ namespace Abp.Domain.Entities.Auditing
         /// <summary>
         /// Creator of this entity.
         /// </summary>
-        public virtual string CreatorUserId { get; set; }
+        public virtual long? CreatorUserId { get; set; }
 
         /// <summary>
         /// Constructor.
@@ -46,7 +46,7 @@ namespace Abp.Domain.Entities.Auditing
     /// <typeparam name="TUser">Type of the user</typeparam>
     [Serializable]
     public abstract class CreationAuditedEntity<TPrimaryKey, TUser> : CreationAuditedEntity<TPrimaryKey>, ICreationAudited<TUser>
-        where TUser : IEntity<string>
+        where TUser : IEntity<long>
     {
         /// <summary>
         /// Reference to the creator user of this entity.

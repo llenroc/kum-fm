@@ -4,6 +4,7 @@ namespace Mao.WebApi.Models
 {
     public class LoginModel
     {
+        //public string TenancyName { get; set; }
         public string TenancyName { get; set; }
 
         [Required]

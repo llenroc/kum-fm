@@ -11,7 +11,7 @@ namespace Mao.Authorize.UserManager.Dtos
         /// <summary>
         /// 用户主键
         /// </summary>		
-        public string UserId { get; set; }
+        public int UserId { get; set; }
         /// <summary>
         /// 租户id
         /// </summary>

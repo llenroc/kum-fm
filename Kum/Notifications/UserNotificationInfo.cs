@@ -22,7 +22,7 @@ namespace Abp.Notifications
         /// <summary>
         /// User Id.
         /// </summary>
-        public virtual string UserId { get; set; }
+        public virtual long UserId { get; set; }
 
         /// <summary>
         /// Notification Id.
@@ -48,7 +48,7 @@ namespace Abp.Notifications
         /// <param name="create"></param>
         public UserNotificationInfo(Guid id)
         {
-            this.id = id;
+            Id = id;
             State = UserNotificationState.Unread;
             CreationTime = Clock.Now;
         }

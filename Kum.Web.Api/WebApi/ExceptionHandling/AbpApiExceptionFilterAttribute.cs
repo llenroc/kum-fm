@@ -104,7 +104,7 @@ namespace Abp.WebApi.ExceptionHandling
         {
             if (context.Exception is Abp.Authorization.AbpAuthorizationException)
             {
-                return !string.IsNullOrEmpty(AbpSession.UserId)
+                return AbpSession.UserId.HasValue
                     ? HttpStatusCode.Forbidden
                     : HttpStatusCode.Unauthorized;
             }

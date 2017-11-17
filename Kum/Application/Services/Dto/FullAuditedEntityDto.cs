@@ -27,7 +27,7 @@ namespace Abp.Application.Services.Dto
         /// <summary>
         /// Deleter user's Id, if this entity is deleted,
         /// </summary>
-        public string DeleterUserId { get; set; }
+        public long? DeleterUserId { get; set; }
 
         /// <summary>
         /// Deletion time, if this entity is deleted,

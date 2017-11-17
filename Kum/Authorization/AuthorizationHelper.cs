@@ -38,7 +38,7 @@ namespace Abp.Authorization
                 return;
             }
 
-            if (!string.IsNullOrEmpty(AbpSession.UserId))
+            if (!AbpSession.UserId.HasValue)
             {
                 throw new AbpAuthorizationException(
                     LocalizationManager.GetString(AbpConsts.LocalizationSourceName, "CurrentUserDidNotLoginToTheApplication")

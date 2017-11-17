@@ -249,7 +249,7 @@ namespace Abp.EntityFramework
             return changeReport;
         }
 
-        protected virtual void ApplyAbpConcepts(DbEntityEntry entry, string userId, EntityChangeReport changeReport)
+        protected virtual void ApplyAbpConcepts(DbEntityEntry entry, long? userId, EntityChangeReport changeReport)
         {
             switch (entry.State)
             {
@@ -267,7 +267,7 @@ namespace Abp.EntityFramework
             AddDomainEvents(changeReport.DomainEvents, entry.Entity);
         }
 
-        protected virtual void ApplyAbpConceptsForAddedEntity(DbEntityEntry entry, string userId, EntityChangeReport changeReport)
+        protected virtual void ApplyAbpConceptsForAddedEntity(DbEntityEntry entry, long? userId, EntityChangeReport changeReport)
         {
             CheckAndSetId(entry.Entity);
             CheckAndSetMustHaveTenantIdProperty(entry.Entity);
@@ -276,7 +276,7 @@ namespace Abp.EntityFramework
             changeReport.ChangedEntities.Add(new EntityChangeEntry(entry.Entity, EntityChangeType.Created));
         }
 
-        protected virtual void ApplyAbpConceptsForModifiedEntity(DbEntityEntry entry, string userId, EntityChangeReport changeReport)
+        protected virtual void ApplyAbpConceptsForModifiedEntity(DbEntityEntry entry, long? userId, EntityChangeReport changeReport)
         {
             SetModificationAuditProperties(entry.Entity, userId);
 
@@ -291,7 +291,7 @@ namespace Abp.EntityFramework
             }
         }
 
-        protected virtual void ApplyAbpConceptsForDeletedEntity(DbEntityEntry entry, string userId, EntityChangeReport changeReport)
+        protected virtual void ApplyAbpConceptsForDeletedEntity(DbEntityEntry entry, long? userId, EntityChangeReport changeReport)
         {
             CancelDeletionForSoftDelete(entry);
             SetDeletionAuditProperties(entry.Entity, userId);
@@ -321,15 +321,15 @@ namespace Abp.EntityFramework
         {
             //Set GUID Ids
             var entity = entityAsObj as IEntity<Guid>;
-            if (entity != null && entity.id == Guid.Empty)
+            if (entity != null && entity.Id == Guid.Empty)
             {
                 var entityType = ObjectContext.GetObjectType(entityAsObj.GetType());
-                var idProperty = entityType.GetProperty("id");
+                var idProperty = entityType.GetProperty("Id");
                 var dbGeneratedAttr =
                     ReflectionHelper.GetSingleAttributeOrDefault<DatabaseGeneratedAttribute>(idProperty);
                 if (dbGeneratedAttr == null || dbGeneratedAttr.DatabaseGeneratedOption == DatabaseGeneratedOption.None)
                 {
-                    entity.id = GuidGenerator.Create();
+                    entity.Id = GuidGenerator.Create();
                 }
             }
         }
@@ -403,13 +403,13 @@ namespace Abp.EntityFramework
             entity.TenantId = GetCurrentTenantIdOrNull();
         }
 
-        protected virtual void SetCreationAuditProperties(object entityAsObj, string userId)
+        protected virtual void SetCreationAuditProperties(object entityAsObj, long? userId)
         {
             EntityAuditingHelper.SetCreationAuditProperties(MultiTenancyConfig, entityAsObj, AbpSession.TenantId,
                 userId);
         }
 
-        protected virtual void SetModificationAuditProperties(object entityAsObj, string userId)
+        protected virtual void SetModificationAuditProperties(object entityAsObj, long? userId)
         {
             EntityAuditingHelper.SetModificationAuditProperties(MultiTenancyConfig, entityAsObj, AbpSession.TenantId,
                 userId);
@@ -428,7 +428,7 @@ namespace Abp.EntityFramework
             softDeleteEntry.Entity.IsDeleted = true;
         }
 
-        protected virtual void SetDeletionAuditProperties(object entityAsObj, string userId)
+        protected virtual void SetDeletionAuditProperties(object entityAsObj, long? userId)
         {
             if (entityAsObj is IHasDeletionTime)
             {
@@ -485,9 +485,9 @@ namespace Abp.EntityFramework
             }
         }
 
-        protected virtual string GetAuditUserId()
+        protected virtual long? GetAuditUserId()
         {
-            if (AbpSession.UserId.IsNullOrEmpty() &&
+            if (AbpSession.UserId.HasValue &&
                 CurrentUnitOfWorkProvider != null &&
                 CurrentUnitOfWorkProvider.Current != null &&
                 CurrentUnitOfWorkProvider.Current.GetTenantId() == AbpSession.TenantId)

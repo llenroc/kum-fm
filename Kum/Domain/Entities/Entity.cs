@@ -25,15 +25,15 @@ namespace Abp.Domain.Entities
         /// <summary>
         /// Unique identifier for this entity.
         /// </summary>
-        public virtual TPrimaryKey id { get; set; }
+        public virtual TPrimaryKey Id { get; set; }
 
         /// <summary>
-        /// Checks if this entity is transient (it has not an id).
+        /// Checks if this entity is transient (it has not an Id).
         /// </summary>
         /// <returns>True, if this entity is transient</returns>
         public virtual bool IsTransient()
         {
-            if (EqualityComparer<TPrimaryKey>.Default.Equals(id, default(TPrimaryKey)))
+            if (EqualityComparer<TPrimaryKey>.Default.Equals(Id, default(TPrimaryKey)))
             {
                 return true;
             }
@@ -41,12 +41,12 @@ namespace Abp.Domain.Entities
             //Workaround for EF Core since it sets int/long to min value when attaching to dbcontext
             if (typeof(TPrimaryKey) == typeof(int))
             {
-                return Convert.ToInt32(id) <= 0;
+                return Convert.ToInt32(Id) <= 0;
             }
 
             if (typeof(TPrimaryKey) == typeof(long))
             {
-                return Convert.ToInt64(id) <= 0;
+                return Convert.ToInt64(Id) <= 0;
             }
 
             return false;
@@ -93,13 +93,13 @@ namespace Abp.Domain.Entities
                 return false;
             }
 
-            return id.Equals(other.id);
+            return Id.Equals(other.Id);
         }
 
         /// <inheritdoc/>
         public override int GetHashCode()
         {
-            return id.GetHashCode();
+            return Id.GetHashCode();
         }
 
         /// <inheritdoc/>
@@ -122,7 +122,7 @@ namespace Abp.Domain.Entities
         /// <inheritdoc/>
         public override string ToString()
         {
-            return $"[{GetType().Name} {id}]";
+            return $"[{GetType().Name} {Id}]";
         }
     }
 }

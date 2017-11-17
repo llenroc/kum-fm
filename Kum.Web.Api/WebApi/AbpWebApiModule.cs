@@ -29,7 +29,6 @@ using Abp.WebApi.ExceptionHandling;
 using Abp.WebApi.Security.AntiForgery;
 using Abp.WebApi.Uow;
 using Abp.WebApi.Validation;
-using Abp.Timing;
 
 namespace Abp.WebApi
 {
@@ -47,7 +46,9 @@ namespace Abp.WebApi
             IocManager.Register<IDynamicApiControllerBuilder, DynamicApiControllerBuilder>();
             IocManager.Register<IAbpWebApiConfiguration, AbpWebApiConfiguration>();
 
-           
+            Configuration.Settings.Providers.Add<ClearCacheSettingProvider>();
+
+            Configuration.Modules.AbpWebApi().ResultWrappingIgnoreUrls.Add("/swagger");
         }
 
         /// <inheritdoc/>
@@ -80,8 +81,6 @@ namespace Abp.WebApi
             }
 
             Configuration.Modules.AbpWebApi().HttpConfiguration.EnsureInitialized();
-            
-
         }
 
         private void InitializeAspNetServices(HttpConfiguration httpConfiguration)
@@ -117,13 +116,7 @@ namespace Abp.WebApi
             }
 
             httpConfiguration.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-
-
-            AbpDateTimeConverter timeFormat = new AbpDateTimeConverter();
-            timeFormat.DateTimeFormat = "yyyy-MM-dd HH:mm:ss";
-            //JsonConvert.SerializeObject(dt, Formatting.Indented, timeFormat)
-
-            httpConfiguration.Formatters.JsonFormatter.SerializerSettings.Converters.Insert(0, timeFormat);
+            httpConfiguration.Formatters.JsonFormatter.SerializerSettings.Converters.Insert(0, new AbpDateTimeConverter());
             httpConfiguration.Formatters.Add(new PlainTextFormatter());
         }
 

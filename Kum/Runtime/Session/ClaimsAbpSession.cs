@@ -14,7 +14,7 @@ namespace Abp.Runtime.Session
     /// </summary>
     public class ClaimsAbpSession : AbpSessionBase, ISingletonDependency
     {
-        public override string UserId
+        public override long? UserId
         {
             get
             {
@@ -29,8 +29,8 @@ namespace Abp.Runtime.Session
                     return null;
                 }
 
-                string userId="";
-                if (string.IsNullOrEmpty(userIdClaim.Value))
+                long userId;
+                if (!long.TryParse(userIdClaim.Value, out userId))
                 {
                     return null;
                 }

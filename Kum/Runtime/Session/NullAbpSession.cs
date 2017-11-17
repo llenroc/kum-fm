@@ -15,7 +15,7 @@ namespace Abp.Runtime.Session
         public static NullAbpSession Instance { get; } = new NullAbpSession();
 
         /// <inheritdoc/>
-        public override string UserId => null;
+        public override long? UserId => null;
 
         /// <inheritdoc/>
         public override int? TenantId => null;

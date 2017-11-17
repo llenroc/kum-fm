@@ -1,20 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Dynamic;
-using System.Text;
 using System.Threading.Tasks;
-using Abp;
 using Abp.Application.Services.Dto;
-using Abp.Authorization;
 using Abp.AutoMapper;
-using Abp.Configuration;
 using Abp.Domain.Repositories;
-using Abp.Extensions;
 using Abp.Linq.Extensions;
 using System.Linq.Dynamic.Core;
 using Mao.Application.Person.Dtos;
-using Mao.Persons;
 using System.Data.Entity;
 
 
@@ -64,7 +57,7 @@ namespace Mao.Application.Person
             var personCount = await query.CountAsync();
 
             var persons = await query
-            .OrderBy(input.Sorting)
+            //.OrderBy(input.Sorting)
             .PageBy(input)
             .ToListAsync();
 

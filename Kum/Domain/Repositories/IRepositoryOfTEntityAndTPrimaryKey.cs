@@ -82,13 +82,6 @@ namespace Abp.Domain.Repositories
         Task<TEntity> GetAsync(TPrimaryKey id);
 
         /// <summary>
-        /// 给表达式返回实体
-        /// </summary>
-        /// <param name="predicate">表达式</param>
-        /// <returns>Entity</returns>
-        Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> predicate);
-
-        /// <summary>
         /// Gets exactly one entity with given predicate.
         /// Throws exception if no entity or more than one entity.
         /// </summary>

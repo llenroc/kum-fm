@@ -72,7 +72,7 @@ namespace Abp.Domain.Entities.Caching
 
         public virtual void HandleEvent(EntityChangedEventData<TEntity> eventData)
         {
-            InternalCache.Remove(eventData.Entity.id);
+            InternalCache.Remove(eventData.Entity.Id);
         }
 
         protected virtual TCacheItem GetCacheItemFromDataSource(TPrimaryKey id)

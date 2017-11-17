@@ -62,6 +62,12 @@
     <Reference Include="JetBrains.Annotations, Version=11.0.0.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
       <HintPath>..\packages\JetBrains.Annotations.11.0.0\lib\net20\JetBrains.Annotations.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Extensions.Caching.Abstractions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.Caching.Abstractions.2.0.0\lib\netstandard2.0\Microsoft.Extensions.Caching.Abstractions.dll</HintPath>
     </Reference>
@@ -76,6 +82,18 @@
     </Reference>
     <Reference Include="Microsoft.Extensions.Primitives, Version=2.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.Primitives.2.0.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
@@ -119,6 +137,9 @@
     <Reference Include="Nito.Disposables, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Nito.Disposables.1.0.0\lib\portable45-net45+win8+wp8+wpa81\Nito.Disposables.dll</HintPath>
     </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Collections.Immutable, Version=1.2.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Collections.Immutable.1.4.0\lib\netstandard2.0\System.Collections.Immutable.dll</HintPath>
@@ -138,6 +159,9 @@
     </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Linq.Dynamic, Version=1.0.6132.35681, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.7\lib\net40\System.Linq.Dynamic.dll</HintPath>
+    </Reference>
     <Reference Include="System.Linq.Dynamic.Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=0f07ec44de6ac832, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Linq.Dynamic.Core.1.0.7.9\lib\net46\System.Linq.Dynamic.Core.dll</HintPath>
     </Reference>
@@ -182,31 +206,152 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppConsts.cs" />
-    <Compile Include="Authorize\AuthorizeManager\AuthorizeService.cs" />
-    <Compile Include="Authorize\AuthorizeManager\Dto\AuthorizeUrlModel.cs" />
-    <Compile Include="Authorize\AuthorizeManager\IAuthorizeService.cs" />
-    <Compile Include="Base\UserManager\Dtos\CreateOrUpdateUserInput.cs" />
-    <Compile Include="Base\UserManager\Dtos\GetUserForEditOutput.cs" />
-    <Compile Include="Base\UserManager\Dtos\GetPageUserInput.cs" />
-    <Compile Include="Base\UserManager\Dtos\GetUserInput.cs" />
-    <Compile Include="Base\UserManager\Dtos\UserEditDto.cs" />
-    <Compile Include="Base\UserManager\Dtos\UserListDto.cs" />
-    <Compile Include="Base\UserManager\IUserAppService.cs" />
-    <Compile Include="Base\UserManager\Mappers\UserDtoMapper.cs" />
-    <Compile Include="Base\UserManager\UserAppService.cs" />
+    <Compile Include="Auditing\AuditLogAndUser.cs" />
+    <Compile Include="Auditing\AuditLogAppService.cs" />
+    <Compile Include="Auditing\Dto\AuditLogListDto.cs" />
+    <Compile Include="Auditing\Dto\GetAuditLogsInput.cs" />
+    <Compile Include="Auditing\Exporting\AuditLogListExcelExporter.cs" />
+    <Compile Include="Auditing\Exporting\IAuditLogListExcelExporter.cs" />
+    <Compile Include="Auditing\IAuditLogAppService.cs" />
+    <Compile Include="Auditing\INamespaceStripper.cs" />
+    <Compile Include="Auditing\NamespaceStripper.cs" />
+    <Compile Include="Authorization\AbpLoginResultTypeHelper.cs" />
+    <Compile Include="Authorization\LogInManager.cs" />
+    <Compile Include="Authorization\Permissions\Dto\FlatPermissionDto.cs" />
+    <Compile Include="Authorization\Permissions\Dto\FlatPermissionWithLevelDto.cs" />
+    <Compile Include="Authorization\Permissions\IPermissionAppService.cs" />
+    <Compile Include="Authorization\Permissions\PermissionAppService.cs" />
+    <Compile Include="Authorization\Permissions\PermissionManagerExtensions.cs" />
+    <Compile Include="Authorization\Roles\Dto\CreateOrUpdateRoleInput.cs" />
+    <Compile Include="Authorization\Roles\Dto\GetRoleForEditOutput.cs" />
+    <Compile Include="Authorization\Roles\Dto\GetRolesInput.cs" />
+    <Compile Include="Authorization\Roles\Dto\RoleEditDto.cs" />
+    <Compile Include="Authorization\Roles\Dto\RoleListDto.cs" />
+    <Compile Include="Authorization\Roles\IRoleAppService.cs" />
+    <Compile Include="Authorization\Roles\RoleAppService.cs" />
+    <Compile Include="Authorization\Users\Dto\CreateOrUpdateUserInput.cs" />
+    <Compile Include="Authorization\Users\Dto\GetLinkedUsersInput.cs" />
+    <Compile Include="Authorization\Users\Dto\GetUserForEditOutput.cs" />
+    <Compile Include="Authorization\Users\Dto\GetUserPermissionsForEditOutput.cs" />
+    <Compile Include="Authorization\Users\Dto\GetUsersInput.cs" />
+    <Compile Include="Authorization\Users\Dto\LinkToUserInput.cs" />
+    <Compile Include="Authorization\Users\Dto\UnlinkUserInput.cs" />
+    <Compile Include="Authorization\Users\Dto\UpdateUserPermissionsInput.cs" />
+    <Compile Include="Authorization\Users\Dto\UserEditDto.cs" />
+    <Compile Include="Authorization\Users\Dto\UserListDto.cs" />
+    <Compile Include="Authorization\Users\Dto\UserLoginAttemptDto.cs" />
+    <Compile Include="Authorization\Users\Dto\UserRoleDto.cs" />
+    <Compile Include="Authorization\Users\Exporting\IUserListExcelExporter.cs" />
+    <Compile Include="Authorization\Users\Exporting\UserListExcelExporter.cs" />
+    <Compile Include="Authorization\Users\IUserAppService.cs" />
+    <Compile Include="Authorization\Users\IUserLinkAppService.cs" />
+    <Compile Include="Authorization\Users\IUserLoginAppService.cs" />
+    <Compile Include="Authorization\Users\LinkedUserDto.cs" />
+    <Compile Include="Authorization\Users\Profile\Dto\ChangePasswordInput.cs" />
+    <Compile Include="Authorization\Users\Profile\Dto\CurrentUserProfileEditDto.cs" />
+    <Compile Include="Authorization\Users\Profile\Dto\GetPasswordComplexitySettingOutput.cs" />
+    <Compile Include="Authorization\Users\Profile\Dto\UpdateProfilePictureInput.cs" />
+    <Compile Include="Authorization\Users\Profile\IProfileAppService.cs" />
+    <Compile Include="Authorization\Users\Profile\ProfileAppService.cs" />
+    <Compile Include="Authorization\Users\UserAppService.cs" />
+    <Compile Include="Authorization\Users\UserLinkAppService.cs" />
+    <Compile Include="Authorization\Users\UserLoginAppService.cs" />
+    <Compile Include="Caching\CachingAppService.cs" />
+    <Compile Include="Caching\Dto\CacheDto.cs" />
+    <Compile Include="Caching\ICachingAppService.cs" />
+    <Compile Include="Chat\ChatAppService.cs" />
+    <Compile Include="Chat\Dto\ChatMessageDto.cs" />
+    <Compile Include="Chat\Dto\ChatUserDto.cs" />
+    <Compile Include="Chat\Dto\ChatUserWithMessagesDto.cs" />
+    <Compile Include="Chat\Dto\GetUserChatFriendsWithSettingsOutput.cs" />
+    <Compile Include="Chat\Dto\GetUserChatMessagesInput.cs" />
+    <Compile Include="Chat\Dto\MarkAllUnreadMessagesOfUserAsReadInput.cs" />
+    <Compile Include="Chat\IChatAppService.cs" />
+    <Compile Include="Common\CommonLookupAppService.cs" />
+    <Compile Include="Common\Dto\FindUsersInput.cs" />
+    <Compile Include="Common\ICommonLookupAppService.cs" />
+    <Compile Include="Configuration\Host\Dto\EmailSettingsEditDto.cs" />
+    <Compile Include="Configuration\Host\Dto\GeneralSettingsEditDto.cs" />
+    <Compile Include="Configuration\Host\Dto\HostSettingsEditDto.cs" />
+    <Compile Include="Configuration\Host\Dto\HostUserManagementSettingsEditDto.cs" />
+    <Compile Include="Configuration\Host\Dto\SecuritySettingsEditDto.cs" />
+    <Compile Include="Configuration\Host\Dto\SendTestEmailInput.cs" />
+    <Compile Include="Configuration\Host\Dto\TenantManagementSettingsEditDto.cs" />
+    <Compile Include="Configuration\Host\Dto\TwoFactorLoginSettingsEditDto.cs" />
+    <Compile Include="Configuration\Host\Dto\UserLockOutSettingsEditDto.cs" />
+    <Compile Include="Configuration\Host\HostSettingsAppService.cs" />
+    <Compile Include="Configuration\Host\IHostSettingsAppService.cs" />
+    <Compile Include="Configuration\Tenants\Dto\LdapSettingsEditDto.cs" />
+    <Compile Include="Configuration\Tenants\Dto\TenantSettingsEditDto.cs" />
+    <Compile Include="Configuration\Tenants\Dto\TenantUserManagementSettingsEditDto.cs" />
+    <Compile Include="Configuration\Tenants\ITenantSettingsAppService.cs" />
+    <Compile Include="Configuration\Tenants\TenantSettingsAppService.cs" />
+    <Compile Include="CustomDtoMapper.cs" />
     <Compile Include="DataExporting\Excel\EpPlus\EpPlusExcelExporterBase.cs" />
     <Compile Include="Dto\FileDto.cs" />
     <Compile Include="Dto\PagedAndFilteredInputDto.cs" />
     <Compile Include="Dto\PagedAndSortedInputDto.cs" />
     <Compile Include="Dto\PagedInputDto.cs" />
     <Compile Include="Dto\PagedSortedAndFilteredInputDto.cs" />
+    <Compile Include="Editions\Dto\CreateOrUpdateEditionDto.cs" />
+    <Compile Include="Editions\Dto\EditionEditDto.cs" />
+    <Compile Include="Editions\Dto\EditionListDto.cs" />
+    <Compile Include="Editions\Dto\FlatFeatureDto.cs" />
+    <Compile Include="Editions\Dto\GetEditionForEditOutput.cs" />
+    <Compile Include="Editions\EditionAppService.cs" />
+    <Compile Include="Editions\IEditionAppService.cs" />
+    <Compile Include="Friendships\Dto\AcceptFriendshipRequestInput.cs" />
+    <Compile Include="Friendships\Dto\BlockUserInput.cs" />
+    <Compile Include="Friendships\Dto\CreateFriendshipRequestByUserNameInput.cs" />
+    <Compile Include="Friendships\Dto\CreateFriendshipRequestInput.cs" />
+    <Compile Include="Friendships\Dto\FriendshipDto.cs" />
+    <Compile Include="Friendships\Dto\UnblockUserInput.cs" />
+    <Compile Include="Friendships\FriendshipAppService.cs" />
+    <Compile Include="Friendships\IFriendshipAppService.cs" />
     <Compile Include="IO\AppFileHelper.cs" />
+    <Compile Include="Localization\Dto\ApplicationLanguageEditDto.cs" />
+    <Compile Include="Localization\Dto\ApplicationLanguageListDto.cs" />
+    <Compile Include="Localization\Dto\CreateOrUpdateLanguageInput.cs" />
+    <Compile Include="Localization\Dto\GetLanguageForEditOutput.cs" />
+    <Compile Include="Localization\Dto\GetLanguagesOutput.cs" />
+    <Compile Include="Localization\Dto\LanguageTextListDto.cs" />
+    <Compile Include="Localization\Dto\SetDefaultLanguageInput.cs" />
+    <Compile Include="Localization\Dto\UpdateLanguageTextInput.cs" />
+    <Compile Include="Localization\FamFamFamFlagsHelper.cs" />
+    <Compile Include="Localization\GetLanguageTextsInput.cs" />
+    <Compile Include="Localization\ILanguageAppService.cs" />
+    <Compile Include="Localization\LanguageAppService.cs" />
     <Compile Include="Logging\Dto\GetLatestWebLogsOutput.cs" />
     <Compile Include="Logging\IWebLogAppService.cs" />
     <Compile Include="Logging\WebLogAppService.cs" />
     <Compile Include="MaoApplicationModule.cs" />
     <Compile Include="MaoAppServiceBase.cs" />
+    <Compile Include="MultiTenancy\Dto\CreateTenantInput.cs" />
+    <Compile Include="MultiTenancy\Dto\GetTenantFeaturesForEditOutput.cs" />
+    <Compile Include="MultiTenancy\Dto\GetTenantsInput.cs" />
+    <Compile Include="MultiTenancy\Dto\TenantEditDto.cs" />
+    <Compile Include="MultiTenancy\Dto\TenantListDto.cs" />
+    <Compile Include="MultiTenancy\Dto\UpdateTenantFeaturesInput.cs" />
+    <Compile Include="MultiTenancy\ITenantAppService.cs" />
+    <Compile Include="MultiTenancy\TenantAppService.cs" />
     <Compile Include="Net\MimeTypes\MimeTypeNames.cs" />
+    <Compile Include="Notifications\Dto\GetNotificationSettingsOutput.cs" />
+    <Compile Include="Notifications\Dto\GetNotificationsOutput.cs" />
+    <Compile Include="Notifications\Dto\GetUserNotificationsInput.cs" />
+    <Compile Include="Notifications\Dto\NotificationSubscriptionDto.cs" />
+    <Compile Include="Notifications\Dto\NotificationSubscriptionWithDisplayNameDto.cs" />
+    <Compile Include="Notifications\Dto\UpdateNotificationSettingsInput.cs" />
+    <Compile Include="Notifications\INotificationAppService.cs" />
+    <Compile Include="Notifications\NotificationAppService.cs" />
+    <Compile Include="Organizations\Dto\CreateOrganizationUnitInput.cs" />
+    <Compile Include="Organizations\Dto\GetOrganizationUnitUsersInput.cs" />
+    <Compile Include="Organizations\Dto\MoveOrganizationUnitInput.cs" />
+    <Compile Include="Organizations\Dto\OrganizationUnitDto.cs" />
+    <Compile Include="Organizations\Dto\OrganizationUnitUserListDto.cs" />
+    <Compile Include="Organizations\Dto\UpdateOrganizationUnitInput.cs" />
+    <Compile Include="Organizations\Dto\UserToOrganizationUnitInput.cs" />
+    <Compile Include="Organizations\IOrganizationUnitAppService.cs" />
+    <Compile Include="Organizations\OrganizationUnitAppService.cs" />
     <Compile Include="PagedAndSortedInputDto.cs" />
     <Compile Include="Person\Dtos\CreateOrUpdatePersonInput.cs" />
     <Compile Include="Person\Dtos\GetPersonForEditOutput.cs" />
@@ -217,6 +362,18 @@
     <Compile Include="Person\Mappers\PersonDtoMapper.cs" />
     <Compile Include="Person\PersonAppService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sessions\Dto\GetCurrentLoginInformationsOutput.cs" />
+    <Compile Include="Sessions\Dto\TenantLoginInfoDto.cs" />
+    <Compile Include="Sessions\Dto\UserLoginInfoDto.cs" />
+    <Compile Include="Sessions\ISessionAppService.cs" />
+    <Compile Include="Sessions\SessionAppService.cs" />
+    <Compile Include="Tenants\Dashboard\Dto\GetMemberActivityOutput.cs" />
+    <Compile Include="Tenants\Dashboard\ITenantDashboardAppService.cs" />
+    <Compile Include="Tenants\Dashboard\TenantDashboardAppService.cs" />
+    <Compile Include="Timing\Dto\GetTimezoneComboboxItemsInput.cs" />
+    <Compile Include="Timing\Dto\GetTimezonesInput.cs" />
+    <Compile Include="Timing\ITimingAppService.cs" />
+    <Compile Include="Timing\TimingAppService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -227,21 +384,28 @@
       <Project>{09e13f4c-3385-4248-bdd8-de3bf0fd9a72}</Project>
       <Name>Kum.AutoMapper</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Kum.Zero.Common\Kum.Zero.Common.csproj">
+      <Project>{3b06041e-1d59-44d6-a559-cf40cdfa8598}</Project>
+      <Name>Kum.Zero.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Kum.Zero\Kum.Zero.csproj">
+      <Project>{4a96b924-2f28-4306-8808-1a72c27aa1f3}</Project>
+      <Name>Kum.Zero</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Kum\Kum.csproj">
       <Project>{a0f296fe-d903-4100-b584-196d73516784}</Project>
       <Name>Kum</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LeaRun.Util.Extension\Mao.Util.Extension.csproj">
+      <Project>{4b7dde80-dfa1-4938-93f8-3721e2c592b9}</Project>
+      <Name>Mao.Util.Extension</Name>
     </ProjectReference>
     <ProjectReference Include="..\Mao.Core\Mao.Core.csproj">
       <Project>{17298ea0-af73-4f30-b6f1-2066100d7d74}</Project>
       <Name>Mao.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Base\DepartmentManager\" />
-    <Folder Include="Base\OrganizeManager\" />
-    <Folder Include="Base\RoleManager\" />
-    <Folder Include="Base\UserRelationManager\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

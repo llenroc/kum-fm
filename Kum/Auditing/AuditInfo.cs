@@ -15,7 +15,7 @@ namespace Abp.Auditing
         /// <summary>
         /// UserId.
         /// </summary>
-        public string UserId { get; set; }
+        public long? UserId { get; set; }
 
         /// <summary>
         /// ImpersonatorUserId.
@@ -79,8 +79,8 @@ namespace Abp.Auditing
 
         public override string ToString()
         {
-            var loggedUserId =string.IsNullOrEmpty(UserId)
-                                   ? "user " + UserId
+            var loggedUserId = UserId.HasValue
+                                   ? "user " + UserId.Value
                                    : "an anonymous user";
 
             var exceptionOrSuccessMessage = Exception != null

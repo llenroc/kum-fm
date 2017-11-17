@@ -21,7 +21,7 @@ namespace Abp.Notifications
 
             return new TenantNotification
             {
-                id = tenantNotificationInfo.id,
+                Id = tenantNotificationInfo.Id,
                 TenantId = tenantNotificationInfo.TenantId,
                 NotificationName = tenantNotificationInfo.NotificationName,
                 Data = tenantNotificationInfo.Data.IsNullOrEmpty() ? null : JsonConvert.DeserializeObject(tenantNotificationInfo.Data, Type.GetType(tenantNotificationInfo.DataTypeName)) as NotificationData,

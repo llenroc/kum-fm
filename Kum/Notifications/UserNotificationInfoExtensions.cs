@@ -12,7 +12,7 @@
         {
             return new UserNotification
             {
-                id = userNotificationInfo.id,
+                Id = userNotificationInfo.Id,
                 Notification = tenantNotification,
                 UserId = userNotificationInfo.UserId,
                 State = userNotificationInfo.State,

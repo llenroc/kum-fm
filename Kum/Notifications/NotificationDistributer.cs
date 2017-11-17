@@ -119,12 +119,12 @@ namespace Abp.Notifications
                         if (!await _notificationDefinitionManager.IsAvailableAsync(notificationInfo.NotificationName, new UserIdentifier(subscription.TenantId, subscription.UserId)) ||
                             !SettingManager.GetSettingValueForUser<bool>(NotificationSettingNames.ReceiveNotifications, subscription.TenantId, subscription.UserId))
                         {
-                            invalidSubscriptions[subscription.id] = subscription;
+                            invalidSubscriptions[subscription.Id] = subscription;
                         }
                     }
                 }
 
-                subscriptions.RemoveAll(s => invalidSubscriptions.ContainsKey(s.id));
+                subscriptions.RemoveAll(s => invalidSubscriptions.ContainsKey(s.Id));
 
                 //Get user ids
                 userIds = subscriptions
@@ -183,7 +183,7 @@ namespace Abp.Notifications
                         {
                             TenantId = tenantGroup.Key,
                             UserId = user.UserId,
-                            TenantNotificationId = tenantNotificationInfo.id
+                            TenantNotificationId = tenantNotificationInfo.Id
                         };
 
                         await _notificationStore.InsertUserNotificationAsync(userNotification);

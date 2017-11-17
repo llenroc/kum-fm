@@ -1,16 +1,18 @@
 ﻿using System.Data.Common;
 using Abp.EntityFramework;
 using System.Data.Entity;
-using Mao.Core.Base;
-using Mao.Core.Authorize;
-
-
-
+using Mao.Core.Storage;
+using Mao.Core.Friendships;
+using Mao.Core.Chat;
+using Abp.Zero.EntityFramework;
+using Mao.Core.MultiTenancy;
+using Mao.Core.Authorization.Roles;
+using Mao.Core.Authorization.Users;
 
 namespace Mao.EntityFramework
 {
     [DbConfigurationType(typeof(MySql.Data.Entity.MySqlEFConfiguration))]
-    public class MaoDbContext : AbpDbContext
+    public class MaoDbContext : AbpZeroDbContext<Tenant, Role, User>
     {
         //TODO: Define an IDbSet for each ...
 
@@ -23,30 +25,17 @@ namespace Mao.EntityFramework
          *   pass connection string name to base classes. ABP works either way.
          */
         public virtual IDbSet<Persons.Person> Persons { get; set; }
-        public virtual IDbSet<Department> Department { get; set; }
-        public virtual IDbSet<Organize> Organize { get; set; }
-        public virtual IDbSet<Role> Role { get; set; }
-       
-        public virtual IDbSet<User> User { get; set; }
 
-        public virtual IDbSet<UserRelation> UserRelation { get; set; }
-        public virtual IDbSet<AuthorizeData> AuthorizeData { get; set; }
-        public virtual IDbSet<FilterIP> FilterIP { get; set; }
-        public virtual IDbSet<FilterTime> FilterTime { get; set; }
-        public virtual IDbSet<ModuleButton> ModuleButton { get; set; }
-        public virtual IDbSet<ModuleColumn> ModuleColumn { get; set; }
-        public virtual IDbSet<Module> Module { get; set; }
-        public virtual IDbSet<ModuleForm> ModuleForm { get; set; }
-        public virtual IDbSet<ModuleFormInstance> ModuleFormInstance { get; set; }
+        public virtual IDbSet<BinaryObject> BinaryObjects { get; set; }
 
+        public virtual IDbSet<Friendship> Friendships { get; set; }
 
-        
-
+        public virtual IDbSet<ChatMessage> ChatMessages { get; set; }
         public MaoDbContext()
             : base("Default")
         {
 
-            
+
 
         }
 
@@ -74,5 +63,5 @@ namespace Mao.EntityFramework
         }
     }
 
-  
+
 }

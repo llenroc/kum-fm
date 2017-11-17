@@ -68,7 +68,7 @@ namespace Abp.Notifications
 
         public TenantNotificationInfo(Guid id, int? tenantId, NotificationInfo notification)
         {
-            this.id = id;
+            Id = id;
             TenantId = tenantId;
             NotificationName = notification.NotificationName;
             Data = notification.Data;

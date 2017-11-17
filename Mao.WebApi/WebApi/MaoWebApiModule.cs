@@ -7,6 +7,7 @@ using Abp.Modules;
 using Abp.WebApi;
 using Swashbuckle.Application;
 using Abp.Timing;
+using Mao.Application;
 
 namespace Mao.WebApi
 {

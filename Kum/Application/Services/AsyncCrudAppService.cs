@@ -105,7 +105,7 @@ namespace Abp.Application.Services
         {
             CheckGetPermission();
 
-            var entity = await GetEntityByIdAsync(input.id);
+            var entity = await GetEntityByIdAsync(input.Id);
             return MapToEntityDto(entity);
         }
 
@@ -144,7 +144,7 @@ namespace Abp.Application.Services
         {
             CheckUpdatePermission();
 
-            var entity = await GetEntityByIdAsync(input.id);
+            var entity = await GetEntityByIdAsync(input.Id);
 
             MapToEntity(input, entity);
             await CurrentUnitOfWork.SaveChangesAsync();
@@ -156,7 +156,7 @@ namespace Abp.Application.Services
         {
             CheckDeletePermission();
 
-            return Repository.DeleteAsync(input.id);
+            return Repository.DeleteAsync(input.Id);
         }
 
         protected virtual Task<TEntity> GetEntityByIdAsync(TPrimaryKey id)

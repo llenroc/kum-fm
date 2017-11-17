@@ -103,14 +103,14 @@ namespace Abp.Notifications
             if (userIds != null && userIds.Length <= MaxUserCountToDirectlyDistributeANotification)
             {
                 //We can directly distribute the notification since there are not much receivers
-                await _notificationDistributer.DistributeAsync(notificationInfo.id);
+                await _notificationDistributer.DistributeAsync(notificationInfo.Id);
             }
             else
             {
                 //We enqueue a background job since distributing may get a long time
                 await _backgroundJobManager.EnqueueAsync<NotificationDistributionJob, NotificationDistributionJobArgs>(
                     new NotificationDistributionJobArgs(
-                        notificationInfo.id
+                        notificationInfo.Id
                         )
                     );
             }

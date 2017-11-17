@@ -27,7 +27,7 @@ namespace Abp.Domain.Entities.Auditing
         /// <summary>
         /// Which user deleted this entity?
         /// </summary>
-        public virtual string DeleterUserId { get; set; }
+        public virtual long? DeleterUserId { get; set; }
 
         /// <summary>
         /// Deletion time of this entity.
@@ -42,7 +42,7 @@ namespace Abp.Domain.Entities.Auditing
     /// <typeparam name="TUser">Type of the user</typeparam>
     [Serializable]
     public abstract class FullAuditedEntity<TPrimaryKey, TUser> : AuditedEntity<TPrimaryKey, TUser>, IFullAudited<TUser>
-        where TUser : IEntity<string>
+        where TUser : IEntity<long>
     {
         /// <summary>
         /// Is this entity Deleted?
@@ -58,7 +58,7 @@ namespace Abp.Domain.Entities.Auditing
         /// <summary>
         /// Which user deleted this entity?
         /// </summary>
-        public virtual string DeleterUserId { get; set; }
+        public virtual long? DeleterUserId { get; set; }
 
         /// <summary>
         /// Deletion time of this entity.

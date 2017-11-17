@@ -91,17 +91,7 @@ namespace Abp.Domain.Repositories
 
             return entity;
         }
-        public virtual async Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> predicate)
-        {
-            var entity = await FirstOrDefaultAsync(predicate);
-            if (entity == null)
-            {
-                throw new EntityNotFoundException(typeof(TEntity), predicate.Name);
-            }
-
-            return entity;
-        }
-
+        
         public virtual TEntity Single(Expression<Func<TEntity, bool>> predicate)
         {
             return GetAll().Single(predicate);
@@ -146,7 +136,7 @@ namespace Abp.Domain.Repositories
 
         public virtual TPrimaryKey InsertAndGetId(TEntity entity)
         {
-            return Insert(entity).id;
+            return Insert(entity).Id;
         }
 
         public virtual Task<TPrimaryKey> InsertAndGetIdAsync(TEntity entity)
@@ -170,7 +160,7 @@ namespace Abp.Domain.Repositories
 
         public virtual TPrimaryKey InsertOrUpdateAndGetId(TEntity entity)
         {
-            return InsertOrUpdate(entity).id;
+            return InsertOrUpdate(entity).Id;
         }
 
         public virtual Task<TPrimaryKey> InsertOrUpdateAndGetIdAsync(TEntity entity)
@@ -274,7 +264,7 @@ namespace Abp.Domain.Repositories
             var lambdaParam = Expression.Parameter(typeof(TEntity));
 
             var lambdaBody = Expression.Equal(
-                Expression.PropertyOrField(lambdaParam, "id"),
+                Expression.PropertyOrField(lambdaParam, "Id"),
                 Expression.Constant(id, typeof(TPrimaryKey))
                 );
 

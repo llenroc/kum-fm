@@ -61,7 +61,7 @@ namespace Abp.Configuration
         /// <param name="tenantId">Tenant id</param>
         /// <param name="userId">User id</param>
         /// <returns>Current value of the setting for the user</returns>
-        Task<string> GetSettingValueForUserAsync(string name, int? tenantId, string userId);
+        Task<string> GetSettingValueForUserAsync(string name, int? tenantId, long userId);
 
         /// <summary>
         /// Gets current value of a setting for a user level.
@@ -73,7 +73,7 @@ namespace Abp.Configuration
         /// <param name="userId">User id</param>
         /// <param name="fallbackToDefault"></param>
         /// <returns>Current value of the setting for the user</returns>
-        Task<string> GetSettingValueForUserAsync(string name, int? tenantId, string userId, bool fallbackToDefault);
+        Task<string> GetSettingValueForUserAsync(string name, int? tenantId, long userId, bool fallbackToDefault);
 
         /// <summary>
         /// Gets current value of a setting for a user level.

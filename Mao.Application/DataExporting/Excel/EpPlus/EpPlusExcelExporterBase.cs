@@ -11,7 +11,7 @@ using Mao.Core;
 
 namespace Mao.Application.DataExporting.Excel.EpPlus
 {
-    public abstract class EpPlusExcelExporterBase : ITransientDependency
+    public abstract class EpPlusExcelExporterBase : MaoServiceBase, ITransientDependency
     {
         public IAppFolders AppFolders { get; set; }
 

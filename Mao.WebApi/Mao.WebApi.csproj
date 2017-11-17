@@ -220,6 +220,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Abp.Zero.EntityFramework\Kum.Zero.EntityFramework.csproj">
+      <Project>{84302759-2ec2-4f34-8570-cfc3739eff0a}</Project>
+      <Name>Kum.Zero.EntityFramework</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Kum.AutoMapper\Kum.AutoMapper.csproj">
       <Project>{09e13f4c-3385-4248-bdd8-de3bf0fd9a72}</Project>
       <Name>Kum.AutoMapper</Name>
@@ -239,6 +243,14 @@
     <ProjectReference Include="..\Kum.Web\Kum.Web.csproj">
       <Project>{346b5924-289d-4704-89b2-11d29bdf427d}</Project>
       <Name>Kum.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Kum.Zero.Common\Kum.Zero.Common.csproj">
+      <Project>{3b06041e-1d59-44d6-a559-cf40cdfa8598}</Project>
+      <Name>Kum.Zero.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Kum.Zero\Kum.Zero.csproj">
+      <Project>{4a96b924-2f28-4306-8808-1a72c27aa1f3}</Project>
+      <Name>Kum.Zero</Name>
     </ProjectReference>
     <ProjectReference Include="..\Kum\Kum.csproj">
       <Project>{a0f296fe-d903-4100-b584-196d73516784}</Project>

@@ -56,7 +56,7 @@ namespace Abp.Application.Services
             //IQueryable.Task requires sorting, so we should sort if Take will be used.
             if (input is ILimitedResultRequest)
             {
-                return query.OrderByDescending(e => e.id);
+                return query.OrderByDescending(e => e.Id);
             }
 
             //No sorting

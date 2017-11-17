@@ -35,7 +35,7 @@ namespace Abp.Web.Authorization
             var allPermissionNames = _permissionManager.GetAllPermissions(false).Select(p => p.Name).ToList();
             var grantedPermissionNames = new List<string>();
 
-            if (!string.IsNullOrEmpty(AbpSession.UserId))
+            if (AbpSession.UserId.HasValue)
             {
                 foreach (var permissionName in allPermissionNames)
                 {

@@ -36,7 +36,7 @@ namespace Abp.Web.Mvc.Controllers.Localization
                 }
             );
 
-            if (!string.IsNullOrEmpty(AbpSession.UserId))
+            if (AbpSession.UserId.HasValue)
             {
                 SettingManager.ChangeSettingForUser(
                     AbpSession.ToUserIdentifier(),

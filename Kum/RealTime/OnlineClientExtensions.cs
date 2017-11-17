@@ -7,8 +7,8 @@ namespace Abp.RealTime
         [CanBeNull]
         public static UserIdentifier ToUserIdentifierOrNull(this IOnlineClient onlineClient)
         {
-            return string.IsNullOrEmpty(onlineClient.UserId)
-                ? new UserIdentifier(onlineClient.TenantId, onlineClient.UserId)
+            return onlineClient.UserId.HasValue
+                ? new UserIdentifier(onlineClient.TenantId, onlineClient.UserId.Value)
                 : null;
         }
     }
