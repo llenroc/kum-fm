@@ -1,5 +1,4 @@
-﻿using System.Reflection;
-using System.Web;
+﻿using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
@@ -14,43 +13,46 @@ using Abp.IO;
 using Abp.Configuration.Startup;
 using Mao.Core.Web;
 using Mao.Application;
+using Abp.Zero.Configuration;
+using Microsoft.Owin.Security;
+using Abp;
+using System.Reflection;
+using Castle.MicroKernel.Registration;
 
 namespace Mao.Web
 {
     [DependsOn(
         typeof(AbpWebMvcModule),
-        typeof(MaoDataModule), 
-        typeof(MaoApplicationModule), 
+         typeof(AbpZeroOwinModule),
+        typeof(MaoDataModule),
+        typeof(MaoApplicationModule),
         typeof(MaoWebApiModule))]
+
+    //[DependsOn(
+    //    typeof(AbpWebMvcModule),
+    //    typeof(AbpZeroOwinModule),
+    //    typeof(AbpZeroTemplateDataModule),
+    //    typeof(AbpZeroTemplateApplicationModule),
+    //    typeof(AbpZeroTemplateWebApiModule),
+    //    typeof(AbpWebSignalRModule),
+    //    typeof(AbpRedisCacheModule), //AbpRedisCacheModule dependency can be removed if not using Redis cache
+    //    typeof(AbpHangfireModule))] //AbpHangfireModule dependency can be removed if not using Hangfire
+
     public class MaoWebModule : AbpModule
     {
         public override void PreInitialize()
         {
-            //Add/remove languages for your application
-            Configuration.Localization.Languages.Add(new LanguageInfo("en", "English", "famfamfam-flag-england", true));
-            Configuration.Localization.Languages.Add(new LanguageInfo("tr", "Türkçe", "famfamfam-flag-tr"));
-            Configuration.Localization.Languages.Add(new LanguageInfo("zh-CN", "简体中文", "famfamfam-flag-cn"));
-            Configuration.Localization.Languages.Add(new LanguageInfo("ja", "日本語", "famfamfam-flag-jp"));
-
-            //Add/remove localization sources here
-            Configuration.Localization.Sources.Add(
-                new DictionaryBasedLocalizationSource(
-                    MaoConsts.LocalizationSourceName,
-                    new XmlFileLocalizationDictionaryProvider(
-                        HttpContext.Current.Server.MapPath("~/Localization/Mao")
-                        )
-                    )
-                );
+            //Use database for language management
+            Configuration.Modules.Zero().LanguageManagement.EnableDbLocalization();
 
             //Configure navigation/menu
-            Configuration.Navigation.Providers.Add<MaoNavigationProvider>();
+            //Configuration.Navigation.Providers.Add<AppNavigationProvider>();//SPA!
+            //Configuration.Navigation.Providers.Add<FrontEndNavigationProvider>();
+            //Configuration.Navigation.Providers.Add<MpaNavigationProvider>();//MPA!
 
-            //Configuration.Modules.AbpWebCommon();
-            //.MultiTenancy.DomainFormat = WebUrlService.WebSiteRootAddress;
+            Configuration.Modules.AbpWebCommon().MultiTenancy.DomainFormat = WebUrlService.WebSiteRootAddress;
 
 
-            //Configuration.Modules.AbpWebCommon();
-            //.MultiTenancy.DomainFormat = WebUrlService.WebSiteRootAddress;
 
             //不做ajax防伪
             Configuration.Modules.AbpWeb().AntiForgery.IsEnabled = false;
@@ -59,11 +61,35 @@ namespace Mao.Web
 
         public override void Initialize()
         {
+            //IocManager.RegisterAssemblyByConvention(Assembly.GetExecutingAssembly());
+
+            ////AreaRegistration.RegisterAllAreas();
+            //RouteConfig.RegisterRoutes(RouteTable.Routes);
+            //BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            //Dependency Injection
             IocManager.RegisterAssemblyByConvention(Assembly.GetExecutingAssembly());
 
-            //AreaRegistration.RegisterAllAreas();
+            IocManager.IocContainer.Register(
+                Castle.MicroKernel.Registration.Component
+                    .For<IAuthenticationManager>()
+                    .UsingFactoryMethod(() => HttpContext.Current.GetOwinContext().Authentication)
+                    .LifestyleTransient()
+                );
+
+            //Areas
+            AreaRegistration.RegisterAllAreas();
+
+            //Routes
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            //Bundling
+            BundleTable.Bundles.IgnoreList.Clear();
+            //CommonBundleConfig.RegisterBundles(BundleTable.Bundles);
+            //AppBundleConfig.RegisterBundles(BundleTable.Bundles);//SPA!
+            //FrontEndBundleConfig.RegisterBundles(BundleTable.Bundles);
+            //MpaBundleConfig.RegisterBundles(BundleTable.Bundles);//MPA!
+
 
 
         }

@@ -193,6 +193,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Authorize\Authorize.cs" />
+    <Compile Include="Authorize\AuthorizeData.cs" />
+    <Compile Include="Authorize\FilterIP.cs" />
+    <Compile Include="Authorize\FilterTime.cs" />
+    <Compile Include="Authorize\Module.cs" />
+    <Compile Include="Authorize\ModuleButton.cs" />
+    <Compile Include="Authorize\ModuleColumn.cs" />
+    <Compile Include="Authorize\ModuleForm.cs" />
+    <Compile Include="Authorize\ModuleFormInstance.cs" />
+    <Compile Include="Base\Department.cs" />
+    <Compile Include="Base\Organize.cs" />
+    <Compile Include="Base\Role.cs" />
+    <Compile Include="Base\User.cs" />
+    <Compile Include="Base\UserRelation.cs" />
     <Compile Include="MaoDomainServiceBase.cs" />
     <Compile Include="MaoServiceBase.cs" />
     <Compile Include="AppFolders.cs" />

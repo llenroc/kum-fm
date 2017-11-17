@@ -248,6 +248,10 @@
       <Project>{3b06041e-1d59-44d6-a559-cf40cdfa8598}</Project>
       <Name>Kum.Zero.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Kum.Zero.Owin\Kum.Zero.Owin.csproj">
+      <Project>{0d158b39-5075-4cd8-ac1b-d674b140fa5b}</Project>
+      <Name>Kum.Zero.Owin</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Kum.Zero\Kum.Zero.csproj">
       <Project>{4a96b924-2f28-4306-8808-1a72c27aa1f3}</Project>
       <Name>Kum.Zero</Name>

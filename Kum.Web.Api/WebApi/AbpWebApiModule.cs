@@ -115,9 +115,21 @@ namespace Abp.WebApi
                 }
             }
 
+            //httpConfiguration.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            //httpConfiguration.Formatters.JsonFormatter.SerializerSettings.Converters.Insert(0, new AbpDateTimeConverter());
+            //httpConfiguration.Formatters.Add(new PlainTextFormatter());
+
+
             httpConfiguration.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-            httpConfiguration.Formatters.JsonFormatter.SerializerSettings.Converters.Insert(0, new AbpDateTimeConverter());
+
+
+            AbpDateTimeConverter timeFormat = new AbpDateTimeConverter();
+            timeFormat.DateTimeFormat = "yyyy-MM-dd HH:mm:ss";
+            //JsonConvert.SerializeObject(dt, Formatting.Indented, timeFormat)
+
+            httpConfiguration.Formatters.JsonFormatter.SerializerSettings.Converters.Insert(0, timeFormat);
             httpConfiguration.Formatters.Add(new PlainTextFormatter());
+
         }
 
         private static void InitializeRoutes(HttpConfiguration httpConfiguration)

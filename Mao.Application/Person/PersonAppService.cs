@@ -58,7 +58,7 @@ namespace Mao.Application.Person
 
             var persons = await query
             //.OrderBy(input.Sorting)
-            .PageBy(input)
+            //.PageBy(input)
             .ToListAsync();
 
             var personListDtos = persons.MapTo<List<PersonListDto>>();
