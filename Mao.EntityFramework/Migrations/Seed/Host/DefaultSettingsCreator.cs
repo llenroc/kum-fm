@@ -2,6 +2,7 @@
 using Abp.Configuration;
 using Abp.Localization;
 using Abp.Net.Mail;
+using Mao.EntityFramework.EntityFramework;
 
 namespace Mao.EntityFramework.Migrations.Seed.Host
 {

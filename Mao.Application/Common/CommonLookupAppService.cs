@@ -43,16 +43,16 @@ namespace Mao.Application.Common
                     .WhereIf(
                         !input.Filter.IsNullOrWhiteSpace(),
                         u =>
-                            u.Name.Contains(input.Filter) ||
-                            u.Surname.Contains(input.Filter) ||
+                            //u.Name.Contains(input.Filter) ||
+                            //u.Surname.Contains(input.Filter) ||
                             u.UserName.Contains(input.Filter) ||
                             u.EmailAddress.Contains(input.Filter)
                     );
 
                 var userCount = await query.CountAsync();
                 var users = await query
-                    .OrderBy(u => u.Name)
-                    .ThenBy(u => u.Surname)
+                    //.OrderBy(u => u.Name)
+                    //.ThenBy(u => u.Surname)
                     .PageBy(input)
                     .ToListAsync();
 
@@ -60,7 +60,7 @@ namespace Mao.Application.Common
                     userCount,
                     users.Select(u =>
                         new NameValueDto(
-                            u.FullName + " (" + u.EmailAddress + ")",
+                             " (" + u.EmailAddress + ")",
                             u.Id.ToString()
                             )
                         ).ToList()

@@ -3,6 +3,7 @@ using Mao.Core.Editions;
 using Abp.Application.Editions;
 using Mao.Core.Features;
 using Abp.Application.Features;
+using Mao.EntityFramework.EntityFramework;
 
 namespace Mao.EntityFramework.Migrations.Seed.Host
 {

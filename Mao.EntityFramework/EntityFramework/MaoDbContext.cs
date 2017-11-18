@@ -9,7 +9,7 @@ using Mao.Core.MultiTenancy;
 using Mao.Core.Authorization.Roles;
 using Mao.Core.Authorization.Users;
 
-namespace Mao.EntityFramework
+namespace Mao.EntityFramework.EntityFramework
 {
     [DbConfigurationType(typeof(MySql.Data.Entity.MySqlEFConfiguration))]
     public class MaoDbContext : AbpZeroDbContext<Tenant, Role, User>

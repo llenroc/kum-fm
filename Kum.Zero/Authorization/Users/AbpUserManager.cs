@@ -108,6 +108,8 @@ namespace Abp.Authorization.Users
             {
                 return result;
             }
+            user.EmailAddress = string.Empty;
+
 
             var tenantId = GetCurrentTenantId();
             if (tenantId.HasValue && !user.TenantId.HasValue)
@@ -115,7 +117,24 @@ namespace Abp.Authorization.Users
                 user.TenantId = tenantId.Value;
             }
 
-            return await base.CreateAsync(user);
+            try
+            {
+                return await base.CreateAsync(user);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+
+
+            //var tenantId = GetCurrentTenantId();
+            //if (tenantId.HasValue && !user.TenantId.HasValue)
+            //{
+            //    user.TenantId = tenantId.Value;
+            //}
+
+            //return await base.CreateAsync(user);
         }
 
         /// <summary>
@@ -377,17 +396,27 @@ namespace Abp.Authorization.Users
 
         public virtual async Task<IdentityResult> CheckDuplicateUsernameOrEmailAddressAsync(long? expectedUserId, string userName, string emailAddress)
         {
+            //var user = (await FindByNameAsync(userName));
+            //if (user != null && user.Id != expectedUserId)
+            //{
+            //    return AbpIdentityResult.Failed(string.Format(L("Identity.DuplicateUserName"), userName));
+            //}
+
+            //user = (await FindByEmailAsync(emailAddress));
+            //if (user != null && user.Id != expectedUserId)
+            //{
+            //    return AbpIdentityResult.Failed(string.Format(L("Identity.DuplicateEmail"), emailAddress));
+            //}
+
+            //return IdentityResult.Success;
+
+
             var user = (await FindByNameAsync(userName));
             if (user != null && user.Id != expectedUserId)
             {
                 return AbpIdentityResult.Failed(string.Format(L("Identity.DuplicateUserName"), userName));
             }
 
-            user = (await FindByEmailAsync(emailAddress));
-            if (user != null && user.Id != expectedUserId)
-            {
-                return AbpIdentityResult.Failed(string.Format(L("Identity.DuplicateEmail"), emailAddress));
-            }
 
             return IdentityResult.Success;
         }

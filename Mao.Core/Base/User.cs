@@ -16,10 +16,7 @@ namespace Mao.Core.Base
         /// 租户id
         /// </summary>
         public int? TenantId { get; set; }
-        /// <summary>
-        /// 用户编码
-        /// </summary>		
-        public string EnCode { get; set; }
+       
         /// <summary>
         /// 登录账户
         /// </summary>		
@@ -40,6 +37,14 @@ namespace Mao.Core.Base
         /// 呢称
         /// </summary>		
         public string NickName { get; set; }
+
+
+
+
+        /// <summary>
+        /// 用户编码
+        /// </summary>		
+        public string EnCode { get; set; }
         /// <summary>
         /// 头像
         /// </summary>		

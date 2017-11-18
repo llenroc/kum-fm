@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using Mao.Core.MultiTenancy;
 using Mao.Core.Editions;
+using Mao.EntityFramework.EntityFramework;
 
 namespace Mao.EntityFramework.Migrations.Seed.Tenants
 {

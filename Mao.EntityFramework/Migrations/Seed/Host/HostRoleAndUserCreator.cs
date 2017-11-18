@@ -6,6 +6,7 @@ using Abp.MultiTenancy;
 using Mao.Core.Authorization.Roles;
 using Mao.Core.Authorization.Users;
 using Mao.Core.Authorization;
+using Mao.EntityFramework.EntityFramework;
 
 namespace Mao.EntityFramework.Migrations.Seed.Host
 {
@@ -44,8 +45,8 @@ namespace Mao.EntityFramework.Migrations.Seed.Host
                     {
                         TenantId = null,
                         UserName = User.AdminUserName,
-                        Name = "admin",
-                        Surname = "admin",
+                        //Name = "admin",
+                        //Surname = "admin",
                         EmailAddress = "admin@aspnetzero.com",
                         IsEmailConfirmed = true,
                         ShouldChangePasswordOnNextLogin = true,

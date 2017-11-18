@@ -39,8 +39,8 @@ namespace Mao.Core.Authorization.Users
                    {
                        TenantId = tenantId,
                        UserName = AdminUserName,
-                       Name = AdminUserName,
-                       Surname = AdminUserName,
+                       //Name = AdminUserName,
+                       //Surname = AdminUserName,
                        EmailAddress = emailAddress,
                        Password = new PasswordHasher().HashPassword(password)
                    };

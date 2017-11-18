@@ -5,22 +5,30 @@ using Abp.Modules;
 using Mao.EntityFramework;
 using System.Data.Entity.Infrastructure.Interception;
 using System.Diagnostics;
+using Abp.Zero.EntityFramework;
+using Mao.EntityFramework.EntityFramework;
 
 namespace Mao
 {
-    [DependsOn(typeof(AbpEntityFrameworkModule), typeof(MaoCoreModule))]
+    [DependsOn(typeof(AbpZeroEntityFrameworkModule), typeof(MaoCoreModule))]
     public class MaoDataModule : AbpModule
     {
         public override void PreInitialize()
         {
+            Database.SetInitializer(new CreateDatabaseIfNotExists<MaoDbContext>());
+
             Configuration.DefaultNameOrConnectionString = "Default";
         }
 
         public override void Initialize()
         {
             IocManager.RegisterAssemblyByConvention(Assembly.GetExecutingAssembly());
-            Database.SetInitializer<MaoDbContext>(null);
-            DbInterception.Add(new EFIntercepterLogging());        }
+
+            //IocManager.RegisterAssemblyByConvention(Assembly.GetExecutingAssembly());
+            //Database.SetInitializer<MaoDbContext>(null);
+            DbInterception.Add(new EFIntercepterLogging());
+
+        }
     }
     class EFIntercepterLogging : DbCommandInterceptor
     {

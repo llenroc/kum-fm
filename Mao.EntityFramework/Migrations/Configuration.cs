@@ -5,6 +5,7 @@ using Abp.Zero.EntityFramework;
 using EntityFramework.DynamicFilters;
 using Mao.Core.MultiTenancy;
 using Mao.EntityFramework;
+using Mao.EntityFramework.EntityFramework;
 using Mao.EntityFramework.Migrations.Seed.Host;
 using Mao.EntityFramework.Migrations.Seed.Tenants;
 using MyCompanyName.AbpZeroTemplate.Migrations.Seed.Tenants;
@@ -23,7 +24,7 @@ namespace Mao.Migrations
             SetSqlGenerator("MySql.Data.MySqlClient", new MySql.Data.Entity.MySqlMigrationSqlGenerator());
         }
 
-        protected override void Seed(EntityFramework.MaoDbContext context)
+        protected override void Seed(MaoDbContext context)
         {
             context.DisableAllFilters();
 

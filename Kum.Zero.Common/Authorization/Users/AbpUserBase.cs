@@ -24,17 +24,7 @@ namespace Abp.Authorization.Users
         /// Maximum length of the <see cref="EmailAddress"/> property.
         /// </summary>
         public const int MaxEmailAddressLength = 256;
-
-        /// <summary>
-        /// Maximum length of the <see cref="Name"/> property.
-        /// </summary>
-        public const int MaxNameLength = 32;
-
-        /// <summary>
-        /// Maximum length of the <see cref="Surname"/> property.
-        /// </summary>
-        public const int MaxSurnameLength = 32;
-
+        
         /// <summary>
         /// Maximum length of the <see cref="AuthenticationSource"/> property.
         /// </summary>
@@ -91,29 +81,29 @@ namespace Abp.Authorization.Users
         /// Email address of the user.
         /// Email address must be unique for it's tenant.
         /// </summary>
-        [Required]
+        //[Required]
         [StringLength(MaxEmailAddressLength)]
         public virtual string EmailAddress { get; set; }
 
         /// <summary>
         /// Name of the user.
         /// </summary>
-        [Required]
-        [StringLength(MaxNameLength)]
-        public virtual string Name { get; set; }
+        //[Required]
+        //[StringLength(MaxNameLength)]
+        //public virtual string Name { get; set; }
 
         /// <summary>
         /// Surname of the user.
         /// </summary>
-        [Required]
-        [StringLength(MaxSurnameLength)]
-        public virtual string Surname { get; set; }
+        //[Required]
+        //[StringLength(MaxSurnameLength)]
+        //public virtual string Surname { get; set; }
 
         /// <summary>
         /// Return full name (Name Surname )
         /// </summary>
-        [NotMapped]
-        public virtual string FullName { get { return this.Name + " " + this.Surname; } }
+        //[NotMapped]
+        //public virtual string FullName { get { return this.Name; } }
 
         /// <summary>
         /// Password of the user.

@@ -1,6 +1,7 @@
 ﻿using Abp.Dependency;
 using Abp.EntityFramework;
 using Mao.EntityFramework;
+using Mao.EntityFramework.EntityFramework;
 using Mao.Extensions;
 using System;
 using System.Collections.Generic;

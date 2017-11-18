@@ -7,13 +7,7 @@ namespace Mao.Application.Authorization.Users.Profile.Dto
     [AutoMap(typeof(User))]
     public class CurrentUserProfileEditDto
     {
-        [Required]
-        [StringLength(User.MaxNameLength)]
-        public string Name { get; set; }
-
-        [Required]
-        [StringLength(User.MaxSurnameLength)]
-        public string Surname { get; set; }
+       
 
         [Required]
         [StringLength(User.MaxUserNameLength)]

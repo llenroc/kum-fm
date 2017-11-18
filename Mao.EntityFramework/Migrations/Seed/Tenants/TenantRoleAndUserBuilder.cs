@@ -7,6 +7,7 @@ using Mao.Core.Authorization.Roles;
 using Mao.Core.Authorization;
 using Mao.EntityFramework;
 using Mao.Core.Authorization.Users;
+using Mao.EntityFramework.EntityFramework;
 
 namespace MyCompanyName.AbpZeroTemplate.Migrations.Seed.Tenants
 {

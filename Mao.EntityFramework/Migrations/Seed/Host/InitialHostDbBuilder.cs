@@ -1,5 +1,7 @@
 ﻿
 
+using Mao.EntityFramework.EntityFramework;
+
 namespace Mao.EntityFramework.Migrations.Seed.Host
 {
     public class InitialHostDbBuilder

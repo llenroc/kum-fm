@@ -42,12 +42,21 @@ namespace Abp.Web.Mvc.Controllers
         /// <returns></returns>
         protected override IController GetControllerInstance(RequestContext requestContext, Type controllerType)
         {
-            if (controllerType == null)
+            try
             {
-                return base.GetControllerInstance(requestContext, controllerType);
+                if (controllerType == null)
+                {
+                    return base.GetControllerInstance(requestContext, controllerType);
+                }
+
+                return _iocManager.Resolve<IController>(controllerType);
+            }
+            catch (Exception e)
+            {
+                Logging.LogHelper.Logger.Debug(e.Message);
+                return null;
             }
 
-            return _iocManager.Resolve<IController>(controllerType);
         }
     }
 }

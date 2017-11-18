@@ -106,8 +106,8 @@ namespace Mao.Core.MultiTenancy.Demo
                 UserName = GenerateUsername(nameSurname),
                 EmailAddress = GenerateEmail(nameSurname),
                 Password = new PasswordHasher().HashPassword("123456"),
-                Name = nameSurname.Split(' ')[0],
-                Surname = nameSurname.Split(' ')[1],
+                //Name = nameSurname.Split(' ')[0],
+                //Surname = nameSurname.Split(' ')[1],
                 ShouldChangePasswordOnNextLogin = false,
                 IsActive = (RandomHelper.GetRandom(0, 100) < 80), //A user will be active by 80% probability
                 IsEmailConfirmed = true

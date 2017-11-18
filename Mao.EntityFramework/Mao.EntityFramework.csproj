@@ -187,7 +187,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EntityFramework\MaoDbMigrator.cs" />
+    <Compile Include="EntityFramework\AbpZeroDbMigrator.cs" />
     <Compile Include="EntityFramework\MaoDbContext.cs" />
     <Compile Include="EntityFramework\Repositories\MaoRepositoryBase.cs" />
     <Compile Include="Migrations\201501041229232_InitialCreate.cs" />
@@ -450,6 +450,10 @@
     <Compile Include="Migrations\201711170836006_20171117.Designer.cs">
       <DependentUpon>201711170836006_20171117.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711180638570_Remove_Name_SurName.cs" />
+    <Compile Include="Migrations\201711180638570_Remove_Name_SurName.Designer.cs">
+      <DependentUpon>201711180638570_Remove_Name_SurName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MaoDataModule.cs" />
     <Compile Include="Migrations\Seed\Host\DefaultEditionCreator.cs" />
@@ -700,6 +704,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711170836006_20171117.resx">
       <DependentUpon>201711170836006_20171117.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711180638570_Remove_Name_SurName.resx">
+      <DependentUpon>201711180638570_Remove_Name_SurName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

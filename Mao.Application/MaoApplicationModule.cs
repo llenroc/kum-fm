@@ -5,7 +5,7 @@ using Mao.Core.Authorization;
 
 namespace Mao.Application
 {
-    [DependsOn(typeof(MaoCoreModule), typeof(AbpAutoMapperModule))]
+    [DependsOn(typeof(MaoCoreModule))]
     public class MaoApplicationModule : AbpModule
     {
         public override void PreInitialize()

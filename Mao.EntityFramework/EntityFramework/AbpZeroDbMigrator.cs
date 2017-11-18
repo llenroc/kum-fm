@@ -3,13 +3,14 @@ using Abp.Domain.Uow;
 using Abp.MultiTenancy;
 using Abp.Zero.EntityFramework;
 using Mao.EntityFramework;
+using Mao.EntityFramework.EntityFramework;
 using Mao.Migrations;
 
 namespace Mao.EntityFramework
 {
-    public class MaoDbMigrator : AbpZeroDbMigrator<MaoDbContext, Configuration>
+    public class AbpZeroDbMigrator : AbpZeroDbMigrator<MaoDbContext, Configuration>
     {
-        public MaoDbMigrator(
+        public AbpZeroDbMigrator(
             IUnitOfWorkManager unitOfWorkManager,
             IDbPerTenantConnectionStringResolver connectionStringResolver,
             IIocResolver iocResolver) :

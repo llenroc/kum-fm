@@ -66,7 +66,7 @@ namespace Mao.Core.Authorization.Users
 
             var mailMessage = new StringBuilder();
 
-            mailMessage.AppendLine("<b>" + L("NameSurname") + "</b>: " + user.Name + " " + user.Surname + "<br />");
+            //mailMessage.AppendLine("<b>" + L("NameSurname") + "</b>: " + user.Name + "<br />");
 
             if (!tenancyName.IsNullOrEmpty())
             {
@@ -113,7 +113,7 @@ namespace Mao.Core.Authorization.Users
 
             var mailMessage = new StringBuilder();
 
-            mailMessage.AppendLine("<b>" + L("NameSurname") + "</b>: " + user.Name + " " + user.Surname + "<br />");
+            //mailMessage.AppendLine("<b>" + L("NameSurname") + "</b>: " + user.Name + "<br />");
 
             if (!tenancyName.IsNullOrEmpty())
             {

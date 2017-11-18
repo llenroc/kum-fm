@@ -1,6 +1,7 @@
 ﻿using Abp.Domain.Entities;
 using Abp.EntityFramework;
 using Abp.EntityFramework.Repositories;
+using Mao.EntityFramework.EntityFramework;
 
 namespace Mao.EntityFramework.Repositories
 {

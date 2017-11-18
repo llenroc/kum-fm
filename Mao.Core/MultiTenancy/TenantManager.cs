@@ -45,7 +45,8 @@ namespace Mao.Core.MultiTenancy
             INotificationSubscriptionManager notificationSubscriptionManager,
             IAppNotifier appNotifier,
             IAbpZeroFeatureValueStore featureValueStore,
-            IAbpZeroDbMigrator abpZeroDbMigrator)
+            IAbpZeroDbMigrator abpZeroDbMigrator
+            )
             : base(
                   tenantRepository, 
                   tenantFeatureRepository, 
