@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Mao.Core.Base
 {
-
+     
     public partial class Organize : FullAuditedEntity
     {
         #region 实体成员

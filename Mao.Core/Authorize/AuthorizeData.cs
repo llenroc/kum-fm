@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Mao.Core.Authorize
 {
 
-    public partial class AuthorizeData : FullAuditedEntity
+    public partial class AuthorizeData : FullAuditedEntity 
     {
         #region 实体成员
         /// <summary>

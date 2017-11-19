@@ -3,7 +3,7 @@ using Mao.Core.Base;
 
 namespace Mao.Core.Authorize
 {
-    public partial class ModuleForm: FullAuditedEntity
+    public partial class ModuleForm: FullAuditedEntity 
     {
         #region 实体成员
         /// <summary>

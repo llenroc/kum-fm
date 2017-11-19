@@ -63,7 +63,7 @@ namespace Abp.Zero.EntityFramework
             SetTableName<UserClaim>(modelBuilder, prefix + "UserClaims", schemaName);
         }
 
-        private static void SetTableName<TEntity>(DbModelBuilder modelBuilder, string tableName, string schemaName)
+        public static void SetTableName<TEntity>(DbModelBuilder modelBuilder, string tableName, string schemaName)
             where TEntity : class
         {
             if (schemaName == null)

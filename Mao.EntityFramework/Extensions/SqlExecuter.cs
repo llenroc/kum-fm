@@ -40,6 +40,9 @@ namespace Mao.EntityFramework.Extensions
         /// <returns></returns>
         public async Task<List<T>> SqlQueryAsync<T>(string sql, params object[] parameters)
         {
+            //转换para
+
+
             return await _dbContextProvider.GetDbContext().Database.SqlQuery<T>(sql, parameters).ToListAsync();
         }
     }

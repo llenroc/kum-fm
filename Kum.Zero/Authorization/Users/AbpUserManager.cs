@@ -322,7 +322,10 @@ namespace Abp.Authorization.Users
         {
             return AbpStore.FindAllAsync(login);
         }
-
+        public virtual Task<List<TUser>> FindAllAsync()
+        {
+            return AbpStore.FindAllAsync();
+        }
         /// <summary>
         /// Gets a user by given id.
         /// Throws exception if no user found with given id.

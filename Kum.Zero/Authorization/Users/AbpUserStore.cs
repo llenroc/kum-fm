@@ -229,6 +229,16 @@ namespace Abp.Authorization.Users
             return await _userRepository.FirstOrDefaultAsync(u => u.Id == userLogin.UserId);
         }
 
+
+        public virtual Task<List<TUser>> FindAllAsync()
+        {
+            var query = from userLogin in _userLoginRepository.GetAll()
+                        join user in _userRepository.GetAll() on userLogin.UserId equals user.Id
+                        select user;
+
+            return Task.FromResult(query.ToList());
+        }
+
         [UnitOfWork]
         public virtual Task<List<TUser>> FindAllAsync(UserLoginInfo login)
         {

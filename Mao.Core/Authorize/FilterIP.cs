@@ -3,7 +3,7 @@ using Mao.Core.Base;
 namespace Mao.Core.Authorize
 {
 
-    public partial class FilterIP : FullAuditedEntity
+    public partial class FilterIP : FullAuditedEntity 
     {
         #region 实体成员
         /// <summary>

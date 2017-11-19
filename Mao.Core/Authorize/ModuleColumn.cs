@@ -2,7 +2,7 @@
 
 namespace Mao.Core.Authorize
 { 
-    public partial class ModuleColumn : Entity
+    public partial class ModuleColumn : Entity 
     {
         #region 实体成员
         /// <summary>

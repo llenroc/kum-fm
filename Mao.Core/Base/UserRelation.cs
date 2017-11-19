@@ -2,7 +2,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Mao.Core.Base
+namespace Mao.Core.Base 
 {
     public partial class UserRelation : FullAuditedEntity
     {

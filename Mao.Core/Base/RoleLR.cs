@@ -4,8 +4,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Mao.Core.Base
 {
-
-    public partial class Role : FullAuditedEntity
+     
+    public partial class RoleLR : FullAuditedEntity
     {
         [MaxLength(50)]
         #region 实体成员

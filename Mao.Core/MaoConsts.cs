@@ -27,7 +27,7 @@
         public const bool MultiTenancyEnabled = true;
         public static class SchemaName
         {
-            public const string Basic = "dbo";
+            public const string Basic = "";
 
         }
     }

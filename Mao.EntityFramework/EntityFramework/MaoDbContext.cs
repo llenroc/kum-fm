@@ -8,6 +8,8 @@ using Abp.Zero.EntityFramework;
 using Mao.Core.MultiTenancy;
 using Mao.Core.Authorization.Roles;
 using Mao.Core.Authorization.Users;
+using Mao.Core.Base;
+using Mao.Core.Authorize;
 
 namespace Mao.EntityFramework.EntityFramework
 {
@@ -31,6 +33,24 @@ namespace Mao.EntityFramework.EntityFramework
         public virtual IDbSet<Friendship> Friendships { get; set; }
 
         public virtual IDbSet<ChatMessage> ChatMessages { get; set; }
+
+        public virtual IDbSet<Department> Department { get; set; }
+        public virtual IDbSet<Organize> Organize { get; set; }
+        public virtual IDbSet<RoleLR> Role { get; set; }
+
+
+        public virtual IDbSet<UserRelation> UserRelation { get; set; }
+        public virtual IDbSet<Authorize> Authorize { get; set; }
+        public virtual IDbSet<AuthorizeData> AuthorizeData { get; set; }
+        public virtual IDbSet<FilterIP> FilterIP { get; set; }
+        public virtual IDbSet<FilterTime> FilterTime { get; set; }
+        public virtual IDbSet<ModuleButton> ModuleButton { get; set; }
+        public virtual IDbSet<ModuleColumn> ModuleColumn { get; set; }
+        public virtual IDbSet<Module> Module { get; set; }
+        public virtual IDbSet<ModuleForm> ModuleForm { get; set; }
+        public virtual IDbSet<ModuleFormInstance> ModuleFormInstance { get; set; }
+
+
         public MaoDbContext()
             : base("Default")
         {
@@ -61,6 +81,32 @@ namespace Mao.EntityFramework.EntityFramework
         {
 
         }
+
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.ChangeAbpTablePrefix<Tenant, Role, User>("Main_", "");
+
+            string prefix = "Base_";
+
+            Abp.Zero.EntityFramework.AbpZeroDbModelBuilderExtensions.SetTableName<Department>(modelBuilder, prefix+ "Department", "");
+            Abp.Zero.EntityFramework.AbpZeroDbModelBuilderExtensions.SetTableName<Organize>(modelBuilder, prefix + "Organize", "");
+            Abp.Zero.EntityFramework.AbpZeroDbModelBuilderExtensions.SetTableName<RoleLR>(modelBuilder, prefix + "RoleLR", "");
+            Abp.Zero.EntityFramework.AbpZeroDbModelBuilderExtensions.SetTableName<UserRelation>(modelBuilder, prefix + "UserRelation", "");
+            Abp.Zero.EntityFramework.AbpZeroDbModelBuilderExtensions.SetTableName<Authorize>(modelBuilder, prefix + "Authorize", "");
+            Abp.Zero.EntityFramework.AbpZeroDbModelBuilderExtensions.SetTableName<AuthorizeData>(modelBuilder, prefix + "AuthorizeData", "");
+            Abp.Zero.EntityFramework.AbpZeroDbModelBuilderExtensions.SetTableName<FilterIP>(modelBuilder, prefix + "FilterIP", "");
+            Abp.Zero.EntityFramework.AbpZeroDbModelBuilderExtensions.SetTableName<FilterTime>(modelBuilder, prefix + "FilterTime", "");
+            Abp.Zero.EntityFramework.AbpZeroDbModelBuilderExtensions.SetTableName<ModuleButton>(modelBuilder, prefix + "ModuleButton", "");
+            Abp.Zero.EntityFramework.AbpZeroDbModelBuilderExtensions.SetTableName<ModuleColumn>(modelBuilder, prefix + "ModuleColumn", "");
+            Abp.Zero.EntityFramework.AbpZeroDbModelBuilderExtensions.SetTableName<Module>(modelBuilder, prefix + "Module", "");
+            Abp.Zero.EntityFramework.AbpZeroDbModelBuilderExtensions.SetTableName<ModuleForm>(modelBuilder, prefix + "ModuleForm", "");
+            Abp.Zero.EntityFramework.AbpZeroDbModelBuilderExtensions.SetTableName<ModuleFormInstance>(modelBuilder, prefix + "ModuleFormInstance", "");
+
+
+        }
+
     }
 
 

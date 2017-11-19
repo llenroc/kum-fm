@@ -3,7 +3,7 @@
 namespace Mao.Core.Authorize
 {
 
-    public partial class ModuleButton : Entity
+    public partial class ModuleButton : Entity 
     {
         #region 实体成员
         /// <summary>

@@ -1,11 +1,12 @@
 ﻿
-using LeaRun.Application.Entity.AuthorizeManage.ViewModel;
+using Abp.Application.Services;
+using Mao.Application.Code;
 using Mao.Core.Authorize;
 using Mao.Core.Base;
-using OfficeOpenXml.FormulaParsing.Excel.Operators;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
-namespace LeaRun.Application.IService.AuthorizeManage
+namespace Mao.Application.Authorize.AuthorizeManager
 {
     /// <summary>
     /// 版 本
@@ -14,32 +15,32 @@ namespace LeaRun.Application.IService.AuthorizeManage
     /// 日 期：2015.12.5 22:35
     /// 描 述：授权认证
     /// </summary>
-    public interface IAuthorizeService
+    public interface IAuthorizeAppService : IApplicationService
     {
         /// <summary>
         /// 获取授权功能
         /// </summary>
         /// <param name="userId">用户Id</param>
         /// <returns></returns>
-        IEnumerable<Module> GetModuleList(string userId);
+        Task<IEnumerable<Module>> GetModuleListAsync(string userId);
         /// <summary>
         /// 获取授权功能按钮
         /// </summary>
         /// <param name="userId">用户Id</param>
         /// <returns></returns>
-        IEnumerable<ModuleButton> GetModuleButtonList(string userId);
+        Task<IEnumerable<ModuleButton>> GetModuleButtonListAsync(string userId);
         /// <summary>
         /// 获取授权功能视图
         /// </summary>
         /// <param name="userId">用户Id</param>
         /// <returns></returns>
-        IEnumerable<ModuleColumn> GetModuleColumnList(string userId);
+        Task<IEnumerable<ModuleColumn>> GetModuleColumnListAsync(string userId);
         /// <summary>
         /// 获取授权功能Url、操作Url
         /// </summary>
         /// <param name="userId">用户Id</param>
         /// <returns></returns>
-        IEnumerable<AuthorizeUrlModel> GetUrlList(string userId);
+        Task<IEnumerable<AuthorizeUrlModel>> GetUrlListAsync(string userId);
         /// <summary>
         /// 获取关联用户关系
         /// </summary>
@@ -52,13 +53,13 @@ namespace LeaRun.Application.IService.AuthorizeManage
         /// <param name="operators">当前登陆用户信息</param>
         /// <param name="isWrite">可写入</param>
         /// <returns></returns>
-        string GetDataAuthorUserId(Operator operators, bool isWrite = false);
+        Task<string> GetDataAuthorUserId(Operator operators, bool isWrite = false);
         /// <summary>
         /// 获得可读数据权限范围SQL
         /// </summary>
         /// <param name="operators">当前登陆用户信息</param>
         /// <param name="isWrite">可写入</param>
         /// <returns></returns>
-        string GetDataAuthor(Operator operators, bool isWrite = false);
+        Task<string> GetDataAuthorAsync(Operator operators, bool isWrite = false);
     }
 }

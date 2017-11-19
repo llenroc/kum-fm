@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LeaRun.Application.Entity.AuthorizeManage.ViewModel
+namespace Mao.Application.Authorize.AuthorizeManager
 {
     /// <summary>
     /// 版 本 6.1

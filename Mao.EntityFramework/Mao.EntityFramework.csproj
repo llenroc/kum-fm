@@ -454,6 +454,14 @@
     <Compile Include="Migrations\201711180638570_Remove_Name_SurName.Designer.cs">
       <DependentUpon>201711180638570_Remove_Name_SurName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711190818387_AddLR.cs" />
+    <Compile Include="Migrations\201711190818387_AddLR.Designer.cs">
+      <DependentUpon>201711190818387_AddLR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711190937209_Add_authorize.cs" />
+    <Compile Include="Migrations\201711190937209_Add_authorize.Designer.cs">
+      <DependentUpon>201711190937209_Add_authorize.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MaoDataModule.cs" />
     <Compile Include="Migrations\Seed\Host\DefaultEditionCreator.cs" />
@@ -707,6 +715,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711180638570_Remove_Name_SurName.resx">
       <DependentUpon>201711180638570_Remove_Name_SurName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711190818387_AddLR.resx">
+      <DependentUpon>201711190818387_AddLR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711190937209_Add_authorize.resx">
+      <DependentUpon>201711190937209_Add_authorize.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -4,7 +4,7 @@ using Mao.Core.Base;
 namespace Mao.Core.Authorize
 {
 
-    public partial class FilterTime : FullAuditedEntity
+    public partial class FilterTime : FullAuditedEntity 
     {
         #region 实体成员
         /// <summary>

@@ -1,9 +1,10 @@
-﻿using Abp.Domain.Entities.Auditing;
+﻿using Abp.Domain.Entities;
+using Abp.Domain.Entities.Auditing;
 using Mao.Core.Base;
 
 namespace Mao.Core.Authorize
 {
-    public partial class Module : FullAuditedEntity
+    public partial class Module : Entity 
     {
         #region 实体成员
         /// <summary>
