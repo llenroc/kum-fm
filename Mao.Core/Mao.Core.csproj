@@ -285,6 +285,12 @@
     <Compile Include="Storage\BinaryObject.cs" />
     <Compile Include="Storage\DbBinaryObjectManager.cs" />
     <Compile Include="Storage\IBinaryObjectManager.cs" />
+    <Compile Include="System\AreaEntity.cs" />
+    <Compile Include="System\DatabaseBackupEntity.cs" />
+    <Compile Include="System\DatabaseLinkEntity.cs" />
+    <Compile Include="System\DataBaseTableFieldEntity.cs" />
+    <Compile Include="System\DataItemDetailEntity.cs" />
+    <Compile Include="System\DataItemEntity.cs" />
     <Compile Include="Timing\ITimeZoneService.cs" />
     <Compile Include="Timing\TimeZoneService.cs" />
     <Compile Include="Validation\ValidationHelper.cs" />

@@ -18,6 +18,7 @@ using Microsoft.Owin.Security;
 using Abp;
 using System.Reflection;
 using Castle.MicroKernel.Registration;
+using Mao.Web.Areas.BaseManage;
 
 namespace Mao.Web
 {
@@ -79,12 +80,16 @@ namespace Mao.Web
 
             //Areas
             AreaRegistration.RegisterAllAreas();
+           
 
             //Routes
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
             //Bundling
             BundleTable.Bundles.IgnoreList.Clear();
+            BundleTable.EnableOptimizations = true;
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
+
             //CommonBundleConfig.RegisterBundles(BundleTable.Bundles);
             //AppBundleConfig.RegisterBundles(BundleTable.Bundles);//SPA!
             //FrontEndBundleConfig.RegisterBundles(BundleTable.Bundles);

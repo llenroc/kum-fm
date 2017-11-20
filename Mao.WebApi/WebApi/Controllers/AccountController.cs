@@ -11,6 +11,7 @@ using Mao.WebApi.Models;
 using Mao.Application.Authorization;
 using Mao.Core.MultiTenancy;
 using Mao.Core.Authorization.Users;
+using System.Security.Claims;
 
 namespace Mao.WebApi.Controllers
 {
@@ -42,6 +43,10 @@ namespace Mao.WebApi.Controllers
                 loginModel.Password,
                 loginModel.TenancyName
                 );
+
+            //增加了uid的支持
+            Claim uid = new Claim("uid", loginResult.User.Id.ToString());
+            loginResult.Identity.AddClaim(uid);
 
             var ticket = new AuthenticationTicket(loginResult.Identity, new AuthenticationProperties());
 
