@@ -466,6 +466,14 @@
     <Compile Include="Migrations\201711210055037_rolelr.Designer.cs">
       <DependentUpon>201711210055037_rolelr.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711220407262_updateuserrelation.cs" />
+    <Compile Include="Migrations\201711220407262_updateuserrelation.Designer.cs">
+      <DependentUpon>201711220407262_updateuserrelation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711220506483_updatemodel.cs" />
+    <Compile Include="Migrations\201711220506483_updatemodel.Designer.cs">
+      <DependentUpon>201711220506483_updatemodel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MaoDataModule.cs" />
     <Compile Include="Migrations\Seed\Host\DefaultEditionCreator.cs" />
@@ -728,6 +736,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711210055037_rolelr.resx">
       <DependentUpon>201711210055037_rolelr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711220407262_updateuserrelation.resx">
+      <DependentUpon>201711220407262_updateuserrelation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711220506483_updatemodel.resx">
+      <DependentUpon>201711220506483_updatemodel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

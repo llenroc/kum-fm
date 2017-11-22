@@ -32,18 +32,7 @@ namespace Mao.Core.Base
         /// 排序码
         /// </summary>		
         public int SortCode { get; set; }
-        /// <summary>
-        /// 创建时间
-        /// </summary>		
-        public DateTime CreateDate { get; set; }
-        /// <summary>
-        /// 创建用户主键
-        /// </summary>		
-        public string CreateUserId { get; set; }
-        /// <summary>
-        /// 创建用户
-        /// </summary>		
-        public string CreateUserName { get; set; }
+       
         #endregion
 
         
