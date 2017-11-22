@@ -13,6 +13,8 @@ using System.Linq.Dynamic;
 using Mao.Application.Base.RoleLRManager.Dtos;
 using Abp.Linq.Extensions;
 using System.Threading.Tasks;
+using Abp.AutoMapper;
+using Mao.Application.Base.PostLRManager.Dtos;
 
 namespace Mao.Application.Base.RoleLRManager
 {
@@ -40,11 +42,11 @@ namespace Mao.Application.Base.RoleLRManager
         /// 角色列表
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<RoleLR> GetList()
+        public List<RoleLR> GetList()
         {
 
-            var res = _roleLR.GetAll().Where(t => t.Category == 1 && t.EnabledMark == 1 &&  t.DeleteMark == 0);
-            return res;
+            var res = _roleLR.GetAll().Where(t => t.Category == 1 && t.EnabledMark == 1 && t.DeleteMark == 0);
+            return res.ToList();
         }
         /// <summary>
         /// 角色列表
@@ -52,7 +54,7 @@ namespace Mao.Application.Base.RoleLRManager
         /// <param name="pagination">分页</param>
         /// <param name="queryJson">查询参数</param>
         /// <returns></returns>
-        public IEnumerable<RoleLR> GetPageList(RoleLRListDto input)
+        public List<RoleLR> GetPageList(RoleLRPageDto input)
         {
             var query = _roleLR.GetAll();
 
@@ -67,23 +69,23 @@ namespace Mao.Application.Base.RoleLRManager
             query.Where(a => a.Category == 1);
             var res = query.OrderBy(input.Sorting).PageBy(input);
 
-            
-            return res.AsEnumerable();
 
-           
-            
+            return res.ToList();
 
 
 
 
 
-           
+
+
+
+
         }
         /// <summary>
         /// 角色列表all
         /// </summary>
         /// <returns></returns>
-        public async Task<IEnumerable<RoleLR>> GetAllListAsync()
+        public List<RoleLRListDto> GetAllList()
         {
             var strSql = new StringBuilder();
             strSql.Append(@"SELECT  r.RoleId ,
@@ -94,18 +96,18 @@ namespace Mao.Application.Base.RoleLRManager
 				                    r.SortCode ,
 				                    r.EnabledMark ,
 				                    r.Description ,
-				                    r.CreateDate
-                    FROM    Base_Role r
+				                    r.CreationTime
+                    FROM    Base_RoleLR r
 				                    LEFT JOIN Base_Organize o ON o.OrganizeId = r.OrganizeId
                     WHERE   o.FullName is not null and r.Category = 1 and r.EnabledMark =1
                     ORDER BY o.FullName, r.SortCode");
 
-          
 
 
-            var Module = await _sqlExecuter.SqlQueryAsync<RoleLR>(strSql.ToString());
 
-            return Module;
+            var Module = _sqlExecuter.SqlQuery<RoleLRListDto>(strSql.ToString());
+            List<RoleLRListDto> role = Module.MapTo<List<RoleLRListDto>>();
+            return role;
 
         }
         /// <summary>
@@ -118,7 +120,7 @@ namespace Mao.Application.Base.RoleLRManager
             return _roleLR.FirstOrDefault(a => a.RoleId == RoleId);
         }
 
-        
+
         #endregion
 
 

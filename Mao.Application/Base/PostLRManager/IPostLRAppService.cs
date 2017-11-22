@@ -16,19 +16,19 @@ namespace Mao.Application.Base.RoleLRManager
         /// 岗位列表
         /// </summary>
         /// <returns></returns>
-        IEnumerable<RoleLR> GetList();
+        List<RoleLR> GetList();
         /// <summary>
         /// 岗位列表
         /// </summary>
         /// <param name="pagination">分页</param>
         /// <param name="queryJson">查询参数</param>
         /// <returns></returns>
-        IEnumerable<RoleLR> GetPageList(PostLRListDto input);
+        List<RoleLR> GetPageList(PostLRPageDto input);
         /// <summary>
         /// 岗位列表(ALL)
         /// </summary>
         /// <returns></returns>
-        Task<IEnumerable<RoleLR>> GetAllListAsync();
+        List<PostLRListDto> GetAllList();
         /// <summary>
         /// 岗位实体
         /// </summary>

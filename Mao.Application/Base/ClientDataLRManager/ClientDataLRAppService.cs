@@ -23,13 +23,13 @@ namespace Mao.Base.ClientDataLRManager
 {
 
 
-    public class ClientDataLRAppService: MaoAppServiceBase, IClientDataLRAppService
+    public class ClientDataLRAppService : MaoAppServiceBase, IClientDataLRAppService
     {
 
         private DepartmentLRAppService _department;
         private OrganizeLRAppService _organize;
         private RoleLRService _roleLR;
-        
+
         private readonly ISqlExecuter _sqlExecuter;
 
         private AuthorizeAppService _authorize;
@@ -49,7 +49,7 @@ namespace Mao.Base.ClientDataLRManager
                   ModuleColumnAppService moduleColumn,
                   UserGroupLRAppService userGroup,
             PostLRAppService post
-            
+
             )
         {
             _authorize = authorize;
@@ -77,19 +77,28 @@ namespace Mao.Base.ClientDataLRManager
         /// <returns></returns>
         public object GetClientDataJson()
         {
-            var jsonData = new
-            {
-                organize = _organize.GetList(),
-                //this.GetOrganizeData(),              //公司
-                department = _department.GetList(),          //部门
-                post = _post.GetAllListAsync(),                    //岗位
-                role = _roleLR.GetList(),                           //角色
-                userGroup =    _userGroup.GetAllList(),         //用户组
-                //user =                      //用户
-                //dataItem = this.GetDataItem(),                  //字典
-                authorizeMenu = _authorize.GetModuleListAsync(AbpSession.UserId.ToString()),           //导航菜单
-                authorizeButton = _moduleButton.GetList(),   //功能按钮
-                authorizeColumn = _moduleColumn.GetList(),    //功能视图
+            //var jsonData = new
+            //{
+            var organize           = _organize.GetList();
+            var department         = _department.GetList();          //部门
+            var post               = _post.GetAllList();                    //岗位
+            var role                 = _roleLR.GetAllList();                           //角色
+            var userGroup           = _userGroup.GetAllList();           //dataItem = this.GetDataItem(),                  //字典
+            var authorizeMenu     = _authorize.GetModuleList(AbpSession.UserId.ToString());           //导航菜单
+            var authorizeButton = _moduleButton.GetList();   //功能按钮
+            var authorizeColumn = _moduleColumn.GetList();    //功能视图
+                                                              // };
+
+            var jsonData = new {
+             organize         = organize,
+             department       = department    , 
+             post             = post           ,
+             role             = role           ,
+             userGroup        = userGroup      ,
+             authorizeMenu    = authorizeMenu  ,
+             authorizeButton  = authorizeButton,
+             authorizeColumn = authorizeColumn
+
             };
 
 

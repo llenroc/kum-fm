@@ -12,6 +12,8 @@ using System.Text;
 using System.Linq.Dynamic;
 using Abp.Linq.Extensions;
 using System.Threading.Tasks;
+using Abp.AutoMapper;
+
 namespace Mao.Application.Base.RoleLRManager
 {
     /// <summary>
@@ -37,10 +39,11 @@ namespace Mao.Application.Base.RoleLRManager
         /// 岗位列表
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<RoleLR> GetList()
+        public List<RoleLR> GetList()
         {
             var res = _roleLR.GetAll().Where(t => t.Category == 2 && t.EnabledMark == 1 && t.DeleteMark == 0);
-            return res;
+            return res.ToList
+                ();
            
         }
         /// <summary>
@@ -49,7 +52,7 @@ namespace Mao.Application.Base.RoleLRManager
         /// <param name="pagination">分页</param>
         /// <param name="queryJson">查询参数</param>
         /// <returns></returns>
-        public IEnumerable<RoleLR> GetPageList(PostLRListDto input)
+        public List<RoleLR> GetPageList(PostLRPageDto input)
         {
             var query = _roleLR.GetAll();
 
@@ -65,14 +68,14 @@ namespace Mao.Application.Base.RoleLRManager
             var res = query.OrderBy(input.Sorting).PageBy(input);
 
 
-            return res.AsEnumerable();
+            return res.ToList();
            
         }
         /// <summary>
         /// 岗位列表(ALL)
         /// </summary>
         /// <returns></returns>
-        public async Task<IEnumerable<RoleLR>> GetAllListAsync()
+        public List<PostLRListDto> GetAllList()
         {
 
             var strSql = new StringBuilder();
@@ -84,8 +87,8 @@ namespace Mao.Application.Base.RoleLRManager
 				                    r.SortCode ,
 				                    r.EnabledMark ,
 				                    r.Description ,
-				                    r.CreateDate
-                    FROM    Base_Role r
+				                    r.CreationTime
+                    FROM    Base_RoleLR r
 				                    LEFT JOIN Base_Organize o ON o.OrganizeId = r.OrganizeId
                     WHERE   o.FullName is not null and r.Category = 2 and r.EnabledMark =1
                     ORDER BY o.FullName, r.SortCode");
@@ -93,10 +96,11 @@ namespace Mao.Application.Base.RoleLRManager
 
 
 
-            var Module = await _sqlExecuter.SqlQueryAsync<RoleLR>(strSql.ToString());
+            var r = _sqlExecuter.SqlQuery<PostLRListDto>(strSql.ToString());
 
-            return Module;
-            
+            List<PostLRListDto> role = r.MapTo<List<PostLRListDto>>();
+            return role;
+
         }
         /// <summary>
         /// 岗位实体

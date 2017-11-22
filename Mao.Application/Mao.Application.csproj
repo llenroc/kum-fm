@@ -271,12 +271,15 @@
     <Compile Include="Base\JobLRManager\IJobLRService.cs" />
     <Compile Include="Base\OrganizeLRManager\IOrganizeLRAppService.cs" />
     <Compile Include="Base\PostLRManager\Dtos\PostLRListDto.cs" />
+    <Compile Include="Base\PostLRManager\Dtos\PostLRPageDto.cs" />
     <Compile Include="Base\PostLRManager\IPostLRAppService.cs" />
     <Compile Include="Base\JobLRManager\JobLRService.cs" />
     <Compile Include="Base\PostLRManager\PostLRAppService.cs" />
     <Compile Include="Base\RoleLRManager\Dtos\RoleLRListDto.cs" />
+    <Compile Include="Base\RoleLRManager\Dtos\RoleLRPageDto.cs" />
     <Compile Include="Base\RoleLRManager\IRoleLRAppService.cs" />
     <Compile Include="Base\UserGroupLRManager\Dtos\UserGroupLRListDto.cs" />
+    <Compile Include="Base\UserGroupLRManager\Dtos\UserGroupLRPageDto.cs" />
     <Compile Include="Base\UserGroupLRManager\IUserGroupLRAppService.cs" />
     <Compile Include="Base\OrganizeLRManager\OrganizeLRAppService.cs" />
     <Compile Include="Base\RoleLRManager\RoleLRAppService.cs" />

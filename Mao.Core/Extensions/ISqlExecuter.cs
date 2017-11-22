@@ -23,6 +23,8 @@ namespace Mao.Extensions
         /// <param name="sql">SQL 查询字符串</param>
         /// <param name="parameters">要应用于 SQL 查询字符串的参数</param>
         /// <returns></returns>
-        Task<List<T>> SqlQueryAsync<T>(string sql, params object[] parameters);
+        Task<IEnumerable<T>> SqlQueryAsync<T>(string sql, params object[] parameters);
+
+        IEnumerable<T> SqlQuery<T>(string sql, params object[] parameters);
     }
 }

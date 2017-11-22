@@ -17,19 +17,19 @@ namespace Mao.Application.Base.UserGroupManager
         /// 用户组列表
         /// </summary>
         /// <returns></returns>
-        IEnumerable<RoleLR> GetList();
+        List<RoleLR> GetList();
         /// <summary>
         /// 用户组列表
         /// </summary>
         /// <param name="pagination">分页</param>
         /// <param name="queryJson">查询参数</param>
         /// <returns></returns> 
-        IEnumerable<RoleLR> GetPageList(UserGroupLRListDto input);
+        List<RoleLR> GetPageList(UserGroupLRPageDto input);
         /// <summary>
         /// 用户组列表(ALL)
         /// </summary>
         /// <returns></returns>
-        Task<IEnumerable<RoleLR>> GetAllList();
+        List<UserGroupLRListDto> GetAllList();
         /// <summary>
         /// 用户组实体
         /// </summary>

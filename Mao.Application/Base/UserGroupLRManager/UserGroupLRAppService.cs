@@ -14,6 +14,7 @@ using System.Text;
 using Abp.Linq.Extensions;
 using System.Threading.Tasks;
 using Mao.Application.Base.UserGroupManager.Dtos;
+using Abp.AutoMapper;
 
 namespace Mao.Application.Base.UserGroupManager
 {
@@ -44,12 +45,12 @@ namespace Mao.Application.Base.UserGroupManager
         /// 用户组列表
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<RoleLR> GetList()
+        public List<RoleLR> GetList()
         {
 
 
             var res = _roleLR.GetAll().Where(t => t.Category == 4 && t.EnabledMark == 1 && t.DeleteMark == 0);
-            return res;
+            return res.ToList();
 
         }
         /// <summary>
@@ -58,7 +59,7 @@ namespace Mao.Application.Base.UserGroupManager
         /// <param name="pagination">分页</param>
         /// <param name="queryJson">查询参数</param>
         /// <returns></returns>
-        public IEnumerable<RoleLR> GetPageList(UserGroupLRListDto input)
+        public List<RoleLR> GetPageList(UserGroupLRPageDto input)
         {
             var query = _roleLR.GetAll();
 
@@ -76,13 +77,14 @@ namespace Mao.Application.Base.UserGroupManager
 
 
 
-            return res.AsEnumerable();
+            return res.AsEnumerable().ToList
+                ();
         }
         /// <summary>
         /// 用户组列表(ALL)
         /// </summary>
         /// <returns></returns>
-        public async Task<IEnumerable<RoleLR>> GetAllList()
+        public List<UserGroupLRListDto> GetAllList()
         {
             var strSql = new StringBuilder();
             strSql.Append(@"SELECT  r.RoleId ,
@@ -93,12 +95,17 @@ namespace Mao.Application.Base.UserGroupManager
 				                    r.SortCode ,
 				                    r.EnabledMark ,
 				                    r.Description ,
-				                    r.CreateDate
-                    FROM    Base_Role r
+				                    r.CreationTime
+                    FROM    Base_RoleLR r
 				                    LEFT JOIN Base_Organize o ON o.OrganizeId = r.OrganizeId
                     WHERE   o.FullName is not null and r.Category = 4 and r.EnabledMark =1
                     ORDER BY o.FullName, r.SortCode");
-            return await _sqlExecuter.SqlQueryAsync<RoleLR>(strSql.ToString());
+
+            var r = _sqlExecuter.SqlQuery<UserGroupLRListDto>(strSql.ToString());
+
+                List<UserGroupLRListDto> role = r.MapTo<List<UserGroupLRListDto>>();
+            return role;
+           
         }
         /// <summary>
         /// 用户组实体

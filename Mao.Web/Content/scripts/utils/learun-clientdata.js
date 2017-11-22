@@ -13,11 +13,12 @@ var authorizeButtonData = [];
 var authorizeColumnData = [];
 $.getclientdata = function () {
     $.ajax({
-        url: contentPath + "/ClientData/GetClientDataJson",
+        url: contentPath + "/api/services/app/departmentLR/GetList",
         type: "post",
         dataType: "json",
         async: false,
         success: function (data) {
+            console.log(data);
             clientdataItem = data.dataItem;
             clientorganizeData = data.organize;
             clientdepartmentData = data.department;

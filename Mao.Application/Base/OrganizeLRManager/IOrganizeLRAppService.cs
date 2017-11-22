@@ -15,7 +15,7 @@ namespace Mao.Application.Base.OrganizeManager
         /// 机构列表
         /// </summary>
         /// <returns></returns>
-        IEnumerable<Organize> GetList();
+        List<Organize> GetList();
         /// <summary>
         /// 机构实体
         /// </summary>

@@ -35,7 +35,7 @@ namespace Mao.Application.Base.OrganizeManager
         /// 机构列表
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<Organize> GetList()
+        public List<Organize> GetList()
         {
             var res = _organize.GetAll().OrderByDescending(t => t.SortCode).ToList();
             return res;

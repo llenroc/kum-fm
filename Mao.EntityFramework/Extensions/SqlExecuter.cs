@@ -1,10 +1,12 @@
-﻿using Abp.Dependency;
+﻿using Abp.AutoMapper;
+using Abp.Dependency;
 using Abp.EntityFramework;
 using Mao.EntityFramework;
 using Mao.EntityFramework.EntityFramework;
 using Mao.Extensions;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,8 +16,9 @@ namespace Mao.EntityFramework.Extensions
     public class SqlExecuter : ISqlExecuter, ITransientDependency
     {
         private readonly IDbContextProvider<MaoDbContext> _dbContextProvider;
-
-        public SqlExecuter(IDbContextProvider<MaoDbContext> dbContextProvider)
+        public SqlExecuter(
+            IDbContextProvider<MaoDbContext> dbContextProvider
+            )
         {
             _dbContextProvider = dbContextProvider;
         }
@@ -38,12 +41,28 @@ namespace Mao.EntityFramework.Extensions
         /// <param name="sql">SQL 查询字符串</param>
         /// <param name="parameters">要应用于 SQL 查询字符串的参数</param>
         /// <returns></returns>
-        public async Task<List<T>> SqlQueryAsync<T>(string sql, params object[] parameters)
+        public async Task<IEnumerable<T>> SqlQueryAsync<T>(string sql, params object[] parameters)
         {
             //转换para
 
 
             return await _dbContextProvider.GetDbContext().Database.SqlQuery<T>(sql, parameters).ToListAsync();
+        }
+
+
+        /// <summary>
+        /// 创建一个原始 SQL 查询，该查询将返回给定泛型类型的元素。
+        /// </summary>
+        /// <typeparam name="T">查询所返回对象的类型</typeparam>
+        /// <param name="sql">SQL 查询字符串</param>
+        /// <param name="parameters">要应用于 SQL 查询字符串的参数</param>
+        /// <returns></returns>
+        public IEnumerable<T> SqlQuery<T>( string sql, params object[] parameters)
+        {
+            
+            //转换para
+
+            return _dbContextProvider.GetDbContext().Database.SqlQuery<T>(sql, parameters).ToList();
         }
     }
 }

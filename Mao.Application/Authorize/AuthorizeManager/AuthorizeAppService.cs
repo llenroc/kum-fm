@@ -1,4 +1,5 @@
 ﻿
+using Abp.AutoMapper;
 using Abp.Dependency;
 using Abp.Domain.Repositories;
 using Mao;
@@ -44,7 +45,7 @@ namespace Mao.Application.Authorize.AuthorizeManager
         /// </summary>
         /// <param name="userId">用户Id</param>
         /// <returns></returns>
-        public async Task<IEnumerable<Module>> GetModuleListAsync(string userId)
+        public  List<Module> GetModuleList(string userId)
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append(@"SELECT  *
@@ -69,16 +70,16 @@ namespace Mao.Application.Authorize.AuthorizeManager
             };
 
 
-            var Module = await _sqlExecuter.SqlQueryAsync<Module>(strSql.ToString(), parameter);
+            var Module =  _sqlExecuter.SqlQuery<Module>(strSql.ToString(), parameter);
 
-            return Module;
+            return Module.MapTo<List<Module>>();
         }
         /// <summary>
         /// 获取授权功能按钮
         /// </summary>
         /// <param name="userId">用户Id</param>
         /// <returns></returns>
-        public async Task<IEnumerable<ModuleButton>> GetModuleButtonListAsync(string userId)
+        public  List<ModuleButton> GetModuleButtonList(string userId)
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append(@"SELECT  *
@@ -99,17 +100,17 @@ namespace Mao.Application.Authorize.AuthorizeManager
                 DbParameters.CreateDbParameter("@UserId",userId)
             };
 
-            var ModuleButton = await _sqlExecuter.SqlQueryAsync<ModuleButton>(strSql.ToString(), parameter);
+            var ModuleButton =  _sqlExecuter.SqlQuery<ModuleButton>(strSql.ToString(), parameter);
 
 
-            return ModuleButton;
+            return ModuleButton.MapTo<List<ModuleButton>>();
         }
         /// <summary>
         /// 获取授权功能视图
         /// </summary>
         /// <param name="userId">用户Id</param>
         /// <returns></returns>
-        public async Task<IEnumerable<ModuleColumn>> GetModuleColumnListAsync(string userId)
+        public List<ModuleColumn> GetModuleColumnList(string userId)
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append(@"SELECT  *
@@ -128,17 +129,17 @@ namespace Mao.Application.Authorize.AuthorizeManager
                 DbParameters.CreateDbParameter("@UserId",userId)
             };
 
-            var ModuleColumn = await _sqlExecuter.SqlQueryAsync<ModuleColumn>(strSql.ToString(), parameter);
+            var ModuleColumn =  _sqlExecuter.SqlQuery<ModuleColumn>(strSql.ToString(), parameter);
 
 
-            return ModuleColumn;
+            return ModuleColumn.MapTo<List<ModuleColumn>>();
         }
         /// <summary>
         /// 获取授权功能Url、操作Url
         /// </summary>
         /// <param name="userId">用户Id</param>
         /// <returns></returns>
-        public async Task<IEnumerable<AuthorizeUrlModel>> GetUrlListAsync(string userId)
+        public List<AuthorizeUrlModel> GetUrlList(string userId)
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append(@"SELECT  ModuleId AS AuthorizeId ,
@@ -181,19 +182,19 @@ namespace Mao.Application.Authorize.AuthorizeManager
                 DbParameters.CreateDbParameter("@UserId",userId)
             };
 
-            var AuthorizeUrlModel = await _sqlExecuter.SqlQueryAsync<AuthorizeUrlModel>(strSql.ToString(), parameter);
+            var AuthorizeUrlModel =  _sqlExecuter.SqlQuery<AuthorizeUrlModel>(strSql.ToString(), parameter);
 
 
-            return AuthorizeUrlModel;
+            return AuthorizeUrlModel.MapTo<List<AuthorizeUrlModel>>();
         }
         /// <summary>
         /// 获取关联用户关系
         /// </summary>
         /// <param name="userId">用户Id</param>
         /// <returns></returns>
-        public IEnumerable<UserRelation> GetUserRelationList(string userId)
+        public List<UserRelation> GetUserRelationList(string userId)
         {
-            return _userRelation.GetAll().Where(a => a.UserId == userId);
+            return _userRelation.GetAll().Where(a => a.UserId == userId).ToList();
         }
         /// <summary>
         /// 获得权限范围用户ID
@@ -201,9 +202,9 @@ namespace Mao.Application.Authorize.AuthorizeManager
         /// <param name="operators">当前登陆用户信息</param>
         /// <param name="isWrite">可写入</param>
         /// <returns></returns>
-        public async Task<string> GetDataAuthorUserId(Operator operators, bool isWrite = false)
+        public async Task<string> GetDataAuthorUserIdAsync(Operator operators, bool isWrite = false)
         {
-            string userIdList = await GetDataAuthorAsync(operators, isWrite);
+            string userIdList = GetDataAuthor(operators, isWrite);
             if (userIdList == "")
             {
                 return "";
@@ -211,7 +212,7 @@ namespace Mao.Application.Authorize.AuthorizeManager
             //IRepository db = new RepositoryFactory().BaseRepository();
             long userId = operators.UserId;
 
-            List<User> userList = await UserManager.FindAllAsync();
+            List<User> userList =await UserManager.FindAllAsync();
             //UserManager. <User>(userIdList).ToList();
             StringBuilder userSb = new StringBuilder("");
             if (userList != null)
@@ -230,7 +231,7 @@ namespace Mao.Application.Authorize.AuthorizeManager
         /// <param name="operators">当前登陆用户信息</param>
         /// <param name="isWrite">可写入</param>
         /// <returns></returns>
-        public async Task<string> GetDataAuthorAsync(Operator operators, bool isWrite = false)
+        public string GetDataAuthor(Operator operators, bool isWrite = false)
         {
             //如果是系统管理员直接给所有数据权限
             if (operators.IsSystem)
@@ -269,9 +270,9 @@ namespace Mao.Application.Authorize.AuthorizeManager
                 DbParameters.CreateDbParameter("@UserId",userId)
             };
 
-            List<AuthorizeData> listAuthorizeData =await _sqlExecuter.SqlQueryAsync<AuthorizeData>(whereSb.ToString(), parameter);
-
-
+             
+            IEnumerable<AuthorizeData> listAuthorizeData = _sqlExecuter.SqlQuery<AuthorizeData>(whereSb.ToString(), parameter);
+            
             foreach (AuthorizeData item in listAuthorizeData)
             {
                 switch (item.AuthorizeType)

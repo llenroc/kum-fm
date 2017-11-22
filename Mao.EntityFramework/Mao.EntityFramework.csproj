@@ -462,6 +462,10 @@
     <Compile Include="Migrations\201711190937209_Add_authorize.Designer.cs">
       <DependentUpon>201711190937209_Add_authorize.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711210055037_rolelr.cs" />
+    <Compile Include="Migrations\201711210055037_rolelr.Designer.cs">
+      <DependentUpon>201711210055037_rolelr.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MaoDataModule.cs" />
     <Compile Include="Migrations\Seed\Host\DefaultEditionCreator.cs" />
@@ -721,6 +725,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711190937209_Add_authorize.resx">
       <DependentUpon>201711190937209_Add_authorize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711210055037_rolelr.resx">
+      <DependentUpon>201711210055037_rolelr.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -387,6 +387,7 @@
     <Content Include="Abp\Framework\styles\abp.mixings.css" />
     <Content Include="Abp\Framework\styles\abp.mixings.min.css" />
     <Content Include="Abp\Framework\styles\utils\ie10fix.css" />
+    <Content Include="App_Data\TextFile1.txt" />
     <Content Include="Content\adminDefault\css\index.css" />
     <Content Include="Content\adminDefault\img\arrow1.png" />
     <Content Include="Content\adminDefault\img\tab_close.png" />

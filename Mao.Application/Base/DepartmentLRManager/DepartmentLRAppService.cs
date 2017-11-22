@@ -39,7 +39,7 @@ namespace Mao.Application.Base.DepartmentManager
         /// 部门列表
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<Department> GetList()
+        public List<Department> GetList()
         {
           return  _department.GetAll().OrderByDescending(t => t.CreationTime).ToList();
         }

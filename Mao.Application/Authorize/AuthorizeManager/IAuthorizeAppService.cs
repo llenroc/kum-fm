@@ -16,44 +16,44 @@ namespace Mao.Application.Authorize.AuthorizeManager
         /// </summary>
         /// <param name="userId">用户Id</param>
         /// <returns></returns>
-        Task<IEnumerable<Module>> GetModuleListAsync(string userId);
+        List<Module> GetModuleList(string userId);
         /// <summary>
         /// 获取授权功能按钮
         /// </summary>
         /// <param name="userId">用户Id</param>
         /// <returns></returns>
-        Task<IEnumerable<ModuleButton>> GetModuleButtonListAsync(string userId);
+        List<ModuleButton> GetModuleButtonList(string userId);
         /// <summary>
         /// 获取授权功能视图
         /// </summary>
         /// <param name="userId">用户Id</param>
         /// <returns></returns>
-        Task<IEnumerable<ModuleColumn>> GetModuleColumnListAsync(string userId);
+        List<ModuleColumn> GetModuleColumnList(string userId);
         /// <summary>
         /// 获取授权功能Url、操作Url
         /// </summary>
         /// <param name="userId">用户Id</param>
         /// <returns></returns>
-        Task<IEnumerable<AuthorizeUrlModel>> GetUrlListAsync(string userId);
+        List<AuthorizeUrlModel> GetUrlList(string userId);
         /// <summary>
         /// 获取关联用户关系
         /// </summary>
         /// <param name="userId">用户Id</param>
         /// <returns></returns>
-        IEnumerable<UserRelation> GetUserRelationList(string userId);
+        List<UserRelation> GetUserRelationList(string userId);
         /// <summary>
         /// 获得权限范围用户ID
         /// </summary>
         /// <param name="operators">当前登陆用户信息</param>
         /// <param name="isWrite">可写入</param>
         /// <returns></returns>
-        Task<string> GetDataAuthorUserId(Operator operators, bool isWrite = false);
+        Task<string> GetDataAuthorUserIdAsync(Operator operators, bool isWrite = false);
         /// <summary>
         /// 获得可读数据权限范围SQL
         /// </summary>
         /// <param name="operators">当前登陆用户信息</param>
         /// <param name="isWrite">可写入</param>
         /// <returns></returns>
-        Task<string> GetDataAuthorAsync(Operator operators, bool isWrite = false);
+        string GetDataAuthor(Operator operators, bool isWrite = false);
     }
 }

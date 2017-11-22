@@ -15,7 +15,7 @@ namespace Mao.Application.Base.DepartmentManager
         /// 部门列表
         /// </summary>
         /// <returns></returns>
-        IEnumerable<Department> GetList();
+        List<Department> GetList();
         /// <summary>
         /// 部门实体
         /// </summary>
