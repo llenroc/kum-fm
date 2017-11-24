@@ -4,7 +4,7 @@
     {
         public const int MaxPageSize = int.MaxValue;
 
-        public const int DefaultPageSize = 10;
+        public const int DefaultPageSize = 30;
         /// <summary>
         /// 显示名称的最大长度
         /// </summary>

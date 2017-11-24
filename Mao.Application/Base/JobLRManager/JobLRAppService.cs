@@ -1,62 +1,62 @@
-﻿using Abp.Dependency;
+﻿
+using Abp.Dependency;
 using Abp.Domain.Repositories;
+using LeaRun.Application.IService.BaseManage;
 
 using Mao.Application;
-using Mao.Application.Base.PostLRManager.Dtos;
+using Mao.Application.Base.JobLRManager.Dtos;
 using Mao.Core.Base;
 using Mao.Extensions;
 using System.Collections.Generic;
-
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Linq.Dynamic;
 using Abp.Linq.Extensions;
 using System.Threading.Tasks;
-using Abp.AutoMapper;
 using Abp.Web.Models;
+using Mao.Application.Base.RoleLRManager.Dtos;
 using Mao.Util.Extension;
+using Mao;
 
-namespace Mao.Application.Base.RoleLRManager
+namespace LeaRun.Application.Service.BaseManage
 {
     /// <summary>
-    /// 描 述：岗位管理
+    /// 描 述：职位管理
     /// </summary>
-    public class PostLRAppService : MaoAppServiceBase, IPostLRAppService
+    public class JobLRAppService : MaoAppServiceBase, IJobLRAppService
     {
 
         private IRepository<RoleLR> _roleLR;
         private readonly ISqlExecuter _sqlExecuter;
 
-        public PostLRAppService(
-            IRepository<RoleLR> roleLR
+        public JobLRAppService(
 
+             IRepository<RoleLR> roleLR
             )
         {
             _roleLR = roleLR;
-
             var sqlExecuter = IocManager.Instance.Resolve<ISqlExecuter>();
             _sqlExecuter = sqlExecuter;
 
         }
         #region 获取数据
         /// <summary>
-        /// 岗位列表
+        /// 职位列表
         /// </summary>
         /// <returns></returns>
-        public List<RoleLR> GetList()
+        public IEnumerable<RoleLR> GetList()
         {
-            var res = _roleLR.GetAll().Where(t => t.Category == 2 && t.EnabledMark == 1 && t.DeleteMark == 0);
-            return res.ToList
-                ();
-           
+            var res = _roleLR.GetAll().Where(t => t.Category == 3 && t.EnabledMark == 1 && t.DeleteMark == 0);
+            return res;
         }
         /// <summary>
-        /// 岗位列表
+        /// 职位列表
         /// </summary>
         /// <param name="pagination">分页</param>
         /// <param name="queryJson">查询参数</param>
         /// <returns></returns>
-        public List<RoleLR> GetPageList(PostLRListDto input)
+        public IEnumerable<RoleLR> GetPageList(JobLRListDto input)
         {
             var query = _roleLR.GetAll();
 
@@ -68,48 +68,15 @@ namespace Mao.Application.Base.RoleLRManager
             {
                 query.Where(a => a.EnCode == input.EnCode);
             }
-            query.Where(a => a.Category == 2);
-
-
+            query.Where(a => a.Category == 3);
             var res = query.OrderBy(input.Sorting).PageBy(input);
 
 
-            return res.ToList();
-           
-        }
-        /// <summary>
-        /// 岗位列表(ALL)
-        /// </summary>
-        /// <returns></returns>
-        public List<PostLRListDto> GetAllList()
-        {
-
-            var strSql = new StringBuilder();
-            strSql.Append(@"SELECT  r.RoleId ,
-				                    o.FullName AS OrganizeId ,
-				                    r.Category ,
-				                    r.EnCode ,
-				                    r.FullName ,
-				                    r.SortCode ,
-				                    r.EnabledMark ,
-				                    r.Description ,
-				                    r.CreationTime
-                    FROM    Base_RoleLR r
-				                    LEFT JOIN Base_Organize o ON o.OrganizeId = r.OrganizeId
-                    WHERE   o.FullName is not null and r.Category = 2 and r.EnabledMark =1
-                    ORDER BY o.FullName, r.SortCode");
-
-
-
-
-            var r = _sqlExecuter.SqlQuery<PostLRListDto>(strSql.ToString());
-
-            List<PostLRListDto> role = r.MapTo<List<PostLRListDto>>();
-            return role;
+            return res.AsEnumerable();
 
         }
         /// <summary>
-        /// 岗位实体
+        /// 职位实体
         /// </summary>
         /// <param name="keyValue">主键值</param>
         /// <returns></returns>
@@ -121,19 +88,18 @@ namespace Mao.Application.Base.RoleLRManager
 
 
 
-
         #region 获取数据
         /// <summary>
-        /// 岗位列表
+        /// 职位列表
         /// </summary>
         /// <param name="pagination">分页参数</param>
         /// <param name="queryJson">查询参数</param>
         /// <returns>返回分页列表Json</returns>
         [DontWrapResult]
-        public object GetPageListJson(PostLRPageDto input)
+        public object GetPageListJson(JobLRPageDto input)
         {
             var watch = CommonHelper.TimerStart();
-          
+
             var query = _roleLR.GetAll();
 
             if (!string.IsNullOrEmpty(input.FullName))
@@ -146,7 +112,7 @@ namespace Mao.Application.Base.RoleLRManager
             }
             int records = 0;
             int total = 0;
-            var rows = query.Where(a => a.Category == 2).OrderBy(input.Sorting).PageBy(MaoConsts.DefaultPageSize, input.page, out records, out total).AsEnumerable();
+            var rows = query.Where(a => a.Category == 3).OrderBy(input.Sorting).PageBy(MaoConsts.DefaultPageSize, input.page, out records, out total).AsEnumerable();
 
 
             var JsonData = new
@@ -162,9 +128,9 @@ namespace Mao.Application.Base.RoleLRManager
             return Newtonsoft.Json.JsonConvert.DeserializeObject(JsonData.ToJson());
         }
         /// <summary>
-        /// 岗位列表
+        /// 职位列表
         /// </summary>
-        /// <param name="organizeId">公司Id</param>
+        /// <param name="organizeId">机构Id</param>
         /// <returns>返回列表Json</returns>
         [DontWrapResult]
         public object GetListJson(string organizeId)
@@ -173,7 +139,7 @@ namespace Mao.Application.Base.RoleLRManager
             return Newtonsoft.Json.JsonConvert.DeserializeObject(data.ToJson());
         }
         /// <summary>
-        /// 岗位实体 
+        /// 职位实体 
         /// </summary>
         /// <param name="keyValue">主键值</param>
         /// <returns>返回对象Json</returns>
@@ -184,5 +150,6 @@ namespace Mao.Application.Base.RoleLRManager
             return Newtonsoft.Json.JsonConvert.DeserializeObject(data.ToJson());
         }
         #endregion
+
     }
 }

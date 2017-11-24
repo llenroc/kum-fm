@@ -23,7 +23,8 @@
         var selectedRowIndex = 0;
         var $gridTable = $('#gridTable');
         $gridTable.jqGrid({
-            url: "../../BaseManage/Organize/GetTreeListJson",
+            url: "/api/services/app/organizeLR/GetTreeListJson",
+            mtype: "POST",
             datatype: "json",
             height: $(window).height() - 108.5,
             autowidth: true,
@@ -112,7 +113,7 @@
         var keyValue = $("#gridTable").jqGridRowValue("OrganizeId");
         if (keyValue) {
             $.RemoveForm({
-                url: "../../BaseManage/Organize/RemoveForm",
+                url: "/api/services/app/organizeLR/RemoveForm",
                 param: { keyValue: keyValue },
                 success: function (data) {
                     $("#gridTable").resetSelection();

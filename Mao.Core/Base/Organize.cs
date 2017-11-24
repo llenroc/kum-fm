@@ -112,9 +112,10 @@ namespace Mao.Core.Base
         /// <summary>
         /// 备注
         /// </summary>		
-       
+        /// 	
+        public string Description { get; set; }
         #endregion
 
-        
+
     }
 }

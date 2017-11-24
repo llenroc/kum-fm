@@ -23,13 +23,14 @@
         var selectedRowIndex = 0;
         var $gridTable = $('#gridTable');
         $gridTable.jqGrid({
-            url: "../../BaseManage/User/GetPageListJson",
+            url: "/api/services/app/User/GetPageListJson",
             datatype: "json",
+            mtype: "POST",
             height: $(window).height() - 136.5,
             autowidth: true,
             colModel: [
-                { label: '主键', name: 'UserId', hidden: true },
-                { label: '账户', name: 'Account', index: 'Account', width: 100, align: 'left' },
+                { label: '主键', name: 'Id', hidden: true },
+                { label: '账户', name: 'UserName', index: 'UserName', width: 100, align: 'left' },
                 { label: '姓名', name: 'RealName', index: 'RealName', width: 100, align: 'left' },
                 {
                     label: '性别', name: 'Gender', index: 'Gender', width: 45, align: 'center',

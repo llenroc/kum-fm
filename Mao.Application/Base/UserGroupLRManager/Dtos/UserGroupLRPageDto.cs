@@ -22,16 +22,30 @@ using Mao.Core.Base;
 #endregion
 namespace Mao.Application.Base.UserGroupManager.Dtos
 {
-	/// <summary>
+    /// <summary>
     /// 资质管理列表Dto
     /// </summary>
-    public class UserGroupLRPageDto : PagedAndSortedInputDto
+    public class UserGroupLRPageDto : ISortedResultRequest
     {
+        public UserGroupLRPageDto()
+        {
+            Sorting = "Id";
+        }
+
+        public string Sorting { get; set; }
+
+
         public string EnCode { get; set; }
 
 
         public string FullName { get; set; }
 
+        public int page { get; set; }
+
+
+        public int total { get; set; }
+
+        public int records { get; set; }
 
 
     }

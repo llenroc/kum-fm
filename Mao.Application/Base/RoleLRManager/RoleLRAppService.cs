@@ -15,19 +15,23 @@ using Abp.Linq.Extensions;
 using System.Threading.Tasks;
 using Abp.AutoMapper;
 using Mao.Application.Base.PostLRManager.Dtos;
+using Abp.Web.Models;
+using Mao.Util.Extension;
+using System;
+
 
 namespace Mao.Application.Base.RoleLRManager
 {
     /// <summary>
     /// 描 述：角色管理
     /// </summary>
-    public class RoleLRService : MaoAppServiceBase, IRoleLRService
+    public class RoleLRAppService : MaoAppServiceBase, IRoleLRAppService
     {
         //private IAuthorizeService<RoleLR> iauthorizeservice = new AuthorizeService<RoleLR>();
         private IRepository<RoleLR> _roleLR;
         private readonly ISqlExecuter _sqlExecuter;
 
-        public RoleLRService(
+        public RoleLRAppService(
            IRepository<RoleLR> roleLR
             )
         {
@@ -54,33 +58,13 @@ namespace Mao.Application.Base.RoleLRManager
         /// <param name="pagination">分页</param>
         /// <param name="queryJson">查询参数</param>
         /// <returns></returns>
-        public List<RoleLR> GetPageList(RoleLRPageDto input)
-        {
-            var query = _roleLR.GetAll();
-
-            if (input.FullName != "")
-            {
-                query.Where(a => a.FullName == input.FullName);
-            }
-            if (input.EnCode != "")
-            {
-                query.Where(a => a.EnCode == input.EnCode);
-            }
-            query.Where(a => a.Category == 1);
-            var res = query.OrderBy(input.Sorting).PageBy(input);
-
-
-            return res.ToList();
+        //public List<RoleLR> GetPageList(RoleLRPageDto input)
+        //{
 
 
 
 
-
-
-
-
-
-        }
+        //}
         /// <summary>
         /// 角色列表all
         /// </summary>
@@ -123,6 +107,76 @@ namespace Mao.Application.Base.RoleLRManager
 
         #endregion
 
+
+        #region 获取数据
+        /// <summary>
+        /// 角色列表
+        /// </summary>
+        /// <param name="organizeId">公司Id</param>
+        /// <returns>返回列表Json</returns>
+        [DontWrapResult]
+        public object GetListJson(string organizeId)
+        {
+            var data = _roleLR.GetAllList(a => a.OrganizeId == organizeId);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject(data.ToJson());
+        }
+        /// <summary>
+        /// 角色列表
+        /// </summary>
+        /// <param name="pagination">分页参数</param>
+        /// <param name="queryJson">查询参数</param>
+        /// <returns>返回分页列表Json</returns>
+        [DontWrapResult]
+        public object GetPageListJson(RoleLRPageDto input)
+        {
+            //List<RoleLR>JsonData = GetPageList(input);
+
+            var watch = CommonHelper.TimerStart();
+
+            var query = _roleLR.GetAll();
+
+            if (!string.IsNullOrEmpty(input.FullName))
+            {
+                query.Where(a => a.FullName == input.FullName);
+            }
+            if (!string.IsNullOrEmpty(input.EnCode))
+            {
+                query.Where(a => a.EnCode == input.EnCode);
+            }
+            int records = 0;
+            int total = 0;
+            var rows = query.Where(a => a.Category == 1).OrderBy(input.Sorting).PageBy(MaoConsts.DefaultPageSize, input.page, out records,out total).AsEnumerable();
+
+
+            //return res.ToList();
+
+          
+
+            var JsonData = new
+            {
+                rows = rows,
+                total = total,
+                page = input.page,
+                records = records,
+                costtime = CommonHelper.TimerEnd(watch)
+            };
+         
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject(JsonData.ToJson());
+
+        }
+        /// <summary>
+        /// 角色实体 
+        /// </summary>
+        /// <param name="keyValue">主键值</param>
+        /// <returns>返回对象Json</returns>
+        [DontWrapResult]
+        public object GetFormJson(string keyValue)
+        {
+            var data = GetEntity(keyValue);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject(data.ToJson("yyyy-MM-dd HH:mm"));
+        }
+        #endregion
 
     }
 }

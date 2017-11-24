@@ -23,7 +23,8 @@
         var selectedRowIndex = 0;
         var $gridTable = $('#gridTable');
         $gridTable.jqGrid({
-            url: "../../BaseManage/Department/GetTreeListJson",
+            url: "/api/services/app/DepartmentLR/GetTreeListJson",
+            mtype: "POST",
             datatype: "json",
             height: $(window).height() - 108.5,
             autowidth: true,
@@ -125,7 +126,7 @@
                 return false;
             }
             $.RemoveForm({
-                url: "../../BaseManage/Department/RemoveForm",
+                url: "/api/services/app/DepartmentLR/RemoveForm",
                 param: { keyValue: keyValue },
                 success: function (data) {
                     $("#gridTable").resetSelection();

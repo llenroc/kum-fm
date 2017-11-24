@@ -1,28 +1,23 @@
-﻿
+﻿using Abp.Application.Services.Dto;
 using System;
-using System.ComponentModel;
-using Abp.Application.Services.Dto;
-using Abp.AutoMapper;
-
 using System.Collections.Generic;
-using Mao;
-using Mao.Core.Base;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Mao.Application.Base.PostLRManager.Dtos
+namespace Mao.Application.Base.RoleLRManager.Dtos
 {
-    /// <summary>
-    /// 资质管理列表Dto
-    /// </summary>
-    public class PostLRPageDto : ISortedResultRequest
+    public class JobLRPageDto : ISortedResultRequest
     {
-        public PostLRPageDto()
+        public JobLRPageDto()
         {
             Sorting = "Id";
         }
 
         public string Sorting { get; set; }
 
-
+        
 
         //[Range(1, MaoConsts.MaxPageSize)]
         //public int MaxResultCount { get; set; }
@@ -39,7 +34,7 @@ namespace Mao.Application.Base.PostLRManager.Dtos
         public int records { get; set; }
 
 
-
+    
 
         //[Range(0, int.MaxValue)]
         //public int SkipCount { get; set; }

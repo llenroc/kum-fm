@@ -28,7 +28,7 @@ namespace Mao.Base.ClientDataLRManager
 
         private DepartmentLRAppService _department;
         private OrganizeLRAppService _organize;
-        private RoleLRService _roleLR;
+        private RoleLRAppService _roleLR;
 
         private readonly ISqlExecuter _sqlExecuter;
 
@@ -43,7 +43,7 @@ namespace Mao.Base.ClientDataLRManager
         public ClientDataLRAppService(
              DepartmentLRAppService department,
               OrganizeLRAppService organize,
-                RoleLRService roleLR,
+                RoleLRAppService roleLR,
                   AuthorizeAppService authorize,
                   ModuleButtonAppService moduleButton,
                   ModuleColumnAppService moduleColumn,

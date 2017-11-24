@@ -46,43 +46,43 @@ namespace Mao.EntityFramework.Migrations
                 .Index(t => t.TenantId)
                 .Index(t => t.LastModifierUserId)
                 .Index(t => t.CreatorUserId);
-            
+
             CreateTable(
                 "dbo.AbpUsers",
                 c => new
-                    {
-                        Id = c.Long(nullable: false, identity: true),
-                        TenantId = c.Int(),
-                        Name = c.String(nullable: false, maxLength: 30),
-                        Surname = c.String(nullable: false, maxLength: 30),
-                        UserName = c.String(nullable: false, maxLength: 32),
-                        Password = c.String(nullable: false, maxLength: 100),
-                        EmailAddress = c.String(nullable: false, maxLength: 100),
-                        IsEmailConfirmed = c.Boolean(nullable: false),
-                        EmailConfirmationCode = c.String(maxLength: 16),
-                        PasswordResetCode = c.String(maxLength: 32),
-                        LastLoginTime = c.DateTime(),
-                        IsDeleted = c.Boolean(nullable: false),
-                        DeleterUserId = c.Long(),
-                        DeletionTime = c.DateTime(),
-                        LastModificationTime = c.DateTime(),
-                        LastModifierUserId = c.Long(),
-                        CreationTime = c.DateTime(nullable: false),
-                        CreatorUserId = c.Long(),
-                    },
+                {
+                    Id = c.Long(nullable: false, identity: true),
+                    TenantId = c.Int(),
+                    Name = c.String(nullable: false, maxLength: 30),
+                    Surname = c.String(nullable: false, maxLength: 30),
+                    UserName = c.String(nullable: false, maxLength: 32),
+                    Password = c.String(nullable: false, maxLength: 100),
+                    EmailAddress = c.String(nullable: false, maxLength: 100),
+                    IsEmailConfirmed = c.Boolean(nullable: false),
+                    EmailConfirmationCode = c.String(maxLength: 16),
+                    PasswordResetCode = c.String(maxLength: 32),
+                    LastLoginTime = c.DateTime(),
+                    IsDeleted = c.Boolean(nullable: false),
+                    DeleterUserId = c.Long(),
+                    DeletionTime = c.DateTime(),
+                    LastModificationTime = c.DateTime(),
+                    LastModifierUserId = c.Long(),
+                    CreationTime = c.DateTime(nullable: false),
+                    CreatorUserId = c.Long(),
+                },
                 annotations: new Dictionary<string, object>
                 {
                     { "Abp_SoftDelete", "True" },
                 })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.AbpUsers", t => t.CreatorUserId)
-                .ForeignKey("dbo.AbpUsers", t => t.DeleterUserId)
-                .ForeignKey("dbo.AbpUsers", t => t.LastModifierUserId)
-                .ForeignKey("dbo.AbpTenants", t => t.TenantId)
-                .Index(t => t.TenantId)
-                .Index(t => t.DeleterUserId)
-                .Index(t => t.LastModifierUserId)
-                .Index(t => t.CreatorUserId);
+                //.ForeignKey("dbo.AbpUsers", t => t.CreatorUserId)
+                //.ForeignKey("dbo.AbpUsers", t => t.DeleterUserId)
+                //.ForeignKey("dbo.AbpUsers", t => t.LastModifierUserId)
+                .ForeignKey("dbo.AbpTenants", t => t.TenantId);
+                //.Index(t => t.TenantId)
+                //.Index(t => t.DeleterUserId)
+                //.Index(t => t.LastModifierUserId)
+                //.Index(t => t.CreatorUserId);
             
             CreateTable(
                 "dbo.AbpUserLogins",

@@ -13,7 +13,7 @@ namespace Mao.Application.Base.PostLRManager.Dtos
 	/// <summary>
     /// 资质管理列表Dto
     /// </summary>
-    public class PostLRListDto 
+    public class PostLRListDto : PagedAndSortedInputDto
     {
         #region 实体成员
         /// <summary>

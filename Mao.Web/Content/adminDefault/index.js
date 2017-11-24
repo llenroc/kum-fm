@@ -217,14 +217,14 @@ loadnav = function () {
         height: $(window).height() - 56,
         tabcontentWidth: $(window).width() - 80,
         addEvent: function (item) {
-            if (item.closed && item.isNoLog != true) {
-                $.ajax({
-                    url: contentPath + "/Home/VisitModule",
-                    data: { moduleId: item.id, moduleName: item.title, moduleUrl: item.url },
-                    type: "post",
-                    dataType: "text"
-                });
-            }
+            //if (item.closed && item.isNoLog != true) {
+            //    $.ajax({
+            //        url: contentPath + "/Home/VisitModule",
+            //        data: { moduleId: item.id, moduleName: item.title, moduleUrl: item.url },
+            //        type: "post",
+            //        dataType: "text"
+            //    });
+            //}
         },
         currentEvent: function (moduleId) {
             top.$.cookie('currentmoduleId', moduleId, { path: "/" });

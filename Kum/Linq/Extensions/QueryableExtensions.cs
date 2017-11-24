@@ -11,6 +11,42 @@ namespace Abp.Linq.Extensions
     public static class QueryableExtensions
     {
         /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="query"></param>
+        /// <param name="rowNum">每页显示多少条</param>
+        /// <param name="page">当前页码</param>
+        ///  <param name="records">返回总条数</param>
+        ///  <param name="total">总页数</param>
+        /// <returns></returns>
+        public static IQueryable<T> PageBy<T>(this IQueryable<T> query, int rowNum, int page, out int records, out int total)
+        {
+            if (query == null)
+            {
+                throw new ArgumentNullException("query");
+            }
+            records = query.Count();
+
+
+
+            IQueryable<T> iq = query.Skip((page - 1) * rowNum).Take(rowNum);
+
+            //total = iq.Count();
+            if (records > 0)
+            {
+                total = records % rowNum == 0 ? records / rowNum : records / rowNum + 1;
+            }
+            else
+            {
+                total = 0;
+            }
+
+
+            return iq;
+        }
+
+        /// <summary>
         /// Used for paging. Can be used as an alternative to Skip(...).Take(...) chaining.
         /// </summary>
         public static IQueryable<T> PageBy<T>(this IQueryable<T> query, int skipCount, int maxResultCount)

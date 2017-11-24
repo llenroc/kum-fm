@@ -23,7 +23,8 @@
         var selectedRowIndex = 0;
         var $gridTable = $('#gridTable');
         $gridTable.jqGrid({
-            url: "../../BaseManage/Job/GetPageListJson",
+            url: "/api/services/app/JobLR/GetPageListJson",
+            mtype: "POST",
             datatype: "json",
             height: $(window).height() - 136.5,
             autowidth: true,
@@ -35,18 +36,42 @@
                    {
                        label: '所在公司', name: 'OrganizeName', width: 250, align: 'left', sortable: false,
                        formatter: function (cellvalue, options, rowObject) {
-                           var organizeId = top.clientdepartmentData[rowObject.OrganizeId].OrganizeId;
-                           return top.clientorganizeData[organizeId].FullName;
+                           var organizeId;
+
+                           for (var i in top.clientdepartmentData) {
+                               if (top.clientdepartmentData[i].OrganizeId == rowObject.OrganizeId) {
+                                   organizeId = top.clientorganizeData[i].OrganizeId;
+                               }
+                           }
+
+                           //var organizeId = top.clientdepartmentData[rowObject.OrganizeId].OrganizeId;
+                           
+                           for (var i in top.clientorganizeData) {
+                               if (top.clientorganizeData[i].OrganizeId == organizeId) {
+                                   return top.clientorganizeData[i].FullName;
+                               }
+                           }
+
+                           return "";
+
+                          
                        }
                    },
                 {
                     label: '所在部门', name: 'DepartmentName', width: 100, align: 'left', sortable: false,
                     formatter: function (cellvalue, options, rowObject) {
-                        return top.clientdepartmentData[rowObject.OrganizeId].FullName;
+
+                        for (var i in top.clientdepartmentData) {
+                            if (top.clientdepartmentData[i].OrganizeId == rowObject.OrganizeId) {
+                                return top.clientorganizeData[i].FullName;
+                            }
+                        }
+                        return "";
+                   
                     }
                 },
                 {
-                    label: '创建时间', name: 'CreateDate', index: 'CreateDate', width: 130, align: 'center',
+                    label: '创建时间', name: 'CreationTime', index: 'CreationTime', width: 130, align: 'center',
                     formatter: "date", formatoptions: { srcformat: 'Y-m-d H:i', newformat: 'Y-m-d H:i' }
                 },
                 {
@@ -61,7 +86,7 @@
             rowNum: 30,
             rowList: [30, 50, 100],
             pager: "#gridPager",
-            sortname: 'CreateDate',
+            sortname: 'CreationTime',
             sortorder: 'desc',
             rownumbers: true,
             shrinkToFit: false,

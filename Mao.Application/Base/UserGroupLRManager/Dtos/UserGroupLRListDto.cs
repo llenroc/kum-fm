@@ -26,7 +26,7 @@ namespace Mao.Application.Base.UserGroupManager.Dtos
     /// <summary>
     /// 资质管理列表Dto
     /// </summary>
-    public class UserGroupLRListDto
+    public class UserGroupLRListDto: PagedAndSortedInputDto
     {
         #region 实体成员
         /// <summary>

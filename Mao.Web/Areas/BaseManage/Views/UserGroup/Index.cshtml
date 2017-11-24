@@ -23,7 +23,8 @@
         var selectedRowIndex = 0;
         var $gridTable = $('#gridTable');
         $gridTable.jqGrid({
-            url: "../../BaseManage/UserGroup/GetPageListJson",
+            url: "/api/services/app/UserGroupLR/GetPageListJson",
+            mtype: "POST",
             datatype: "json",
             height: $(window).height() - 136.5,
             autowidth: true,
@@ -34,7 +35,14 @@
                 {
                     label: '所在公司', name: 'OrganizeId', index: 'OrganizeId', width: 250, align: 'left',
                     formatter: function (cellvalue, options, rowObject) {
-                        return top.clientorganizeData[cellvalue].FullName;
+
+                        for (var i in top.clientorganizeData) {
+                            if (top.clientorganizeData[i].OrganizeId == cellvalue) {
+                                return top.clientorganizeData[i].FullName;
+                            }
+                        }
+                        return "";
+
                     }
                 },
                 {
