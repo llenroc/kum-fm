@@ -478,6 +478,10 @@
     <Compile Include="Migrations\201711230504384_org.Designer.cs">
       <DependentUpon>201711230504384_org.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711250809582_userupdate.cs" />
+    <Compile Include="Migrations\201711250809582_userupdate.Designer.cs">
+      <DependentUpon>201711250809582_userupdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MaoDataModule.cs" />
     <Compile Include="Migrations\Seed\Host\DefaultEditionCreator.cs" />
@@ -749,6 +753,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711230504384_org.resx">
       <DependentUpon>201711230504384_org.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711250809582_userupdate.resx">
+      <DependentUpon>201711250809582_userupdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
