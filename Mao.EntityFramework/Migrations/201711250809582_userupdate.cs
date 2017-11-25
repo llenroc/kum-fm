@@ -8,12 +8,14 @@ namespace Mao.Migrations
         public override void Up()
         {
             //É¾³ýË÷Òý
-            Sql("DROP INDEX IX_CreatorUserId ON main_users");
-            Sql("DROP INDEX IX_DeleterUserId ON main_users");
-            Sql("DROP INDEX IX_LastModifierUserId ON main_users");
             Sql("alter table main_users drop foreign key FK_AbpUsers_AbpUsers_CreatorUserId;");
             Sql("alter table main_users drop foreign key FK_AbpUsers_AbpUsers_DeleterUserId;");
             Sql("alter table main_users drop foreign key FK_AbpUsers_AbpUsers_LastModifierUserId;");
+
+
+            Sql("DROP INDEX IX_CreatorUserId ON main_users");
+            Sql("DROP INDEX IX_DeleterUserId ON main_users");
+            Sql("DROP INDEX IX_LastModifierUserId ON main_users");
            
 
             //DropForeignKey("Main_Users", "CreatorUserId", "AbpUsers",);
