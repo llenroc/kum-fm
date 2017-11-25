@@ -55,5 +55,15 @@ namespace Mao.Application.Authorize.AuthorizeManager
         /// <param name="isWrite">可写入</param>
         /// <returns></returns>
         string GetDataAuthor(Operator operators, bool isWrite = false);
+
+
+        /// <summary>
+        /// Action执行权限认证
+        /// </summary>
+        /// <param name="userId">用户Id</param>
+        /// <param name="moduleId">模块Id</param>
+        /// <param name="action">请求地址</param>
+        /// <returns></returns>
+        bool ActionAuthorize(string userId, string moduleId, string action);
     }
 }

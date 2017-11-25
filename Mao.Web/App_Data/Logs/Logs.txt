@@ -3790,3 +3790,193 @@ System.Web.HttpCompileException (0x80004005): c:\Users\add\Desktop\kum-fm\Mao.We
    at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
    at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
    at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+DEBUG 2017-11-25 17:59:39,084 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-11-25 17:59:39,098 [1    ] Abp.Modules.AbpModuleManager             - Found 17 ABP modules in total.
+DEBUG 2017-11-25 17:59:39,104 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Mao.Web.MaoWebModule, Mao.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-25 17:59:39,106 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Kum.Web.Mvc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-25 17:59:39,106 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Kum.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-25 17:59:39,106 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Kum.Web.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-25 17:59:39,107 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-25 17:59:39,107 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpZeroOwinModule, Kum.Zero.Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-25 17:59:39,107 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Kum.Zero, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-25 17:59:39,107 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Kum.Zero.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-25 17:59:39,107 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Mao.MaoDataModule, Mao.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-25 17:59:39,107 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Kum.Zero.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-25 17:59:39,108 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Kum.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-25 17:59:39,108 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Kum.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-25 17:59:39,108 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Mao.MaoCoreModule, Mao.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-25 17:59:39,109 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Kum.AutoMapper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-25 17:59:39,109 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Mao.Application.MaoApplicationModule, Mao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-25 17:59:39,109 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Mao.WebApi.MaoWebApiModule, Mao.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-25 17:59:39,109 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Kum.Web.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-25 17:59:39,113 [1    ] Abp.Modules.AbpModuleManager             - 17 modules loaded.
+DEBUG 2017-11-25 17:59:39,356 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-11-25 17:59:39,356 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-11-25 17:59:39,356 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-11-25 17:59:39,356 [1    ] o.Configuration.LanguageManagementConfig - Converted Mao (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-11-25 17:59:39,747 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: Mao.EntityFramework.EntityFramework.MaoDbContext, Mao.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-25 17:59:42,178 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2017-11-25 17:59:42,179 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-11-25 17:59:42,180 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-11-25 17:59:42,180 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2017-11-25 17:59:42,180 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Mao
+DEBUG 2017-11-25 17:59:42,269 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-11-25 17:59:43,404 [1    ] Abp.Owin.OwinUserTokenProviderAccessor   - DataProtectionProvider has not been set yet.
+DEBUG 2017-11-25 17:59:43,565 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 26 classes define auto mapping attributes
+DEBUG 2017-11-25 17:59:43,565 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Core.Friendships.Cache.FriendCacheItem
+DEBUG 2017-11-25 17:59:43,568 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2017-11-25 17:59:43,568 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Sessions.Dto.UserLoginInfoDto
+DEBUG 2017-11-25 17:59:43,568 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Person.Dtos.PersonEditDto
+DEBUG 2017-11-25 17:59:43,568 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Person.Dtos.PersonListDto
+DEBUG 2017-11-25 17:59:43,568 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Organizations.Dto.OrganizationUnitDto
+DEBUG 2017-11-25 17:59:43,569 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Organizations.Dto.OrganizationUnitUserListDto
+DEBUG 2017-11-25 17:59:43,569 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Notifications.Dto.NotificationSubscriptionWithDisplayNameDto
+DEBUG 2017-11-25 17:59:43,569 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.MultiTenancy.Dto.TenantEditDto
+DEBUG 2017-11-25 17:59:43,569 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.MultiTenancy.Dto.TenantListDto
+DEBUG 2017-11-25 17:59:43,569 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Localization.Dto.ApplicationLanguageEditDto
+DEBUG 2017-11-25 17:59:43,569 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Localization.Dto.ApplicationLanguageListDto
+DEBUG 2017-11-25 17:59:43,569 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Friendships.Dto.FriendDto
+DEBUG 2017-11-25 17:59:43,569 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Editions.Dto.EditionEditDto
+DEBUG 2017-11-25 17:59:43,569 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Editions.Dto.EditionListDto
+DEBUG 2017-11-25 17:59:43,569 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Editions.Dto.FlatFeatureDto
+DEBUG 2017-11-25 17:59:43,569 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Chat.Dto.ChatMessageDto
+DEBUG 2017-11-25 17:59:43,569 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Chat.Dto.ChatUserDto
+DEBUG 2017-11-25 17:59:43,569 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Chat.Dto.ChatUserWithMessagesDto
+DEBUG 2017-11-25 17:59:43,569 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Authorization.Users.Profile.Dto.CurrentUserProfileEditDto
+DEBUG 2017-11-25 17:59:43,569 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Authorization.Users.Dto.UserLoginAttemptDto
+DEBUG 2017-11-25 17:59:43,569 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Authorization.Roles.Dto.RoleEditDto
+DEBUG 2017-11-25 17:59:43,569 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Authorization.Roles.Dto.RoleListDto
+DEBUG 2017-11-25 17:59:43,569 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Authorization.Permissions.Dto.FlatPermissionDto
+DEBUG 2017-11-25 17:59:43,569 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Authorization.Permissions.Dto.FlatPermissionWithLevelDto
+DEBUG 2017-11-25 17:59:43,569 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Auditing.Dto.AuditLogListDto
+DEBUG 2017-11-25 17:59:44,016 [1    ] Abp.Owin.OwinUserTokenProviderAccessor   - DataProtectionProvider has not been set yet.
+DEBUG 2017-11-25 17:59:44,054 [1    ] Abp.Owin.OwinUserTokenProviderAccessor   - DataProtectionProvider has not been set yet.
+DEBUG 2017-11-25 17:59:44,071 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'LeaRun.Application.IService.BaseManage.IJobLRAppService' with service name 'app/jobLR'.
+DEBUG 2017-11-25 17:59:44,073 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Base.ClientDataLRManager.IClientDataLRAppService' with service name 'app/clientDataLR'.
+DEBUG 2017-11-25 17:59:44,074 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Timing.ITimingAppService' with service name 'app/timing'.
+DEBUG 2017-11-25 17:59:44,075 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Tenants.Dashboard.ITenantDashboardAppService' with service name 'app/tenantDashboard'.
+DEBUG 2017-11-25 17:59:44,078 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Sessions.ISessionAppService' with service name 'app/session'.
+DEBUG 2017-11-25 17:59:44,079 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Person.IPersonAppService' with service name 'app/person'.
+DEBUG 2017-11-25 17:59:44,080 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Organizations.IOrganizationUnitAppService' with service name 'app/organizationUnit'.
+DEBUG 2017-11-25 17:59:44,081 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Notifications.INotificationAppService' with service name 'app/notification'.
+DEBUG 2017-11-25 17:59:44,082 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
+DEBUG 2017-11-25 17:59:44,083 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Logging.IWebLogAppService' with service name 'app/webLog'.
+DEBUG 2017-11-25 17:59:44,084 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Localization.ILanguageAppService' with service name 'app/language'.
+DEBUG 2017-11-25 17:59:44,085 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Friendships.IFriendshipAppService' with service name 'app/friendship'.
+DEBUG 2017-11-25 17:59:44,086 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Editions.IEditionAppService' with service name 'app/edition'.
+DEBUG 2017-11-25 17:59:44,087 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Configuration.Tenants.ITenantSettingsAppService' with service name 'app/tenantSettings'.
+DEBUG 2017-11-25 17:59:44,087 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Configuration.Host.IHostSettingsAppService' with service name 'app/hostSettings'.
+DEBUG 2017-11-25 17:59:44,088 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Common.ICommonLookupAppService' with service name 'app/commonLookup'.
+DEBUG 2017-11-25 17:59:44,089 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Chat.IChatAppService' with service name 'app/chat'.
+DEBUG 2017-11-25 17:59:44,090 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Caching.ICachingAppService' with service name 'app/caching'.
+DEBUG 2017-11-25 17:59:44,092 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Base.UserGroupManager.IUserGroupLRAppService' with service name 'app/userGroupLR'.
+DEBUG 2017-11-25 17:59:44,093 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Base.OrganizeManager.IOrganizeLRAppService' with service name 'app/organizeLR'.
+DEBUG 2017-11-25 17:59:44,094 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Base.RoleLRManager.IPostLRAppService' with service name 'app/postLR'.
+DEBUG 2017-11-25 17:59:44,095 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Base.RoleLRManager.IRoleLRAppService' with service name 'app/roleLR'.
+DEBUG 2017-11-25 17:59:44,096 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Base.DepartmentManager.IDepartmentLRAppService' with service name 'app/departmentLR'.
+DEBUG 2017-11-25 17:59:44,098 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Authorize.ModuleColumnManager.IModuleColumnAppService' with service name 'app/moduleColumn'.
+DEBUG 2017-11-25 17:59:44,099 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Authorize.ModuleButtonManager.IModuleButtonAppService' with service name 'app/moduleButton'.
+DEBUG 2017-11-25 17:59:44,100 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Authorize.AuthorizeManager.IAuthorizeAppService' with service name 'app/authorize'.
+DEBUG 2017-11-25 17:59:44,100 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Authorization.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2017-11-25 17:59:44,101 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Authorization.Users.IUserLinkAppService' with service name 'app/userLink'.
+DEBUG 2017-11-25 17:59:44,102 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Authorization.Users.IUserLoginAppService' with service name 'app/userLogin'.
+DEBUG 2017-11-25 17:59:44,103 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Authorization.Users.Profile.IProfileAppService' with service name 'app/profile'.
+DEBUG 2017-11-25 17:59:44,104 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Authorization.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2017-11-25 17:59:44,105 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Authorization.Permissions.IPermissionAppService' with service name 'app/permission'.
+DEBUG 2017-11-25 17:59:44,106 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Auditing.IAuditLogAppService' with service name 'app/auditLog'.
+DEBUG 2017-11-25 19:09:26,229 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-11-25 19:09:26,242 [1    ] Abp.Modules.AbpModuleManager             - Found 17 ABP modules in total.
+DEBUG 2017-11-25 19:09:26,248 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Mao.Web.MaoWebModule, Mao.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-25 19:09:26,251 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Kum.Web.Mvc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-25 19:09:26,251 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Kum.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-25 19:09:26,251 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Kum.Web.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-25 19:09:26,251 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-25 19:09:26,251 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpZeroOwinModule, Kum.Zero.Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-25 19:09:26,251 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Kum.Zero, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-25 19:09:26,252 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Kum.Zero.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-25 19:09:26,252 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Mao.MaoDataModule, Mao.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-25 19:09:26,252 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Kum.Zero.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-25 19:09:26,253 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Kum.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-25 19:09:26,253 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Kum.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-25 19:09:26,253 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Mao.MaoCoreModule, Mao.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-25 19:09:26,253 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Kum.AutoMapper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-25 19:09:26,253 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Mao.Application.MaoApplicationModule, Mao.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-25 19:09:26,253 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Mao.WebApi.MaoWebApiModule, Mao.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-25 19:09:26,253 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Kum.Web.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-25 19:09:26,256 [1    ] Abp.Modules.AbpModuleManager             - 17 modules loaded.
+DEBUG 2017-11-25 19:09:26,502 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-11-25 19:09:26,502 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-11-25 19:09:26,502 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-11-25 19:09:26,502 [1    ] o.Configuration.LanguageManagementConfig - Converted Mao (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-11-25 19:09:26,898 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: Mao.EntityFramework.EntityFramework.MaoDbContext, Mao.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-25 19:09:29,376 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2017-11-25 19:09:29,377 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-11-25 19:09:29,377 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-11-25 19:09:29,378 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2017-11-25 19:09:29,378 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Mao
+DEBUG 2017-11-25 19:09:29,455 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-11-25 19:09:30,589 [1    ] Abp.Owin.OwinUserTokenProviderAccessor   - DataProtectionProvider has not been set yet.
+DEBUG 2017-11-25 19:09:30,740 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 26 classes define auto mapping attributes
+DEBUG 2017-11-25 19:09:30,740 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Core.Friendships.Cache.FriendCacheItem
+DEBUG 2017-11-25 19:09:30,744 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2017-11-25 19:09:30,744 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Sessions.Dto.UserLoginInfoDto
+DEBUG 2017-11-25 19:09:30,744 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Person.Dtos.PersonEditDto
+DEBUG 2017-11-25 19:09:30,744 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Person.Dtos.PersonListDto
+DEBUG 2017-11-25 19:09:30,744 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Organizations.Dto.OrganizationUnitDto
+DEBUG 2017-11-25 19:09:30,745 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Organizations.Dto.OrganizationUnitUserListDto
+DEBUG 2017-11-25 19:09:30,745 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Notifications.Dto.NotificationSubscriptionWithDisplayNameDto
+DEBUG 2017-11-25 19:09:30,745 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.MultiTenancy.Dto.TenantEditDto
+DEBUG 2017-11-25 19:09:30,745 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.MultiTenancy.Dto.TenantListDto
+DEBUG 2017-11-25 19:09:30,745 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Localization.Dto.ApplicationLanguageEditDto
+DEBUG 2017-11-25 19:09:30,745 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Localization.Dto.ApplicationLanguageListDto
+DEBUG 2017-11-25 19:09:30,745 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Friendships.Dto.FriendDto
+DEBUG 2017-11-25 19:09:30,745 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Editions.Dto.EditionEditDto
+DEBUG 2017-11-25 19:09:30,745 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Editions.Dto.EditionListDto
+DEBUG 2017-11-25 19:09:30,745 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Editions.Dto.FlatFeatureDto
+DEBUG 2017-11-25 19:09:30,745 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Chat.Dto.ChatMessageDto
+DEBUG 2017-11-25 19:09:30,745 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Chat.Dto.ChatUserDto
+DEBUG 2017-11-25 19:09:30,745 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Chat.Dto.ChatUserWithMessagesDto
+DEBUG 2017-11-25 19:09:30,745 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Authorization.Users.Profile.Dto.CurrentUserProfileEditDto
+DEBUG 2017-11-25 19:09:30,745 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Authorization.Users.Dto.UserLoginAttemptDto
+DEBUG 2017-11-25 19:09:30,745 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Authorization.Roles.Dto.RoleEditDto
+DEBUG 2017-11-25 19:09:30,745 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Authorization.Roles.Dto.RoleListDto
+DEBUG 2017-11-25 19:09:30,745 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Authorization.Permissions.Dto.FlatPermissionDto
+DEBUG 2017-11-25 19:09:30,745 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Authorization.Permissions.Dto.FlatPermissionWithLevelDto
+DEBUG 2017-11-25 19:09:30,745 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Mao.Application.Auditing.Dto.AuditLogListDto
+DEBUG 2017-11-25 19:09:31,219 [1    ] Abp.Owin.OwinUserTokenProviderAccessor   - DataProtectionProvider has not been set yet.
+DEBUG 2017-11-25 19:09:31,241 [1    ] Abp.Owin.OwinUserTokenProviderAccessor   - DataProtectionProvider has not been set yet.
+DEBUG 2017-11-25 19:09:31,255 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'LeaRun.Application.IService.BaseManage.IJobLRAppService' with service name 'app/jobLR'.
+DEBUG 2017-11-25 19:09:31,256 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Base.ClientDataLRManager.IClientDataLRAppService' with service name 'app/clientDataLR'.
+DEBUG 2017-11-25 19:09:31,256 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Timing.ITimingAppService' with service name 'app/timing'.
+DEBUG 2017-11-25 19:09:31,257 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Tenants.Dashboard.ITenantDashboardAppService' with service name 'app/tenantDashboard'.
+DEBUG 2017-11-25 19:09:31,258 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Sessions.ISessionAppService' with service name 'app/session'.
+DEBUG 2017-11-25 19:09:31,259 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Person.IPersonAppService' with service name 'app/person'.
+DEBUG 2017-11-25 19:09:31,260 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Organizations.IOrganizationUnitAppService' with service name 'app/organizationUnit'.
+DEBUG 2017-11-25 19:09:31,261 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Notifications.INotificationAppService' with service name 'app/notification'.
+DEBUG 2017-11-25 19:09:31,262 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
+DEBUG 2017-11-25 19:09:31,262 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Logging.IWebLogAppService' with service name 'app/webLog'.
+DEBUG 2017-11-25 19:09:31,264 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Localization.ILanguageAppService' with service name 'app/language'.
+DEBUG 2017-11-25 19:09:31,265 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Friendships.IFriendshipAppService' with service name 'app/friendship'.
+DEBUG 2017-11-25 19:09:31,266 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Editions.IEditionAppService' with service name 'app/edition'.
+DEBUG 2017-11-25 19:09:31,267 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Configuration.Tenants.ITenantSettingsAppService' with service name 'app/tenantSettings'.
+DEBUG 2017-11-25 19:09:31,268 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Configuration.Host.IHostSettingsAppService' with service name 'app/hostSettings'.
+DEBUG 2017-11-25 19:09:31,268 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Common.ICommonLookupAppService' with service name 'app/commonLookup'.
+DEBUG 2017-11-25 19:09:31,269 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Chat.IChatAppService' with service name 'app/chat'.
+DEBUG 2017-11-25 19:09:31,270 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Caching.ICachingAppService' with service name 'app/caching'.
+DEBUG 2017-11-25 19:09:31,271 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Base.UserGroupManager.IUserGroupLRAppService' with service name 'app/userGroupLR'.
+DEBUG 2017-11-25 19:09:31,272 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Base.OrganizeManager.IOrganizeLRAppService' with service name 'app/organizeLR'.
+DEBUG 2017-11-25 19:09:31,273 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Base.RoleLRManager.IPostLRAppService' with service name 'app/postLR'.
+DEBUG 2017-11-25 19:09:31,274 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Base.RoleLRManager.IRoleLRAppService' with service name 'app/roleLR'.
+DEBUG 2017-11-25 19:09:31,275 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Base.DepartmentManager.IDepartmentLRAppService' with service name 'app/departmentLR'.
+DEBUG 2017-11-25 19:09:31,275 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Authorize.ModuleColumnManager.IModuleColumnAppService' with service name 'app/moduleColumn'.
+DEBUG 2017-11-25 19:09:31,276 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Authorize.ModuleButtonManager.IModuleButtonAppService' with service name 'app/moduleButton'.
+DEBUG 2017-11-25 19:09:31,277 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Authorize.AuthorizeManager.IAuthorizeAppService' with service name 'app/authorize'.
+DEBUG 2017-11-25 19:09:31,278 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Authorization.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2017-11-25 19:09:31,279 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Authorization.Users.IUserLinkAppService' with service name 'app/userLink'.
+DEBUG 2017-11-25 19:09:31,280 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Authorization.Users.IUserLoginAppService' with service name 'app/userLogin'.
+DEBUG 2017-11-25 19:09:31,281 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Authorization.Users.Profile.IProfileAppService' with service name 'app/profile'.
+DEBUG 2017-11-25 19:09:31,284 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Authorization.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2017-11-25 19:09:31,285 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Authorization.Permissions.IPermissionAppService' with service name 'app/permission'.
+DEBUG 2017-11-25 19:09:31,286 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Mao.Application.Auditing.IAuditLogAppService' with service name 'app/auditLog'.
+DEBUG 2017-11-25 19:22:55,876 [37   ] Abp.Logging.LogHelper                    - The controller for path '/SystemManage/DataItemDetail/GetDataItemListJson' was not found or does not implement IController.
+DEBUG 2017-11-25 19:23:10,799 [30   ] Abp.Logging.LogHelper                    - The controller for path '/SystemManage/DataItemDetail/GetDataItemListJson' was not found or does not implement IController.

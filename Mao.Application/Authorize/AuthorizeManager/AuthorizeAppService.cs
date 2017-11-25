@@ -28,6 +28,8 @@ namespace Mao.Application.Authorize.AuthorizeManager
         private readonly IRepository<UserRelation> _userRelation;
         private readonly IRepository<AuthorizeData> _authorizeData;
 
+
+
         public AuthorizeAppService(
            IRepository<UserRelation> userRelation,
         IRepository<AuthorizeData> authorizeData
@@ -45,7 +47,7 @@ namespace Mao.Application.Authorize.AuthorizeManager
         /// </summary>
         /// <param name="userId">用户Id</param>
         /// <returns></returns>
-        public  List<Module> GetModuleList(string userId)
+        public List<Module> GetModuleList(string userId)
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append(@"SELECT  *
@@ -70,7 +72,7 @@ namespace Mao.Application.Authorize.AuthorizeManager
             };
 
 
-            var Module =  _sqlExecuter.SqlQuery<Module>(strSql.ToString(), parameter);
+            var Module = _sqlExecuter.SqlQuery<Module>(strSql.ToString(), parameter);
 
             return Module.MapTo<List<Module>>();
         }
@@ -79,7 +81,7 @@ namespace Mao.Application.Authorize.AuthorizeManager
         /// </summary>
         /// <param name="userId">用户Id</param>
         /// <returns></returns>
-        public  List<ModuleButton> GetModuleButtonList(string userId)
+        public List<ModuleButton> GetModuleButtonList(string userId)
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append(@"SELECT  *
@@ -94,13 +96,13 @@ namespace Mao.Application.Authorize.AuthorizeManager
                                                   WHERE     UserId = @UserId ) )
                                             OR ObjectId = @UserId ) Order By SortCode");
 
-           
+
             DbParameter[] parameter =
           {
                 DbParameters.CreateDbParameter("@UserId",userId)
             };
 
-            var ModuleButton =  _sqlExecuter.SqlQuery<ModuleButton>(strSql.ToString(), parameter);
+            var ModuleButton = _sqlExecuter.SqlQuery<ModuleButton>(strSql.ToString(), parameter);
 
 
             return ModuleButton.MapTo<List<ModuleButton>>();
@@ -129,7 +131,7 @@ namespace Mao.Application.Authorize.AuthorizeManager
                 DbParameters.CreateDbParameter("@UserId",userId)
             };
 
-            var ModuleColumn =  _sqlExecuter.SqlQuery<ModuleColumn>(strSql.ToString(), parameter);
+            var ModuleColumn = _sqlExecuter.SqlQuery<ModuleColumn>(strSql.ToString(), parameter);
 
 
             return ModuleColumn.MapTo<List<ModuleColumn>>();
@@ -182,7 +184,7 @@ namespace Mao.Application.Authorize.AuthorizeManager
                 DbParameters.CreateDbParameter("@UserId",userId)
             };
 
-            var AuthorizeUrlModel =  _sqlExecuter.SqlQuery<AuthorizeUrlModel>(strSql.ToString(), parameter);
+            var AuthorizeUrlModel = _sqlExecuter.SqlQuery<AuthorizeUrlModel>(strSql.ToString(), parameter);
 
 
             return AuthorizeUrlModel.MapTo<List<AuthorizeUrlModel>>();
@@ -212,7 +214,7 @@ namespace Mao.Application.Authorize.AuthorizeManager
             //IRepository db = new RepositoryFactory().BaseRepository();
             long userId = operators.UserId;
 
-            List<User> userList =await UserManager.FindAllAsync();
+            List<User> userList = await UserManager.FindAllAsync();
             //UserManager. <User>(userIdList).ToList();
             StringBuilder userSb = new StringBuilder("");
             if (userList != null)
@@ -262,7 +264,7 @@ namespace Mao.Application.Authorize.AuthorizeManager
                                                 FROM    Base_UserRelation
                                                 WHERE   UserId =@UserId)";
             }
-         
+
             whereSb.Append(string.Format("AND( UserId ='{0}'", userId));
 
             DbParameter[] parameter =
@@ -270,9 +272,9 @@ namespace Mao.Application.Authorize.AuthorizeManager
                 DbParameters.CreateDbParameter("@UserId",userId)
             };
 
-             
+
             IEnumerable<AuthorizeData> listAuthorizeData = _sqlExecuter.SqlQuery<AuthorizeData>(whereSb.ToString(), parameter);
-            
+
             foreach (AuthorizeData item in listAuthorizeData)
             {
                 switch (item.AuthorizeType)
@@ -305,6 +307,56 @@ namespace Mao.Application.Authorize.AuthorizeManager
             return whereSb.ToString();
         }
 
-       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //private IAuthorizeService service = new AuthorizeService();
+
+
+
+
+        /// <summary>
+        /// Action执行权限认证
+        /// </summary>
+        /// <param name="userId">用户Id</param>
+        /// <param name="moduleId">模块Id</param>
+        /// <param name="action">请求地址</param>
+        /// <returns></returns>
+        public bool ActionAuthorize(string userId, string moduleId, string action)
+        {
+            List<AuthorizeUrlModel> authorizeUrlList = new List<AuthorizeUrlModel>();
+            
+            authorizeUrlList = GetUrlList(userId);
+            
+            authorizeUrlList = authorizeUrlList.FindAll(t => t.ModuleId.Equals(moduleId));
+            foreach (AuthorizeUrlModel item in authorizeUrlList)
+            {
+                if (!string.IsNullOrEmpty(item.UrlAddress))
+                {
+                    string[] url = item.UrlAddress.Split('?');
+                    if (item.ModuleId == moduleId && url[0] == action)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+
     }
 }

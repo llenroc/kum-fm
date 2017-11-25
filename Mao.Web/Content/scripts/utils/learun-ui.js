@@ -38,7 +38,7 @@ Loading = function (bool, text) {
     if (!!text) {
         top.$("#loading_manage").html(text);
     } else {
-        top.$("#loading_manage").html("正在拼了命为您加载…");
+        top.$("#loading_manage").html("正在加载，请稍等...");
     }
     top.$("#loading_manage").css("left", (top.$('body').width() - top.$("#loading_manage").width()) / 2 - 54);
     top.$("#loading_manage").css("top", (top.$('body').height() - top.$("#loading_manage").height()) / 2);
@@ -634,6 +634,7 @@ $.fn.authorizeButton = function () {
     var moduleId = tabiframeId().substr(6);
     var data = top.authorizeButtonData[moduleId];
     if (data != undefined) {
+        console.log(data)
         $.each(data, function (i) {
             $element.find("#" + data[i].EnCode).attr('authorize', 'yes');
         });
