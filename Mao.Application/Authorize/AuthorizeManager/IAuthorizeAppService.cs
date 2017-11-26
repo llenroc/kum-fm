@@ -16,19 +16,19 @@ namespace Mao.Application.Authorize.AuthorizeManager
         /// </summary>
         /// <param name="userId">用户Id</param>
         /// <returns></returns>
-        List<Module> GetModuleList(string userId);
+        List<Module> GetModuleList();
         /// <summary>
         /// 获取授权功能按钮
         /// </summary>
         /// <param name="userId">用户Id</param>
         /// <returns></returns>
-        List<ModuleButton> GetModuleButtonList(string userId);
+        Dictionary<string, object> GetModuleButtonList();
         /// <summary>
         /// 获取授权功能视图
         /// </summary>
         /// <param name="userId">用户Id</param>
         /// <returns></returns>
-        List<ModuleColumn> GetModuleColumnList(string userId);
+        Dictionary<string, object> GetModuleColumnList();
         /// <summary>
         /// 获取授权功能Url、操作Url
         /// </summary>

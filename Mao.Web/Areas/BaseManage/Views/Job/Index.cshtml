@@ -36,23 +36,27 @@
                    {
                        label: '所在公司', name: 'OrganizeName', width: 250, align: 'left', sortable: false,
                        formatter: function (cellvalue, options, rowObject) {
-                           var organizeId;
-
-                           for (var i in top.clientdepartmentData) {
-                               if (top.clientdepartmentData[i].OrganizeId == rowObject.OrganizeId) {
-                                   organizeId = top.clientorganizeData[i].OrganizeId;
-                               }
-                           }
-
-                           //var organizeId = top.clientdepartmentData[rowObject.OrganizeId].OrganizeId;
+                           //var organizeId;
+                           console.log(top.clientdepartmentData)
+                           console.log(rowObject.OrganizeId)
+                               var organizeId = top.clientdepartmentData[rowObject.OrganizeId].OrganizeId;
+                               return top.clientorganizeData[organizeId].FullName;
                            
-                           for (var i in top.clientorganizeData) {
-                               if (top.clientorganizeData[i].OrganizeId == organizeId) {
-                                   return top.clientorganizeData[i].FullName;
-                               }
-                           }
+                           //for (var i in top.clientdepartmentData) {
+                           //    if (top.clientdepartmentData[i].OrganizeId == rowObject.OrganizeId) {
+                           //        organizeId = top.clientorganizeData[i].OrganizeId;
+                           //    }
+                           //}
 
-                           return "";
+                           ////var organizeId = top.clientdepartmentData[rowObject.OrganizeId].OrganizeId;
+                           
+                           //for (var i in top.clientorganizeData) {
+                           //    if (top.clientorganizeData[i].OrganizeId == organizeId) {
+                           //        return top.clientorganizeData[i].FullName;
+                           //    }
+                           //}
+
+                          
 
                           
                        }
@@ -60,13 +64,15 @@
                 {
                     label: '所在部门', name: 'DepartmentName', width: 100, align: 'left', sortable: false,
                     formatter: function (cellvalue, options, rowObject) {
-
-                        for (var i in top.clientdepartmentData) {
-                            if (top.clientdepartmentData[i].OrganizeId == rowObject.OrganizeId) {
-                                return top.clientorganizeData[i].FullName;
-                            }
-                        }
-                        return "";
+                       
+                            return top.clientdepartmentData[rowObject.OrganizeId].FullName;
+                        
+                        //for (var i in top.clientdepartmentData) {
+                        //    if (top.clientdepartmentData[i].OrganizeId == rowObject.OrganizeId) {
+                        //        return top.clientorganizeData[i].FullName;
+                        //    }
+                        //}
+                       
                    
                     }
                 },

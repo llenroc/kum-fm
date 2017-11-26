@@ -18,6 +18,8 @@ using Mao.Application.Base.RoleLRManager;
 using Abp.Runtime.Session;
 using Mao.Application.Base.DepartmentManager;
 using Mao.Application.Base.OrganizeManager;
+using Mao.Core.Authorize;
+using Mao.Util.Extension;
 
 namespace Mao.Base.ClientDataLRManager
 {
@@ -79,15 +81,16 @@ namespace Mao.Base.ClientDataLRManager
         {
             //var jsonData = new
             //{
-            var organize           = _organize.GetList();
-            var department         = _department.GetList();          //部门
-            var post               = _post.GetAllList();                    //岗位
-            var role                 = _roleLR.GetAllList();                           //角色
-            var userGroup           = _userGroup.GetAllList();           //dataItem = this.GetDataItem(),                  //字典
-            var authorizeMenu     = _authorize.GetModuleList(AbpSession.UserId.ToString());           //导航菜单
-            var authorizeButton = _moduleButton.GetList();   //功能按钮
-            var authorizeColumn = _moduleColumn.GetList();    //功能视图
-                                                              // };
+            var organize = GetOrganizeData();
+            var department = GetDepartmentData();         //部门
+            var post               = GetPostData();                    //岗位
+            var role                 = GetRoleData();                           //角色
+            var userGroup           = GetUserGroupData();           //dataItem = this.GetDataItem(),                  //字典
+            var authorizeMenu     = _authorize.GetModuleList();           //导航菜单
+
+            var authorizeButton = _authorize.GetModuleButtonList(); //功能按钮
+
+            var authorizeColumn = _authorize.GetModuleColumnList();//功能视图
 
             var jsonData = new {
              organize         = organize,
@@ -104,6 +107,133 @@ namespace Mao.Base.ClientDataLRManager
 
             return Newtonsoft.Json.JsonConvert.SerializeObject(jsonData);
         }
+        #endregion
+
+
+
+        #region 处理基础数据
+        /// <summary>
+        /// 获取公司数据
+        /// </summary>
+        /// <returns></returns>
+        private object GetOrganizeData()
+        {
+            var data = _organize.GetList();
+            Dictionary<string, object> dictionary = new Dictionary<string, object>();
+            foreach (Organize item in data)
+            {
+                var fieldItem = new
+                {
+                    EnCode = item.EnCode,
+                    FullName = item.FullName
+                };
+                dictionary.Add(item.OrganizeId, fieldItem);
+            }
+            return dictionary;
+        }
+        /// <summary>
+        /// 获取部门数据
+        /// </summary>
+        /// <returns></returns>
+        private object GetDepartmentData()
+        {
+            var data = _department.GetList();
+            Dictionary<string, object> dictionary = new Dictionary<string, object>();
+            foreach (Department item in data)
+            {
+                var fieldItem = new
+                {
+                    EnCode = item.EnCode,
+                    FullName = item.FullName,
+                    OrganizeId = item.OrganizeId
+                };
+                dictionary.Add(item.DepartmentId, fieldItem);
+            }
+            return dictionary;
+        }
+        /// <summary>
+        /// 获取岗位数据
+        /// </summary>
+        /// <returns></returns>
+        private object GetUserGroupData()
+        {
+            var data = _userGroup.GetList();
+            Dictionary<string, object> dictionary = new Dictionary<string, object>();
+            foreach (RoleLR item in data)
+            {
+                var fieldItem = new
+                {
+                    EnCode = item.EnCode,
+                    FullName = item.FullName
+                };
+                dictionary.Add(item.RoleId, fieldItem);
+            }
+            return dictionary;
+        }
+        /// <summary>
+        /// 获取岗位数据
+        /// </summary>
+        /// <returns></returns>
+        private object GetPostData()
+        {
+            var data = _post.GetList();
+            Dictionary<string, object> dictionary = new Dictionary<string, object>();
+            foreach (RoleLR item in data)
+            {
+                var fieldItem = new
+                {
+                    EnCode = item.EnCode,
+                    FullName = item.FullName
+                };
+                dictionary.Add(item.RoleId, fieldItem);
+            }
+            return dictionary;
+        }
+        /// <summary>
+        /// 获取角色数据
+        /// </summary>
+        /// <returns></returns>
+        private object GetRoleData()
+        {
+            var data = _roleLR.GetList();
+            Dictionary<string, object> dictionary = new Dictionary<string, object>();
+            foreach (RoleLR item in data)
+            {
+                var fieldItem = new
+                {
+                    EnCode = item.EnCode,
+                    FullName = item.FullName
+                };
+                dictionary.Add(item.RoleId, fieldItem);
+            }
+            return dictionary;
+        }
+       
+        /// <summary>
+        /// 获取数据字典
+        /// </summary>
+        /// <returns></returns>
+        //private object GetDataItem()
+        //{
+        //    var dataList = dataItemCache.GetDataItemList();
+        //    var dataSort = dataList.Distinct(new Comparint<DataItemModel>("EnCode"));
+        //    Dictionary<string, object> dictionarySort = new Dictionary<string, object>();
+        //    foreach (DataItemModel itemSort in dataSort)
+        //    {
+        //        var dataItemList = dataList.Where(t => t.EnCode.Equals(itemSort.EnCode));
+        //        Dictionary<string, string> dictionaryItemList = new Dictionary<string, string>();
+        //        foreach (DataItemModel itemList in dataItemList)
+        //        {
+        //            dictionaryItemList.Add(itemList.ItemValue, itemList.ItemName);
+        //        }
+        //        foreach (DataItemModel itemList in dataItemList)
+        //        {
+        //            dictionaryItemList.Add(itemList.ItemDetailId, itemList.ItemName);
+        //        }
+        //        dictionarySort.Add(itemSort.EnCode, dictionaryItemList);
+        //    }
+        //    return dictionarySort;
+        //}
         #endregion
     }
 

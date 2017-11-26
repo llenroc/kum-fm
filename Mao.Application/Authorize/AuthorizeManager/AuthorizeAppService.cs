@@ -47,8 +47,9 @@ namespace Mao.Application.Authorize.AuthorizeManager
         /// </summary>
         /// <param name="userId">用户Id</param>
         /// <returns></returns>
-        public List<Module> GetModuleList(string userId)
+        public List<Module> GetModuleList()
         {
+            string userId = AbpSession.UserId.ToString();
             StringBuilder strSql = new StringBuilder();
             strSql.Append(@"SELECT  *
                             FROM    Base_Module
@@ -81,8 +82,9 @@ namespace Mao.Application.Authorize.AuthorizeManager
         /// </summary>
         /// <param name="userId">用户Id</param>
         /// <returns></returns>
-        public List<ModuleButton> GetModuleButtonList(string userId)
+        public Dictionary<string, object> GetModuleButtonList()
         {
+            string userId = AbpSession.UserId.ToString();
             StringBuilder strSql = new StringBuilder();
             strSql.Append(@"SELECT  *
                             FROM    Base_ModuleButton
@@ -102,18 +104,42 @@ namespace Mao.Application.Authorize.AuthorizeManager
                 DbParameters.CreateDbParameter("@UserId",userId)
             };
 
-            var ModuleButton = _sqlExecuter.SqlQuery<ModuleButton>(strSql.ToString(), parameter);
+            var data = _sqlExecuter.SqlQuery<ModuleButton>(strSql.ToString(), parameter).ToList();
 
 
-            return ModuleButton.MapTo<List<ModuleButton>>();
+
+            var dataModule = data.Where((x, i) => data.FindIndex(z => z.ModuleId == x.ModuleId) == i).ToList(); 
+            //= data.Distinct(new Comparint<ModuleButton>("ModuleId")).ToList();
+
+
+
+
+
+            Dictionary<string, object> dictionary = new Dictionary<string, object>();
+
+
+            foreach (ModuleButton item in dataModule)
+            {
+
+                var buttonList = data.Where(t => t.ModuleId==item.ModuleId);
+
+                dictionary.Add(item.ModuleId, buttonList);
+            }
+
+
+
+            return dictionary;
+
+            //return ModuleButton.MapTo<List<ModuleButton>>();
         }
         /// <summary>
         /// 获取授权功能视图
         /// </summary>
         /// <param name="userId">用户Id</param>
         /// <returns></returns>
-        public List<ModuleColumn> GetModuleColumnList(string userId)
+        public Dictionary<string, object> GetModuleColumnList()
         {
+            string userId = AbpSession.UserId.ToString();
             StringBuilder strSql = new StringBuilder();
             strSql.Append(@"SELECT  *
                             FROM    Base_ModuleColumn
@@ -131,10 +157,19 @@ namespace Mao.Application.Authorize.AuthorizeManager
                 DbParameters.CreateDbParameter("@UserId",userId)
             };
 
-            var ModuleColumn = _sqlExecuter.SqlQuery<ModuleColumn>(strSql.ToString(), parameter);
+            var data = _sqlExecuter.SqlQuery<ModuleColumn>(strSql.ToString(), parameter).ToList();
 
+            var dataModule = data.Where((x, i) => data.FindIndex(z => z.ModuleId == x.ModuleId) == i).ToList();
 
-            return ModuleColumn.MapTo<List<ModuleColumn>>();
+            //var dataModule = data.Distinct(new Comparint<ModuleColumn>("ModuleId"));
+            Dictionary<string, object> dictionary = new Dictionary<string, object>();
+            foreach (ModuleColumn item in dataModule)
+            {
+                var columnList = data.Where(t => t.ModuleId.Equals(item.ModuleId));
+                dictionary.Add(item.ModuleId, columnList);
+            }
+            return dictionary;
+
         }
         /// <summary>
         /// 获取授权功能Url、操作Url
@@ -339,9 +374,9 @@ namespace Mao.Application.Authorize.AuthorizeManager
         public bool ActionAuthorize(string userId, string moduleId, string action)
         {
             List<AuthorizeUrlModel> authorizeUrlList = new List<AuthorizeUrlModel>();
-            
+
             authorizeUrlList = GetUrlList(userId);
-            
+
             authorizeUrlList = authorizeUrlList.FindAll(t => t.ModuleId.Equals(moduleId));
             foreach (AuthorizeUrlModel item in authorizeUrlList)
             {

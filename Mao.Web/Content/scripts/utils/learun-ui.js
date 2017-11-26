@@ -634,8 +634,9 @@ $.fn.authorizeButton = function () {
     var moduleId = tabiframeId().substr(6);
     var data = top.authorizeButtonData[moduleId];
     if (data != undefined) {
-        console.log(data)
+        //console.log(data);
         $.each(data, function (i) {
+            //console.log(data[i]);
             $element.find("#" + data[i].EnCode).attr('authorize', 'yes');
         });
     }
